@@ -1,0 +1,381 @@
+{
+  "Nodes": {
+    "F-001": {
+      "$schema": null,
+      "schemaVersion": 2,
+      "id": "F-001",
+      "nodeType": "feature",
+      "title": "Flow CLI 기반 시스템",
+      "description": "AI Agent 도구 CLI 시스템. 빌드, RAG, 스펙그래프, 테스트 기능을 제공. 워크플로우는 스킬로 분리.",
+      "status": "active",
+      "parent": null,
+      "dependencies": [],
+      "conditions": [
+        {
+          "id": "F-001-C1",
+          "nodeType": "condition",
+          "description": "Given CLI 바이너리, When flow 명령어 실행, Then 도움말 출력",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Program.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-001-C2",
+          "nodeType": "condition",
+          "description": "Given .flow 디렉토리 존재, When 프로젝트 루트 탐색, Then 정상 인식",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/PathResolver.cs#L1-L70"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-001-C3",
+          "nodeType": "condition",
+          "description": "Given 설정 파일, When config 명령 실행, Then 설정 읽기/쓰기 가능",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Commands/ConfigCommand.cs"
+          ],
+          "evidence": []
+        }
+      ],
+      "codeRefs": [
+        "tools/flow-cli/Program.cs",
+        "tools/flow-cli/FlowApp.cs"
+      ],
+      "evidence": [],
+      "tags": [
+        "core",
+        "cli"
+      ],
+      "metadata": {},
+      "createdAt": "2026-01-15T00:00:00Z",
+      "updatedAt": "2026-02-28T12:00:00Z"
+    },
+    "F-010": {
+      "$schema": null,
+      "schemaVersion": 2,
+      "id": "F-010",
+      "nodeType": "feature",
+      "title": "스펙 그래프 관리",
+      "description": "기능 스펙을 JSON으로 관리하고 의존성 그래프를 생성·분석하는 기능",
+      "status": "active",
+      "parent": "F-001",
+      "dependencies": [],
+      "conditions": [
+        {
+          "id": "F-010-C1",
+          "nodeType": "condition",
+          "description": "Given 스펙 JSON, When spec-create 실행, Then 파일 생성 및 ID 자동 채번",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/SpecGraph/SpecStore.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-010-C2",
+          "nodeType": "condition",
+          "description": "Given 스펙 목록, When spec-validate 실행, Then 참조 무결성 검증",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/SpecGraph/SpecValidator.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-010-C3",
+          "nodeType": "condition",
+          "description": "Given 스펙 그래프, When Kahn 알고리즘 실행, Then 순환 참조 감지",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/SpecGraph/GraphBuilder.cs"
+          ],
+          "evidence": []
+        }
+      ],
+      "codeRefs": [
+        "tools/flow-cli/Commands/SpecCommand.cs",
+        "tools/flow-cli/Services/SpecGraph/SpecModels.cs"
+      ],
+      "evidence": [],
+      "tags": [
+        "spec",
+        "graph",
+        "validation"
+      ],
+      "metadata": {},
+      "createdAt": "2026-02-28T00:00:00Z",
+      "updatedAt": "2026-02-28T12:00:00Z"
+    },
+    "F-011": {
+      "$schema": null,
+      "schemaVersion": 2,
+      "id": "F-011",
+      "nodeType": "feature",
+      "title": "영향 분석 및 상태 전파",
+      "description": "스펙 변경 시 영향 범위를 계산하고, 상태를 자동으로 전파하는 기능",
+      "status": "active",
+      "parent": "F-001",
+      "dependencies": [
+        "F-010"
+      ],
+      "conditions": [
+        {
+          "id": "F-011-C1",
+          "nodeType": "condition",
+          "description": "Given 스펙 그래프, When spec-impact 실행, Then BFS로 영향 범위 출력",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/SpecGraph/ImpactAnalyzer.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-011-C2",
+          "nodeType": "condition",
+          "description": "Given 상태 변경, When spec-propagate 실행, Then 의존 스펙 needs-review 전환",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-011-C3",
+          "nodeType": "condition",
+          "description": "Given 상위 스펙, When 하위 스펙 상태 변경, Then 상위 스펙 상태 자동 집계",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"
+          ],
+          "evidence": []
+        }
+      ],
+      "codeRefs": [
+        "tools/flow-cli/Services/SpecGraph/ImpactAnalyzer.cs",
+        "tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"
+      ],
+      "evidence": [],
+      "tags": [
+        "impact",
+        "propagation",
+        "graph"
+      ],
+      "metadata": {},
+      "createdAt": "2026-02-28T00:00:00Z",
+      "updatedAt": "2026-02-28T12:00:00Z"
+    },
+    "F-012": {
+      "$schema": null,
+      "schemaVersion": 2,
+      "id": "F-012",
+      "nodeType": "feature",
+      "title": "코드 참조 검증",
+      "description": "codeRefs에 명시된 파일의 존재 여부와 라인 범위를 검증하는 기능",
+      "status": "active",
+      "parent": "F-001",
+      "dependencies": [
+        "F-010"
+      ],
+      "conditions": [
+        {
+          "id": "F-012-C1",
+          "nodeType": "condition",
+          "description": "Given codeRef 경로, When spec-check-refs 실행, Then 파일 존재 여부 확인",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-012-C2",
+          "nodeType": "condition",
+          "description": "Given 라인 범위 포함 codeRef, When 검증, Then 라인 범위 초과 감지",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-012-C3",
+          "nodeType": "condition",
+          "description": "Given Windows 백슬래시 경로, When 검증, Then POSIX 정규화 후 정상 매칭",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"
+          ],
+          "evidence": []
+        }
+      ],
+      "codeRefs": [
+        "tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"
+      ],
+      "evidence": [],
+      "tags": [
+        "coderef",
+        "validation"
+      ],
+      "metadata": {},
+      "createdAt": "2026-02-28T00:00:00Z",
+      "updatedAt": "2026-02-28T12:00:00Z"
+    },
+    "F-020": {
+      "$schema": null,
+      "schemaVersion": 2,
+      "id": "F-020",
+      "nodeType": "feature",
+      "title": "빌드 시스템",
+      "description": "멀티 플랫폼 빌드를 관리하는 기능",
+      "status": "verified",
+      "parent": "F-001",
+      "dependencies": [],
+      "conditions": [
+        {
+          "id": "F-020-C1",
+          "nodeType": "condition",
+          "description": "Given 빌드 매니페스트, When build 명령 실행, Then 플랫폼별 빌드 수행",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Commands/BuildCommand.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-020-C2",
+          "nodeType": "condition",
+          "description": "Given 빌드 모듈, When 빌드 오케스트레이터 실행, Then 순서대로 빌드 실행",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Services/BuildOrchestrator.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-020-C3",
+          "nodeType": "condition",
+          "description": "Given 빌드 결과, When 빌드 완료, Then JSON 결과 출력",
+          "status": "verified",
+          "codeRefs": [
+            "tools/flow-cli/Models/BuildResult.cs"
+          ],
+          "evidence": []
+        }
+      ],
+      "codeRefs": [
+        "tools/flow-cli/Commands/BuildCommand.cs",
+        "tools/flow-cli/Services/BuildOrchestrator.cs",
+        "tools/flow-cli/Services/BuildModuleManager.cs"
+      ],
+      "evidence": [],
+      "tags": [
+        "build",
+        "platform"
+      ],
+      "metadata": {},
+      "createdAt": "2026-01-15T00:00:00Z",
+      "updatedAt": "2026-02-28T12:00:00Z"
+    },
+    "F-030": {
+      "$schema": null,
+      "schemaVersion": 2,
+      "id": "F-030",
+      "nodeType": "feature",
+      "title": "임베딩 및 RAG 검색",
+      "description": "문서 임베딩 생성 및 벡터 검색 기반 RAG 기능",
+      "status": "active",
+      "parent": "F-001",
+      "dependencies": [],
+      "conditions": [
+        {
+          "id": "F-030-C1",
+          "nodeType": "condition",
+          "description": "Given 문서 텍스트, When 임베딩 생성, Then 벡터 DB에 저장",
+          "status": "active",
+          "codeRefs": [
+            "tools/flow-cli/Services/EmbeddingBridge.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-030-C2",
+          "nodeType": "condition",
+          "description": "Given 검색 쿼리, When db-query 실행, Then 유사 문서 반환",
+          "status": "active",
+          "codeRefs": [
+            "tools/flow-cli/Commands/DbQueryCommand.cs"
+          ],
+          "evidence": []
+        },
+        {
+          "id": "F-030-C3",
+          "nodeType": "condition",
+          "description": "Given 새 문서, When db-add 실행, Then 임베딩 생성 후 DB 추가",
+          "status": "active",
+          "codeRefs": [
+            "tools/flow-cli/Commands/DbAddCommand.cs"
+          ],
+          "evidence": []
+        }
+      ],
+      "codeRefs": [
+        "tools/flow-cli/Services/DatabaseService.cs",
+        "tools/flow-cli/Services/EmbeddingBridge.cs"
+      ],
+      "evidence": [],
+      "tags": [
+        "embedding",
+        "rag",
+        "search"
+      ],
+      "metadata": {},
+      "createdAt": "2026-02-01T00:00:00Z",
+      "updatedAt": "2026-02-28T12:00:00Z"
+    }
+  },
+  "Tree": {
+    "F-001": [
+      "F-010",
+      "F-011",
+      "F-012",
+      "F-020",
+      "F-030"
+    ]
+  },
+  "Roots": [
+    "F-001"
+  ],
+  "Dag": {
+    "F-001": [],
+    "F-010": [],
+    "F-011": [
+      "F-010"
+    ],
+    "F-012": [
+      "F-010"
+    ],
+    "F-020": [],
+    "F-030": []
+  },
+  "ReverseDag": {
+    "F-010": [
+      "F-011",
+      "F-012"
+    ]
+  },
+  "TopologicalOrder": [
+    "F-001",
+    "F-011",
+    "F-012",
+    "F-020",
+    "F-030",
+    "F-010"
+  ],
+  "CycleNodes": [],
+  "OrphanNodes": []
+}

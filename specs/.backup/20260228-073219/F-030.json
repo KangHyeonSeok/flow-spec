@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 2,
+  "id": "F-030",
+  "nodeType": "feature",
+  "title": "임베딩 및 RAG 검색",
+  "description": "문서 임베딩 생성 및 벡터 검색 기반 RAG 기능",
+  "status": "active",
+  "parent": "F-001",
+  "dependencies": [],
+  "conditions": [
+    {
+      "id": "F-030-C1",
+      "nodeType": "condition",
+      "description": "Given 문서 텍스트, When 임베딩 생성, Then 벡터 DB에 저장",
+      "status": "active",
+      "codeRefs": ["tools/flow-cli/Services/EmbeddingBridge.cs"],
+      "evidence": []
+    },
+    {
+      "id": "F-030-C2",
+      "nodeType": "condition",
+      "description": "Given 검색 쿼리, When db-query 실행, Then 유사 문서 반환",
+      "status": "active",
+      "codeRefs": ["tools/flow-cli/Commands/DbQueryCommand.cs"],
+      "evidence": []
+    },
+    {
+      "id": "F-030-C3",
+      "nodeType": "condition",
+      "description": "Given 새 문서, When db-add 실행, Then 임베딩 생성 후 DB 추가",
+      "status": "active",
+      "codeRefs": ["tools/flow-cli/Commands/DbAddCommand.cs"],
+      "evidence": []
+    }
+  ],
+  "codeRefs": [
+    "tools/flow-cli/Services/DatabaseService.cs",
+    "tools/flow-cli/Services/EmbeddingBridge.cs"
+  ],
+  "evidence": [],
+  "tags": ["embedding", "rag", "search"],
+  "metadata": {},
+  "createdAt": "2026-02-01T00:00:00Z",
+  "updatedAt": "2026-02-28T00:00:00Z"
+}
