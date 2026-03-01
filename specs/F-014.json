@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "id": "F-014",
+  "nodeType": "feature",
+  "title": "테스트 연결 및 CI 동기화",
+  "description": "테스트 실행 결과를 스펙 JSON과 동기화하고, 테스트 건강도 리포트를 생성하는 기능. xUnit/Jest/pytest 결과를 파싱하여 스펙의 tests/e2eScenarios에 매핑하고, healthScore·flakyScore·trend 등 지표를 자동 계산한다.",
+  "status": "draft",
+  "parent": "F-001",
+  "dependencies": ["F-010"],
+  "conditions": [
+    {
+      "id": "F-014-C1",
+      "nodeType": "condition",
+      "description": "Given 테스트 결과 JSON, When spec-test-sync --from {file} 실행, Then 어노테이션([Trait(\"Spec\",\"...\")]/@pytest.mark.spec) 기반으로 스펙 조건에 테스트 결과 매핑",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-014-C2",
+      "nodeType": "condition",
+      "description": "Given 동기화된 테스트 데이터, When spec-test-report 실행, Then 스펙별 Health/Failed/Unresolved 테이블 출력",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-014-C3",
+      "nodeType": "condition",
+      "description": "Given 테스트 이력, When healthScore 계산, Then (passed - flakyPenalty) / total 공식으로 0.0~1.0 점수 산출",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-014-C4",
+      "nodeType": "condition",
+      "description": "Given flakyScore >= 0.1인 테스트, When 연속 5회 flaky 감지, Then quarantine 태그 자동 부여 및 별도 job 분리 권고",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-014-C5",
+      "nodeType": "condition",
+      "description": "Given spec-validate --strict --check-tests 실행, When 조건에 연결된 테스트 없음, Then 경고 출력 및 exit 1",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    }
+  ],
+  "codeRefs": [],
+  "evidence": [],
+  "tags": ["test", "ci", "sync", "health"],
+  "metadata": {},
+  "createdAt": "2026-03-01T00:00:00Z",
+  "updatedAt": "2026-03-01T00:00:00Z"
+}

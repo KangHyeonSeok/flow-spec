@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 2,
+  "id": "F-040",
+  "nodeType": "feature",
+  "title": "E2E 테스트 프레임워크",
+  "description": "시나리오 기반 E2E 테스트를 실행하는 Python 프레임워크. YAML 시나리오 정의, Flutter/Unity 플랫폼 어댑터, 시나리오 탐색·실행·검증·리포팅 파이프라인을 제공한다. flow test e2e 명령으로 CLI에서 실행.",
+  "status": "active",
+  "parent": "F-001",
+  "dependencies": [],
+  "conditions": [
+    {
+      "id": "F-040-C1",
+      "nodeType": "condition",
+      "description": "Given YAML 시나리오 파일, When flow test e2e 실행, Then PythonBridge를 통해 시나리오 탐색·실행·결과 수집",
+      "status": "verified",
+      "codeRefs": [
+        "tools/flow-cli/Commands/TestCommand.cs",
+        "tools/flow-cli/Services/PythonBridge.cs"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-040-C2",
+      "nodeType": "condition",
+      "description": "Given Flutter/Unity 프로젝트, When 플랫폼 어댑터 로드, Then 각 플랫폼별 E2E 테스트 환경 구성",
+      "status": "active",
+      "codeRefs": [
+        "tools/e2e-test/adapters/",
+        "tools/e2e-test/e2e_test/"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-040-C3",
+      "nodeType": "condition",
+      "description": "Given 테스트 결과, When 리포팅 모듈 실행, Then 성공/실패/스킵 요약 출력",
+      "status": "active",
+      "codeRefs": [
+        "tools/e2e-test/e2e_test/"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-040-C4",
+      "nodeType": "condition",
+      "description": "Given 시나리오 디렉토리, When 시나리오 탐색(discovery), Then YAML 파일 자동 발견 및 파싱",
+      "status": "active",
+      "codeRefs": [
+        "tools/e2e-test/scenarios/"
+      ],
+      "evidence": []
+    }
+  ],
+  "codeRefs": [
+    "tools/flow-cli/Commands/TestCommand.cs",
+    "tools/flow-cli/Services/PythonBridge.cs",
+    "tools/e2e-test/"
+  ],
+  "evidence": [],
+  "tags": ["e2e", "test", "python", "scenario"],
+  "metadata": {},
+  "createdAt": "2026-02-01T00:00:00Z",
+  "updatedAt": "2026-03-01T00:00:00Z"
+}
