@@ -73,11 +73,11 @@
         "example": "https://github.com/org/flow-spec.git"
       }
     },
-    "runnerInstanceId": "runner-34332-020312",
-    "runnerStartedAt": "2026-03-02T02:03:13.7088988Z",
-    "lastCompletedAt": "2026-03-02T02:12:05.9389621Z",
-    "lastCompletedBy": "runner-34332-020312"
+    "runnerInstanceId": "runner-32080-111617",
+    "runnerStartedAt": "2026-03-02T11:16:18.8929605Z",
+    "lastCompletedAt": "2026-03-02T11:22:10.7129147Z",
+    "lastCompletedBy": "runner-32080-111617"
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-02T02:12:05.9392986Z"
+  "updatedAt": "2026-03-02T11:22:10.7130789Z"
 }
