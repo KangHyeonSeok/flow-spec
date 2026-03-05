@@ -4,52 +4,59 @@
   "nodeType": "feature",
   "title": "스펙 원격 저장소 Push",
   "description": "로컬 스펙 변경사항을 원격 git 저장소에 명시적으로 push하는 기능. CLI 명령(spec-push)으로 git add·commit·push를 일괄 수행하고, VSCode 스펙 트리뷰 타이틀바에 Push 버튼을 제공하여 미push 커밋이 있을 때 즉시 push할 수 있다. 자동 push 대신 명시적 트리거 방식을 채택하여 여러 스펙 변경을 하나의 커밋으로 묶을 수 있다.",
-  "status": "draft",
+  "status": "active",
   "parent": "F-001",
-  "dependencies": ["F-060"],
+  "dependencies": [
+    "F-060"
+  ],
   "conditions": [
     {
       "id": "F-081-C1",
       "nodeType": "condition",
       "description": "Given 로컬 스펙 변경(신규/수정/삭제)이 존재, When spec-push 실행, Then git add . + git commit + git push를 순서대로 수행하고 결과 출력",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/SpecGitService.cs", "tools/flow-cli/Commands/SpecCommand.cs"],
       "evidence": []
     },
     {
       "id": "F-081-C2",
       "nodeType": "condition",
       "description": "Given push할 변경 없음(nothing to commit), When spec-push 실행, Then 'Already up to date' 메시지를 출력하고 정상 종료",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/SpecGitService.cs"],
       "evidence": []
     },
     {
       "id": "F-081-C3",
       "nodeType": "condition",
       "description": "Given 네트워크 오류 또는 인증 실패, When spec-push 실행, Then 오류 상세 내용을 출력하고 exit 1",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/SpecGitService.cs", "tools/flow-cli/Commands/SpecCommand.cs"],
       "evidence": []
     },
     {
       "id": "F-081-C4",
       "nodeType": "condition",
       "description": "Given 미push 커밋이 존재, When VSCode 스펙 트리뷰 활성화, Then 타이틀바(title bar)에 Push 버튼(upload 아이콘) 표시 및 미push 커밋 수를 툴팁으로 제공",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": ["tools/spec-graph-ext/src/extension.ts", "tools/spec-graph-ext/package.json"],
       "evidence": []
     },
     {
       "id": "F-081-C5",
       "nodeType": "condition",
       "description": "Given 타이틀바 Push 버튼 클릭, When push 완료, Then 성공/실패 결과를 VSCode 알림(notification)으로 표시하고 트리뷰 새로고침",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": ["tools/spec-graph-ext/src/extension.ts"],
       "evidence": []
     }
   ],
-  "codeRefs": [],
+  "codeRefs": [
+    "tools/flow-cli/Services/SpecGraph/SpecGitService.cs",
+    "tools/flow-cli/Commands/SpecCommand.cs",
+    "tools/spec-graph-ext/src/extension.ts",
+    "tools/spec-graph-ext/package.json"
+  ],
   "evidence": [],
   "tags": [
     "spec",
@@ -60,5 +67,5 @@
   ],
   "metadata": {},
   "createdAt": "2026-03-05T12:48:46.0152659Z",
-  "updatedAt": "2026-03-05T12:48:46.0152659Z"
+  "updatedAt": "2026-03-05T13:01:17.5453282Z"
 }
