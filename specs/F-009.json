@@ -3,7 +3,7 @@
   "id": "F-009",
   "nodeType": "feature",
   "title": "사용자 피드백 필요 상태 시각화",
-  "description": "VS Code 확장의 칸반 보드, 스펙 트리, 상세 패널에서 사용자 피드백이 필요한 스펙을 일반 draft/needs-review와 구분된 시각 언어로 표현하는 기능. Runner가 남긴 질의, 대기 상태, 미해결 질문 수, 마지막 답변 시각을 읽어 색상과 배지를 일관되게 렌더링한다.",
+  "description": "VS Code 확장의 칸반 보드, 스펙 트리, 상세 패널에서 사용자 피드백이 필요한 스펙을 일반 draft/needs-review와 구분된 시각 언어로 표현하는 기능. Runner가 남긴 질의, 대기 상태, 미해결 질문 수, 마지막 답변 시각을 읽어 색상과 배지를 일관되게 렌더링하고, 칸반 카드에서는 태그보다 다음 행동에 직접 필요한 신호를 우선 노출하도록 메타데이터 배치를 단순화한다.",
   "status": "queued",
   "parent": "F-060",
   "dependencies": [
@@ -13,7 +13,7 @@
     {
       "id": "F-009-C1",
       "nodeType": "condition",
-      "description": "Given 칸반 보드에 스펙 카드가 표시됨, When metadata.requiresUserInput=true 또는 metadata.questionStatus='waiting-user-input' 인 스펙이 존재, Then 일반 in-progress/needs-review와 다른 색상과 아이콘으로 사용자 피드백 필요 상태를 강조한다",
+      "description": "Given 칸반 보드에 스펙 카드가 표시됨, When metadata.requiresUserInput=true 또는 metadata.questionStatus='waiting-user-input' 인 스펙이 존재, Then 일반 in-progress/needs-review와 다른 색상과 아이콘에 더해 '사용자 판단 필요' 라벨 또는 동등한 명시적 문구로 피드백 필요 상태를 강조한다",
       "status": "draft",
       "codeRefs": [
         "tools/flow-ext/src/kanbanPanel.ts",
@@ -54,6 +54,28 @@
         "tools/flow-ext/src/specTreeProvider.ts"
       ],
       "evidence": []
+    },
+    {
+      "id": "F-009-C5",
+      "nodeType": "condition",
+      "description": "Given 칸반 카드가 사용자 판단 필요 상태 또는 reviewDisposition='needs-user-decision' 정보를 포함, When 카드 헤더를 렌더링, Then 스펙 ID 옆에 마지막 갱신 날짜를 같은 줄에 배치하고 하단의 중복 날짜 영역은 제거해 현재성 정보를 한 번만 보여준다",
+      "status": "draft",
+      "codeRefs": [
+        "tools/flow-ext/src/kanbanPanel.ts",
+        "tools/flow-ext/src/types.ts"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-009-C6",
+      "nodeType": "condition",
+      "description": "Given 칸반 카드에 태그, 날짜, 질문 수 등 여러 메타데이터가 존재, When 카드 요약 정보를 선택, Then 태그 목록은 기본 렌더링에서 제거하고 미해결 질문 수, 사용자 판단 필요 여부, 핵심 상태 이유처럼 다음 행동을 결정하는 정보만 남겨 카드 밀도를 낮춘다",
+      "status": "draft",
+      "codeRefs": [
+        "tools/flow-ext/src/kanbanPanel.ts",
+        "tools/flow-ext/src/specViewProvider.ts"
+      ],
+      "evidence": []
     }
   ],
   "codeRefs": [
@@ -74,5 +96,5 @@
     "ui"
   ],
   "createdAt": "2026-03-07T04:21:53.0444848Z",
-  "updatedAt": "2026-03-07T09:51:36.718Z"
+  "updatedAt": "2026-03-07T13:28:00Z"
 }
