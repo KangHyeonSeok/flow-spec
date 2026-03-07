@@ -4,55 +4,75 @@
   "nodeType": "feature",
   "title": "구현 순서 결정",
   "description": "의존성 그래프 기반으로 스펙 구현 순서를 자동 결정하는 기능. 위상 정렬(Kahn 알고리즘)로 기계적 순서를 산출하고, 선택적으로 AI가 기술 위험도·비즈니스 가치 등을 고려하여 최적화된 순서를 제안한다.",
-  "status": "draft",
+  "status": "active",
   "parent": "F-001",
-  "dependencies": ["F-010"],
+  "dependencies": [
+    "F-010"
+  ],
   "conditions": [
     {
       "id": "F-013-C1",
       "nodeType": "condition",
       "description": "Given 의존성 그래프, When spec-order 실행, Then 위상 정렬 기반 구현 순서(Phase별) JSON 출력",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs",
+        "tools/flow-cli/Commands/SpecCommand.cs"
+      ],
       "evidence": []
     },
     {
       "id": "F-013-C2",
       "nodeType": "condition",
       "description": "Given 동일 depth 스펙들, When priority 정렬 적용, Then P1 > P2 > P3 순서로 정렬되고 priority 동일 시 conditions 수 오름차순",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs"
+      ],
       "evidence": []
     },
     {
       "id": "F-013-C3",
       "nodeType": "condition",
       "description": "Given 구현 순서, When spec-order --ai 실행, Then LLM이 기술 위험도·비즈니스 가치를 고려한 최적화 순서와 근거(reasoning) 반환",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        "tools/flow-cli/Commands/SpecCommand.cs"
+      ],
       "evidence": []
     },
     {
       "id": "F-013-C4",
       "nodeType": "condition",
       "description": "Given AI 최적화 순서, When 의존성 제약 위반 감지, Then 해당 제안 자동 거부 및 경고 출력",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs"
+      ],
       "evidence": []
     },
     {
       "id": "F-013-C5",
       "nodeType": "condition",
       "description": "Given 특정 스펙 ID, When spec-order --from {id} 실행, Then 해당 스펙 기준 부분 순서 산출",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs"
+      ],
       "evidence": []
     }
   ],
-  "codeRefs": [],
+  "codeRefs": [
+    "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs",
+    "tools/flow-cli/Commands/SpecCommand.cs"
+  ],
   "evidence": [],
-  "tags": ["spec", "ordering", "topological-sort"],
+  "tags": [
+    "spec",
+    "ordering",
+    "topological-sort"
+  ],
   "metadata": {},
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-01T00:00:00Z"
+  "updatedAt": "2026-03-05T13:52:35.7574315Z"
 }

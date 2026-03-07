@@ -6,7 +6,11 @@
   "description": "주기적으로 스펙 그래프를 git pull로 동기화하고, 미구현·오류 스펙을 감지하여 Copilot CLI(copilot -p)로 자동 구현·해결을 시도하는 백그라운드 러너. Git worktree를 활용한 격리된 작업 환경에서 구현하고, 머지 시 충돌이 있으면 Copilot을 호출하여 해결한다. 실행 내역은 로그 파일에 기록하며, 비정상 종료 시 실패 상태와 오류 정보를 스펙에 반영한다. 또한 GitHub 이슈를 주기적으로 확인하여 기존 스펙과의 연결 여부를 검사하고, 미연결 이슈는 관련 스펙을 자동으로 탐색·연결하거나 새로운 스펙을 생성한다.",
   "status": "draft",
   "parent": "F-001",
-  "dependencies": ["F-010", "F-011", "F-080"],
+  "dependencies": [
+    "F-010",
+    "F-011",
+    "F-080"
+  ],
   "conditions": [
     {
       "id": "F-070-C1",
@@ -131,7 +135,15 @@
   ],
   "codeRefs": [],
   "evidence": [],
-  "tags": ["runner", "automation", "copilot", "worktree", "background", "github", "issues"],
+  "tags": [
+    "runner",
+    "automation",
+    "copilot",
+    "worktree",
+    "background",
+    "github",
+    "issues"
+  ],
   "metadata": {
     "runnerConfig": {
       "pollIntervalMinutes": 5,
@@ -147,5 +159,5 @@
     }
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-01T06:00:00Z"
+  "updatedAt": "2026-03-07T02:30:55.173Z"
 }
