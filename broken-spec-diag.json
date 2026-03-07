@@ -5,22 +5,22 @@
       "SpecId": "F-031",
       "FilePath": "d:\\Projects\\flow\\.flow\\spec-cache\\specs\\F-031.json",
       "ErrorMessage": "The JSON value could not be converted to FlowCLI.Services.SpecGraph.SpecCondition. Path: $.conditions[0] | LineNumber: 12 | BytePositionInLine: 356.",
-      "DetectedAt": "2026-03-07T15:01:07.4332207Z",
+      "DetectedAt": "2026-03-07T15:07:33.1463405Z",
       "FileMtime": "2026-03-07T13:50:13.5844515Z",
       "Status": "unresolved",
-      "ResolvedAt": "2026-03-07T15:01:07.4233079Z",
-      "LastCheckedAt": "2026-03-07T15:01:07.4332207Z",
+      "ResolvedAt": "2026-03-07T15:07:33.1364988Z",
+      "LastCheckedAt": "2026-03-07T15:07:33.1463405Z",
       "RepairAttempts": 0
     },
     {
       "SpecId": "F-032",
       "FilePath": "d:\\Projects\\flow\\.flow\\spec-cache\\specs\\F-032.json",
       "ErrorMessage": "The JSON value could not be converted to FlowCLI.Services.SpecGraph.SpecCondition. Path: $.conditions[0] | LineNumber: 14 | BytePositionInLine: 339.",
-      "DetectedAt": "2026-03-07T15:01:07.4340796Z",
+      "DetectedAt": "2026-03-07T15:07:33.1474844Z",
       "FileMtime": "2026-03-07T13:50:13.5844515Z",
       "Status": "unresolved",
-      "ResolvedAt": "2026-03-07T15:01:07.4239716Z",
-      "LastCheckedAt": "2026-03-07T15:01:07.4340796Z",
+      "ResolvedAt": "2026-03-07T15:07:33.1374517Z",
+      "LastCheckedAt": "2026-03-07T15:07:33.1474844Z",
       "RepairAttempts": 0
     }
   ]
