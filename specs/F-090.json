@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 2,
+  "id": "F-090",
+  "nodeType": "feature",
+  "title": "스펙 상태 워크플로우 - AI 협업 생명주기",
+  "description": "스펙이 초안에서 시작해 AI 에이전트와 협업하여 구현·검증까지 이어지는 상태 전환 워크플로우. 각 상태는 사람 또는 AI가 명확한 트리거로 전환하며, 칸반 보드에서 시각적으로 관리된다.\n\n상태 흐름: draft → requested → context-gathering → plan → active → needs-review → verified (폐기 시 임의 상태에서 deprecated 전환 가능).\n\n- draft: 사람이 스펙 초안 작성 중\n- requested: 사람이 AI에게 구현 요청\n- context-gathering: AI가 구현에 필요한 정보·판단을 요청 중\n- plan: AI가 수집한 정보를 바탕으로 구현 계획을 수립\n- active: AI가 구현을 진행 중\n- needs-review: AI 구현 완료, 사람의 검토 대기\n- verified: 사람이 검토·승인 완료\n- deprecated: 더 이상 유효하지 않은 스펙",
+  "status": "active",
+  "parent": "F-070",
+  "dependencies": [
+    "F-060"
+  ],
+  "conditions": [
+    {
+      "id": "F-090-C1",
+      "nodeType": "condition",
+      "description": "Given 스펙의 status 필드, When 정의된 8가지 상태값(draft/requested/context-gathering/plan/active/needs-review/verified/deprecated) 외의 값이 입력, Then 유효성 검사 실패 및 오류 반환",
+      "status": "draft",
+      "codeRefs": [
+        "tools/spec-graph-ext/src/types.ts"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C2",
+      "nodeType": "condition",
+      "description": "Given status=draft인 스펙, When 사람이 status를 requested로 변경, Then AI Runner가 해당 스펙을 개발 요청 대상으로 인식",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C3",
+      "nodeType": "condition",
+      "description": "Given status=requested인 스펙, When AI Runner가 구현에 필요한 정보가 불충분하다고 판단, Then status를 context-gathering으로 전환하고 필요한 정보·판단 항목을 스펙 또는 댓글로 기록",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C4",
+      "nodeType": "condition",
+      "description": "Given status=requested인 스펙, When AI Runner가 충분한 정보를 보유하고 있다고 판단, Then context-gathering을 건너뛰고 status를 plan으로 직접 전환 가능",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C5",
+      "nodeType": "condition",
+      "description": "Given status=context-gathering인 스펙, When 사람이 요청된 정보를 스펙에 보완, Then AI Runner가 이를 감지하고 status를 plan으로 전환",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C6",
+      "nodeType": "condition",
+      "description": "Given status=plan인 스펙, When AI Runner가 구현 계획(접근 방법·영향 파일·단계)을 스펙 metadata 또는 별도 필드에 기록 완료, Then status를 active로 전환하고 구현을 시작",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C7",
+      "nodeType": "condition",
+      "description": "Given status=active인 스펙, When AI Runner가 모든 conditions를 구현하고 codeRefs를 갱신, Then status를 needs-review로 전환하고 변경 내용을 요약하여 기록",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C8",
+      "nodeType": "condition",
+      "description": "Given status=needs-review인 스펙, When 사람이 구현을 검토하고 승인, Then status를 verified로 전환",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C9",
+      "nodeType": "condition",
+      "description": "Given needs-review 검토 결과 수정이 필요, When 사람이 status를 active(또는 plan)로 되돌림, Then AI Runner가 재작업을 수행",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C10",
+      "nodeType": "condition",
+      "description": "Given 임의 상태의 스펙, When 사람이 status를 deprecated로 변경, Then 해당 스펙은 모든 워크플로우에서 제외되고 칸반 보드 Deprecated 컬럼으로 이동",
+      "status": "draft",
+      "codeRefs": [],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C11",
+      "nodeType": "condition",
+      "description": "Given 스펙 상태 전환, When status 또는 updatedAt 필드가 변경, Then VSCode 스펙 그래프 확장의 칸반 보드가 자동으로 갱신되어 올바른 컬럼에 카드가 표시됨",
+      "status": "active",
+      "codeRefs": [
+        "tools/spec-graph-ext/src/kanbanPanel.ts",
+        "tools/spec-graph-ext/src/specLoader.ts"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-090-C12",
+      "nodeType": "condition",
+      "description": "Given 칸반 보드, When 사용자가 카드의 상태 select를 변경 또는 우클릭 컨텍스트 메뉴로 상태 변경, Then 스펙 JSON 파일에 즉시 기록되고 칸반 보드가 갱신됨",
+      "status": "active",
+      "codeRefs": [
+        "tools/spec-graph-ext/src/kanbanPanel.ts"
+      ],
+      "evidence": []
+    }
+  ],
+  "codeRefs": [
+    "tools/spec-graph-ext/src/types.ts",
+    "tools/spec-graph-ext/src/kanbanPanel.ts"
+  ],
+  "evidence": [],
+  "tags": [
+    "workflow",
+    "status",
+    "ai-agent",
+    "kanban",
+    "spec-lifecycle"
+  ],
+  "metadata": {
+    "statusFlow": [
+      "draft",
+      "requested",
+      "context-gathering",
+      "plan",
+      "active",
+      "needs-review",
+      "verified"
+    ],
+    "terminalStates": ["verified", "deprecated"],
+    "aiTransitions": [
+      "requested → context-gathering",
+      "requested → plan",
+      "context-gathering → plan",
+      "plan → active",
+      "active → needs-review"
+    ],
+    "humanTransitions": [
+      "draft → requested",
+      "needs-review → verified",
+      "needs-review → active",
+      "* → deprecated"
+    ]
+  },
+  "createdAt": "2026-03-05T00:00:00Z",
+  "updatedAt": "2026-03-05T00:00:00Z"
+}
