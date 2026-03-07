@@ -4,11 +4,7 @@
   "nodeType": "feature",
   "title": "스펙 그래프 관리",
   "description": "기능 스펙을 JSON으로 관리하고 의존성 그래프를 생성·분석하는 기능",
-<<<<<<< HEAD
   "status": "verified",
-=======
-  "status": "needs-review",
->>>>>>> 3fd491a4c148985aad2bdea9126d5cb0dbeee5ee
   "parent": "F-001",
   "dependencies": [],
   "conditions": [

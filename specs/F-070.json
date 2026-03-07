@@ -3,7 +3,7 @@
   "id": "F-070",
   "nodeType": "feature",
   "title": "Flow Runner - 자율 스펙 구현 에이전트",
-  "description": "주기적으로 스펙 그래프를 git pull로 동기화하고, 미구현·오류 스펙을 감지하여 Copilot CLI(copilot -p)로 자동 구현·해결을 시도하는 백그라운드 러너. Git worktree를 활용한 격리된 작업 환경에서 구현하고, 머지 시 충돌이 있으면 Copilot을 호출하여 해결한다. 실행 내역은 로그 파일에 기록하며, 비정상 종료 시 실패 상태와 오류 정보를 스펙에 반영한다. 또한 GitHub 이슈를 주기적으로 확인하여 기존 스펙과의 연결 여부를 검사하고, 미연결 이슈는 관련 스펙을 자동으로 탐색·연결하거나 새로운 스펙을 생성한다.",
+  "description": "주기적으로 스펙 그래프를 git pull로 동기화하고, 미구현·오류 스펙을 감지하여 Copilot CLI(copilot -p)로 자동 구현·해결을 시도하는 백그라운드 러너. Git worktree를 활용한 격리된 작업 환경에서 구현하고, 머지 시 충돌이 있으면 Copilot을 호출하여 해결한다. 실행 내역은 로그 파일에 기록하며, 비정상 종료 시에는 사용자가 완료 여부를 즉시 판정하기 어려운 working 스펙을 재시도 가능한 queued 상태로 되돌리고 중단 정보를 메타데이터에 남긴다. 또한 GitHub 이슈를 주기적으로 확인하여 기존 스펙과의 연결 여부를 검사하고, 미연결 이슈는 관련 스펙을 자동으로 탐색·연결하거나 새로운 스펙을 생성한다.",
   "status": "queued",
   "parent": "F-001",
   "dependencies": [
@@ -71,7 +71,7 @@
     {
       "id": "F-070-C8",
       "nodeType": "condition",
-      "description": "Given Runner 인스턴스 비정상 종료, When 재시작 시 working 상태의 스펙 감지, Then 해당 스펙을 'needs-review' 상태로 전환하고 metadata.lastError에 오류 정보 기록",
+      "description": "Given Runner 인스턴스 비정상 종료, When 재시작 시 working 상태의 스펙 감지, Then 사용자가 작업 완료 여부를 즉시 판정하기 어렵다고 보고 해당 스펙을 재시도 가능한 'queued' 상태로 되돌리며 metadata.lastInterruptedAt, metadata.lastInterruptedBy, metadata.lastInterruptionReason 같은 중단 정보를 기록한다",
       "status": "draft",
       "codeRefs": [],
       "evidence": []
@@ -159,5 +159,5 @@
     }
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-07T09:51:39.897Z"
+  "updatedAt": "2026-03-07T13:25:00Z"
 }
