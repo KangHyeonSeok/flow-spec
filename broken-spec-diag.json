@@ -1,0 +1,27 @@
+{
+  "Version": 1,
+  "Records": [
+    {
+      "SpecId": "F-031",
+      "FilePath": "d:\\Projects\\flow\\.flow\\spec-cache\\specs\\F-031.json",
+      "ErrorMessage": "The JSON value could not be converted to FlowCLI.Services.SpecGraph.SpecCondition. Path: $.conditions[0] | LineNumber: 12 | BytePositionInLine: 356.",
+      "DetectedAt": "2026-03-07T13:50:20.0050830Z",
+      "FileMtime": "2026-03-07T13:50:13.5844515Z",
+      "Status": "unresolved",
+      "ResolvedAt": "2026-03-07T13:50:19.9928132Z",
+      "LastCheckedAt": "2026-03-07T13:50:20.0050830Z",
+      "RepairAttempts": 0
+    },
+    {
+      "SpecId": "F-032",
+      "FilePath": "d:\\Projects\\flow\\.flow\\spec-cache\\specs\\F-032.json",
+      "ErrorMessage": "The JSON value could not be converted to FlowCLI.Services.SpecGraph.SpecCondition. Path: $.conditions[0] | LineNumber: 14 | BytePositionInLine: 339.",
+      "DetectedAt": "2026-03-07T13:50:20.0061192Z",
+      "FileMtime": "2026-03-07T13:50:13.5844515Z",
+      "Status": "unresolved",
+      "ResolvedAt": "2026-03-07T13:50:19.9937096Z",
+      "LastCheckedAt": "2026-03-07T13:50:20.0061192Z",
+      "RepairAttempts": 0
+    }
+  ]
+}
