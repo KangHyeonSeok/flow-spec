@@ -5,11 +5,11 @@
       "SpecId": "F-031",
       "FilePath": "/Users/KangHyeonSeok/Documents/GitHub/flow/.flow/spec-cache/specs/F-031.json",
       "ErrorMessage": "The JSON value could not be converted to FlowCLI.Services.SpecGraph.TestLink. Path: $.conditions[0].tests[0] | LineNumber: 23 | BytePositionInLine: 59.",
-      "DetectedAt": "2026-03-07T18:18:05.9922730Z",
+      "DetectedAt": "2026-03-07T18:48:00.3616850Z",
       "FileMtime": "2026-03-07T17:29:24.1024356Z",
       "Status": "unresolved",
-      "ResolvedAt": "2026-03-07T18:18:05.9857440Z",
-      "LastCheckedAt": "2026-03-07T18:18:05.9922730Z",
+      "ResolvedAt": "2026-03-07T18:48:00.3558500Z",
+      "LastCheckedAt": "2026-03-07T18:48:00.3616850Z",
       "RepairAttempts": 1
     },
     {

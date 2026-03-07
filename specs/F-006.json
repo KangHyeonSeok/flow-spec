@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "Legacy CLI 호환 및 폐기 경고",
   "description": "기존 분리형 CLI 인자 호출을 완전히 끊지 않고, 내부적으로 JSON 요청 모델로 변환하는 호환 계층과 폐기 경고 정책을 추가한다. 마이그레이션 기간 동안 사용자 스크립트가 단계적으로 전환될 수 있도록 지원하는 작업이다.",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-002",
   "dependencies": [
     "F-004",
@@ -20,7 +20,8 @@
         "tools/flow-cli/Program.cs",
         "tools/flow-cli/FlowApp.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-006-C2",
@@ -30,7 +31,8 @@
       "codeRefs": [
         "tools/flow-cli/Program.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-006-C3",
@@ -41,7 +43,8 @@
         "tools/flow-cli/Program.cs",
         "tools/flow-cli/FlowApp.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     }
   ],
   "codeRefs": [
@@ -56,9 +59,30 @@
     "deprecation",
     "task"
   ],
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
   "metadata": {
-    "workItemType": "task"
+    "workItemType": "task",
+    "selectionReason": {
+      "selectedAt": "2026-03-07T18:48:00.3677000Z",
+      "issuePriorityScore": 0,
+      "isFallback": true,
+      "rank": 1,
+      "totalCandidates": 12
+    },
+    "runnerInstanceId": "runner-82653-165628",
+    "runnerStartedAt": "2026-03-07T18:48:00.3682420Z",
+    "implementationPlan": {
+      "triggeredFrom": "queued",
+      "approach": "AI Runner가 'F-006: Legacy CLI 호환 및 폐기 경고' 구현을 시작합니다.",
+      "startedAt": "2026-03-07T18:48:00.3682440Z"
+    },
+    "lastCompletedAt": "2026-03-07T18:56:46.3074950Z",
+    "lastCompletedBy": "runner-82653-165628"
   },
   "createdAt": "2026-03-07T04:04:26.1757628Z",
-  "updatedAt": "2026-03-07T09:50:42.522Z"
+  "updatedAt": "2026-03-07T18:56:46.3075680Z"
 }

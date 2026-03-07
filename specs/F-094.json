@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "Spec Planner 자동 standby 전환",
   "description": "Spec Planner가 스펙 생성 또는 수정 직후 사용자의 추가 판단, 보충 정보, 승인 입력이 더 이상 필요 없는 경우 곧바로 standby 상태로 전환하는 계획 종료 규칙. 사용자 입력 대기가 필요한 경우와 planner 자신의 유휴 상태를 구분해 기록하며, standby 전환만으로 스펙 status를 임의 변경하지 않는다.",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-090",
   "dependencies": [
     "F-008"
@@ -19,7 +19,8 @@
         "tools/flow-cli/Services/SpecGraph/SpecModels.cs",
         "tools/flow-ext/src/detailViewProvider.ts"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-094-C2",
@@ -29,7 +30,8 @@
       "codeRefs": [
         "tools/flow-cli/Services/SpecGraph/SpecModels.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-094-C3",
@@ -40,7 +42,8 @@
         "tools/flow-cli/Services/Runner/RunnerService.cs",
         "tools/flow-cli/Services/SpecGraph/SpecModels.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-094-C4",
@@ -51,7 +54,8 @@
         "tools/flow-cli/Services/SpecGraph/SpecStore.cs",
         "tools/flow-ext/src/detailViewProvider.ts"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     }
   ],
   "codeRefs": [
@@ -67,6 +71,11 @@
     "standby",
     "automation"
   ],
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
   "metadata": {
     "plannerStateFlow": [
       "active",
@@ -76,8 +85,24 @@
     "standbyRequires": {
       "requiresUserInput": false,
       "openQuestions": 0
-    }
+    },
+    "selectionReason": {
+      "selectedAt": "2026-03-07T18:29:14.1374710Z",
+      "issuePriorityScore": 0,
+      "isFallback": true,
+      "rank": 1,
+      "totalCandidates": 13
+    },
+    "runnerInstanceId": "runner-82653-165628",
+    "runnerStartedAt": "2026-03-07T18:29:14.1380290Z",
+    "implementationPlan": {
+      "triggeredFrom": "queued",
+      "approach": "AI Runner가 'F-094: Spec Planner 자동 standby 전환' 구현을 시작합니다.",
+      "startedAt": "2026-03-07T18:29:14.1380310Z"
+    },
+    "lastError": "머지 실패",
+    "lastErrorAt": "2026-03-07T18:42:57.0401410Z"
   },
   "createdAt": "2026-03-07T12:04:23.8779561Z",
-  "updatedAt": "2026-03-07T12:19:19.074Z"
+  "updatedAt": "2026-03-07T18:42:57.0401590Z"
 }
