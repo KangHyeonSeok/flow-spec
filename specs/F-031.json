@@ -4,19 +4,78 @@
   "nodeType": "feature",
   "title": "Runner 상태 전환 후 즉시 재스케줄",
   "description": "Runner가 Copilot CLI 검토 또는 구현 결과로 스펙을 needs-review, verified, done, queued 같은 후속 상태로 이동시킨 직후 전체 polling 대기 시간을 다시 소모하지 않고 같은 주기 안에서 다음 처리 가능 스펙을 즉시 재평가하도록 정의한다.",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-070",
   "dependencies": [
     "F-090"
   ],
   "conditions": [
-    "Given runner가 working 스펙의 구현 또는 Copilot CLI 기반 검토를 마치고 status를 needs-review, verified, done, queued 중 하나로 갱신함, When 현재 사이클의 후속 단계를 평가, Then runner는 기본 poll interval을 기다리지 않고 같은 실행 주기 안에서 다음 처리 후보를 즉시 다시 선택한다.",
-    "Given 상태 전환 직후에도 queued 또는 재검토 가능한 스펙이 남아 있음, When runner가 다음 작업을 고름, Then 마지막 전환 결과와 갱신된 스펙 그래프를 반영한 최신 큐 평가를 다시 수행하고 stale 캐시나 이전 선택 결과를 그대로 재사용하지 않는다.",
-    "Given 상태 전환 결과가 needs-review 또는 verified/done 이어서 자동 구현 대상이 더 이상 아님, When runner가 후속 동작을 결정, Then review handoff에 필요한 로그와 metadata는 보존하되 다음 후보 탐색 자체는 idle sleep보다 우선한다.",
-    "Given 상태 전환 직후 즉시 처리 가능한 후속 스펙이 하나도 없음, When runner가 큐와 복구 후보를 재평가함, Then 그때에만 기존 idle 또는 poll 대기 정책으로 들어가며 왜 즉시 재스케줄되지 않았는지 사유를 runner 로그와 selection metadata에 남긴다.",
-    "Given 같은 주기 안에서 여러 번 상태 전환이 연속 발생함, When runner가 재스케줄을 반복, Then 중복 루프나 busy wait를 피하기 위해 cycle 상한 또는 debounce 정책을 적용하면서도 상태 전환 1회마다 최소 1회의 후속 후보 재평가 기회를 보장한다."
+    {
+      "id": "F-031-C1",
+      "nodeType": "condition",
+      "description": "Given runner가 working 스펙의 구현 또는 Copilot CLI 기반 검토를 마치고 status를 needs-review, verified, done, queued 중 하나로 갱신함, When 현재 사이클의 후속 단계를 평가, Then runner는 기본 poll interval을 기다리지 않고 같은 실행 주기 안에서 다음 처리 후보를 즉시 다시 선택한다.",
+      "status": "needs-review",
+      "codeRefs": [
+        "tools/flow-cli/Services/Runner/RunnerService.cs#L225-L267",
+        "tools/flow-cli/Services/Runner/RunnerModels.cs#L103-L108"
+      ],
+      "evidence": [],
+      "tests": [
+        "tools/flow-cli.Tests/RunnerConfigDefaultsTests.cs"
+      ]
+    },
+    {
+      "id": "F-031-C2",
+      "nodeType": "condition",
+      "description": "Given 상태 전환 직후에도 queued 또는 재검토 가능한 스펙이 남아 있음, When runner가 다음 작업을 고름, Then 마지막 전환 결과와 갱신된 스펙 그래프를 반영한 최신 큐 평가를 다시 수행하고 stale 캐시나 이전 선택 결과를 그대로 재사용하지 않는다.",
+      "status": "needs-review",
+      "codeRefs": [
+        "tools/flow-cli/Services/Runner/RunnerService.cs#L299-L327"
+      ],
+      "evidence": [],
+      "tests": []
+    },
+    {
+      "id": "F-031-C3",
+      "nodeType": "condition",
+      "description": "Given 상태 전환 결과가 needs-review 또는 verified/done 이어서 자동 구현 대상이 더 이상 아님, When runner가 후속 동작을 결정, Then review handoff에 필요한 로그와 metadata는 보존하되 다음 후보 탐색 자체는 idle sleep보다 우선한다.",
+      "status": "needs-review",
+      "codeRefs": [
+        "tools/flow-cli/Services/Runner/RunnerService.cs#L303-L305"
+      ],
+      "evidence": [],
+      "tests": []
+    },
+    {
+      "id": "F-031-C4",
+      "nodeType": "condition",
+      "description": "Given 상태 전환 직후 즉시 처리 가능한 후속 스펙이 하나도 없음, When runner가 큐와 복구 후보를 재평가함, Then 그때에만 기존 idle 또는 poll 대기 정책으로 들어가며 왜 즉시 재스케줄되지 않았는지 사유를 runner 로그와 selection metadata에 남긴다.",
+      "status": "needs-review",
+      "codeRefs": [
+        "tools/flow-cli/Services/Runner/RunnerService.cs#L329-L391"
+      ],
+      "evidence": [],
+      "tests": []
+    },
+    {
+      "id": "F-031-C5",
+      "nodeType": "condition",
+      "description": "Given 같은 주기 안에서 여러 번 상태 전환이 연속 발생함, When runner가 재스케줄을 반복, Then 중복 루프나 busy wait를 피하기 위해 cycle 상한 또는 debounce 정책을 적용하면서도 상태 전환 1회마다 최소 1회의 후속 후보 재평가 기회를 보장한다.",
+      "status": "needs-review",
+      "codeRefs": [
+        "tools/flow-cli/Services/Runner/RunnerService.cs#L231-L236",
+        "tools/flow-cli/Services/Runner/RunnerModels.cs#L73-L74"
+      ],
+      "evidence": [],
+      "tests": [
+        "tools/flow-cli.Tests/RunnerConfigDefaultsTests.cs"
+      ]
+    }
   ],
-  "codeRefs": [],
+  "codeRefs": [
+    "tools/flow-cli/Services/Runner/RunnerService.cs#L195-L391",
+    "tools/flow-cli/Services/Runner/RunnerModels.cs#L73-L108"
+  ],
   "evidence": [],
   "tags": [
     "runner",
@@ -24,6 +83,29 @@
     "status",
     "latency"
   ],
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
+  "metadata": {
+    "selectionReason": {
+      "selectedAt": "2026-03-07T16:56:30.1037680Z",
+      "issuePriorityScore": 0,
+      "isFallback": true,
+      "rank": 1,
+      "totalCandidates": 18
+    },
+    "runnerInstanceId": "runner-82653-165628",
+    "runnerStartedAt": "2026-03-07T16:56:30.1403310Z",
+    "implementationPlan": {
+      "triggeredFrom": "queued",
+      "approach": "AI Runner가 'F-031: Runner 상태 전환 후 즉시 재스케줄' 구현을 시작합니다.",
+      "startedAt": "2026-03-07T16:56:30.1403360Z"
+    },
+    "lastCompletedAt": "2026-03-07T17:12:16.7220000Z",
+    "lastCompletedBy": "copilot-cli"
+  },
   "createdAt": "2026-03-07T13:48:31.1170606Z",
-  "updatedAt": "2026-03-07T13:52:00.0000000Z"
+  "updatedAt": "2026-03-07T17:12:16.7220000Z"
 }

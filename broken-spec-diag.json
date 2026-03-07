@@ -3,24 +3,46 @@
   "Records": [
     {
       "SpecId": "F-031",
-      "FilePath": "d:\\Projects\\flow\\.flow\\spec-cache\\specs\\F-031.json",
-      "ErrorMessage": "The JSON value could not be converted to FlowCLI.Services.SpecGraph.SpecCondition. Path: $.conditions[0] | LineNumber: 12 | BytePositionInLine: 356.",
-      "DetectedAt": "2026-03-07T15:50:40.4542577Z",
-      "FileMtime": "2026-03-07T13:50:13.5844515Z",
+      "FilePath": "/Users/KangHyeonSeok/Documents/GitHub/flow/.flow/spec-cache/specs/F-031.json",
+      "ErrorMessage": "The JSON value could not be converted to FlowCLI.Services.SpecGraph.TestLink. Path: $.conditions[0].tests[0] | LineNumber: 23 | BytePositionInLine: 59.",
+      "DetectedAt": "2026-03-07T18:18:05.9922730Z",
+      "FileMtime": "2026-03-07T17:29:24.1024356Z",
       "Status": "unresolved",
-      "ResolvedAt": "2026-03-07T15:50:40.4363056Z",
-      "LastCheckedAt": "2026-03-07T15:50:40.4542577Z",
+      "ResolvedAt": "2026-03-07T18:18:05.9857440Z",
+      "LastCheckedAt": "2026-03-07T18:18:05.9922730Z",
+      "RepairAttempts": 1
+    },
+    {
+      "SpecId": "F-032",
+      "FilePath": "/Users/KangHyeonSeok/Documents/GitHub/flow/.flow/spec-cache/specs/F-032.json",
+      "ErrorMessage": "Could not find file '/Users/KangHyeonSeok/Documents/GitHub/flow/d:\\Projects\\flow\\.flow\\spec-cache\\specs\\F-032.json'.",
+      "DetectedAt": "2026-03-07T16:52:50.2241930Z",
+      "FileMtime": "2026-03-07T16:52:38.8693973Z",
+      "Status": "resolved",
+      "ResolvedAt": "2026-03-07T16:56:29.0981520Z",
+      "LastCheckedAt": "2026-03-07T16:56:29.0981520Z",
+      "RepairAttempts": 1
+    },
+    {
+      "SpecId": "F-031",
+      "FilePath": "/Users/KangHyeonSeok/Documents/GitHub/flow/.flow/spec-cache/specs/F-031.json",
+      "ErrorMessage": "The JSON value could not be converted to FlowCLI.Services.SpecGraph.SpecCondition. Path: $.conditions[0] | LineNumber: 12 | BytePositionInLine: 356.",
+      "DetectedAt": "2026-03-07T16:50:38.8920950Z",
+      "FileMtime": "2026-03-07T16:11:21.7898126Z",
+      "Status": "resolved",
+      "ResolvedAt": "2026-03-07T16:50:38.9179450Z",
+      "LastCheckedAt": "2026-03-07T16:50:38.9179450Z",
       "RepairAttempts": 0
     },
     {
       "SpecId": "F-032",
-      "FilePath": "d:\\Projects\\flow\\.flow\\spec-cache\\specs\\F-032.json",
+      "FilePath": "/Users/KangHyeonSeok/Documents/GitHub/flow/.flow/spec-cache/specs/F-032.json",
       "ErrorMessage": "The JSON value could not be converted to FlowCLI.Services.SpecGraph.SpecCondition. Path: $.conditions[0] | LineNumber: 14 | BytePositionInLine: 339.",
-      "DetectedAt": "2026-03-07T15:50:40.4554540Z",
-      "FileMtime": "2026-03-07T13:50:13.5844515Z",
-      "Status": "unresolved",
-      "ResolvedAt": "2026-03-07T15:50:40.4376188Z",
-      "LastCheckedAt": "2026-03-07T15:50:40.4554540Z",
+      "DetectedAt": "2026-03-07T16:50:38.9063320Z",
+      "FileMtime": "2026-03-07T16:11:21.7901346Z",
+      "Status": "resolved",
+      "ResolvedAt": "2026-03-07T16:50:38.9351330Z",
+      "LastCheckedAt": "2026-03-07T16:50:38.9351330Z",
       "RepairAttempts": 0
     }
   ]

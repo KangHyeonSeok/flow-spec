@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "칸반 카드 클릭 상세 연동 단순화",
   "description": "VS Code 칸반 보드에서 스펙 카드를 눌렀을 때 별도 상세보기 버튼 없이 즉시 스펙 상세 화면이 열리도록 하는 상호작용 단순화 기능. 카드 전체를 기본 진입점으로 사용하고, 이미 열린 상세 패널은 새 선택 대상으로 즉시 갱신한다. 기존 상세보기 버튼은 제거해 중복 액션과 시각적 잡음을 없앤다.",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-060",
   "dependencies": [
     "F-060"
@@ -19,7 +19,8 @@
         "tools/flow-ext/src/kanbanPanel.ts",
         "tools/flow-ext/src/detailViewProvider.ts"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-093-C2",
@@ -30,7 +31,8 @@
         "tools/flow-ext/src/kanbanPanel.ts",
         "tools/flow-ext/src/specViewProvider.ts"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-093-C3",
@@ -40,7 +42,8 @@
       "codeRefs": [
         "tools/flow-ext/src/kanbanPanel.ts"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-093-C4",
@@ -50,7 +53,8 @@
       "codeRefs": [
         "tools/flow-ext/src/kanbanPanel.ts"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     }
   ],
   "codeRefs": [
@@ -65,12 +69,33 @@
     "detail",
     "ui"
   ],
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
   "metadata": {
     "interactionModel": {
       "openDetailOnCardClick": true,
       "removeDedicatedDetailButton": true
-    }
+    },
+    "selectionReason": {
+      "selectedAt": "2026-03-07T18:18:05.9985540Z",
+      "issuePriorityScore": 0,
+      "isFallback": true,
+      "rank": 1,
+      "totalCandidates": 14
+    },
+    "runnerInstanceId": "runner-82653-165628",
+    "runnerStartedAt": "2026-03-07T18:18:05.9996750Z",
+    "implementationPlan": {
+      "triggeredFrom": "queued",
+      "approach": "AI Runner가 'F-093: 칸반 카드 클릭 상세 연동 단순화' 구현을 시작합니다.",
+      "startedAt": "2026-03-07T18:18:05.9996790Z"
+    },
+    "lastCompletedAt": "2026-03-07T18:24:11.5826840Z",
+    "lastCompletedBy": "runner-82653-165628"
   },
   "createdAt": "2026-03-07T12:04:23.5302350Z",
-  "updatedAt": "2026-03-07T12:19:21.158Z"
+  "updatedAt": "2026-03-07T18:24:11.5827700Z"
 }
