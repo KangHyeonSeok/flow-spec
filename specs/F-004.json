@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "명령군별 JSON 입력 마이그레이션",
   "description": "build/spec/db/test/runner/config 등 각 명령군이 공통 JSON 요청 모델을 입력으로 처리하도록 마이그레이션한다. 기존 Cocona 인자 바인딩 경로를 공통 요청 역직렬화 결과에 연결하는 작업을 포함한다.",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-002",
   "dependencies": [
     "F-003"
@@ -66,8 +66,17 @@
     "task"
   ],
   "metadata": {
-    "workItemType": "task"
+    "workItemType": "task",
+    "runnerInstanceId": "runner-37856-132733",
+    "runnerStartedAt": "2026-03-07T14:10:00.5818016Z",
+    "implementationPlan": {
+      "triggeredFrom": "queued",
+      "approach": "AI Runner가 'F-004: 명령군별 JSON 입력 마이그레이션' 구현을 시작합니다.",
+      "startedAt": "2026-03-07T14:10:00.5818039Z"
+    },
+    "lastCompletedAt": "2026-03-07T14:20:55.8336250Z",
+    "lastCompletedBy": "runner-37856-132733"
   },
   "createdAt": "2026-03-07T04:04:25.4458878Z",
-  "updatedAt": "2026-03-07T09:50:38.968Z"
+  "updatedAt": "2026-03-07T14:20:55.8336637Z"
 }
