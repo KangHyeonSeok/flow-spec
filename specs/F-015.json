@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "Runner 대기 이슈 연관도 기반 큐 재정렬",
   "description": "Runner가 queued 스펙을 선택할 때 GitHub 오픈 이슈와 스펙의 연결 신호를 먼저 최신화하고, 이슈 연관도와 긴급도 신호를 점수화해 같은 준비도 집합 안에서 구현 순서를 동적으로 재정렬하는 기능. 직접 연결된 이슈, 최근 갱신된 이슈, 우선순위 라벨, 자동 생성 여부 같은 신호를 비교하되, 의존성 제약과 사용자 입력 대기 상태는 깨지지 않아야 하며, 점수와 근거는 로그 및 metadata에 남아 다음 사이클에서 설명 가능해야 한다.",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-070",
   "dependencies": [
     "F-090"
@@ -110,8 +110,17 @@
         "spec-id"
       ],
       "scoreField": "queuePriority"
-    }
+    },
+    "runnerInstanceId": "runner-37856-132733",
+    "runnerStartedAt": "2026-03-07T15:24:24.6246320Z",
+    "implementationPlan": {
+      "triggeredFrom": "queued",
+      "approach": "AI Runner가 'F-015: Runner 대기 이슈 연관도 기반 큐 재정렬' 구현을 시작합니다.",
+      "startedAt": "2026-03-07T15:24:24.6246334Z"
+    },
+    "lastCompletedAt": "2026-03-07T15:33:17.8534969Z",
+    "lastCompletedBy": "runner-37856-132733"
   },
   "createdAt": "2026-03-07T12:23:20.3245465Z",
-  "updatedAt": "2026-03-07T12:23:20.3245465Z"
+  "updatedAt": "2026-03-07T15:33:17.8535258Z"
 }
