@@ -18,8 +18,8 @@
   "metadata": {
     "runnerInstanceId": "runner-37856-132733",
     "runnerStartedAt": "2026-03-07T14:02:40.3190796Z",
-    "lastCompletedAt": "2026-03-07T06:46:56.9732605Z",
-    "lastCompletedBy": "runner-13664-064015",
+    "lastCompletedAt": "2026-03-07T14:04:55.6507731Z",
+    "lastCompletedBy": "runner-37856-132733",
     "implementationPlan": {
       "triggeredFrom": "queued",
       "approach": "AI Runner가 'F-091: Runner 데몬 ConPTY 안정성 수정 테스트' 구현을 시작합니다.",
@@ -27,5 +27,5 @@
     }
   },
   "createdAt": "2026-03-07T02:45:26.8237258Z",
-  "updatedAt": "2026-03-07T14:02:40.3190997Z"
+  "updatedAt": "2026-03-07T14:04:55.6508210Z"
 }
