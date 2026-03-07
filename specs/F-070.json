@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "Flow Runner - 자율 스펙 구현 에이전트",
   "description": "주기적으로 스펙 그래프를 git pull로 동기화하고, 미구현·오류 스펙을 감지하여 Copilot CLI(copilot -p)로 자동 구현·해결을 시도하는 백그라운드 러너. Git worktree를 활용한 격리된 작업 환경에서 구현하고, 머지 시 충돌이 있으면 Copilot을 호출하여 해결한다. 실행 내역은 로그 파일에 기록하며, 비정상 종료 시 실패 상태와 오류 정보를 스펙에 반영한다. 또한 GitHub 이슈를 주기적으로 확인하여 기존 스펙과의 연결 여부를 검사하고, 미연결 이슈는 관련 스펙을 자동으로 탐색·연결하거나 새로운 스펙을 생성한다.",
-  "status": "draft",
+  "status": "queued",
   "parent": "F-001",
   "dependencies": [
     "F-010",
@@ -23,7 +23,7 @@
     {
       "id": "F-070-C2",
       "nodeType": "condition",
-      "description": "Given 동기화된 스펙 그래프, When status가 draft·needs-review이거나 conditions에 실패가 있는 스펙 존재, Then 해당 스펙을 구현 대상 큐에 추가",
+      "description": "Given 동기화된 스펙 그래프, When status가 queued인 스펙이 존재하거나 별도 검토 로직이 needs-review 대상을 수집, Then 해당 스펙을 처리 대상으로 선택",
       "status": "draft",
       "codeRefs": [],
       "evidence": []
@@ -31,7 +31,7 @@
     {
       "id": "F-070-C3",
       "nodeType": "condition",
-      "description": "Given 구현 대상 스펙, When 구현 시작, Then 스펙 status를 'in-progress'로 표시하고 메타데이터에 runner 인스턴스 ID·시작 시각을 기록",
+      "description": "Given 구현 대상 스펙, When 구현 시작, Then 스펙 status를 'working'으로 표시하고 메타데이터에 runner 인스턴스 ID·시작 시각을 기록",
       "status": "draft",
       "codeRefs": [],
       "evidence": []
@@ -71,7 +71,7 @@
     {
       "id": "F-070-C8",
       "nodeType": "condition",
-      "description": "Given Runner 인스턴스 비정상 종료, When 재시작 시 in-progress 상태의 스펙 감지, Then 해당 스펙을 'needs-review' 상태로 전환하고 metadata.lastError에 오류 정보 기록",
+      "description": "Given Runner 인스턴스 비정상 종료, When 재시작 시 working 상태의 스펙 감지, Then 해당 스펙을 'needs-review' 상태로 전환하고 metadata.lastError에 오류 정보 기록",
       "status": "draft",
       "codeRefs": [],
       "evidence": []
@@ -159,5 +159,5 @@
     }
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-07T02:30:55.173Z"
+  "updatedAt": "2026-03-07T09:51:39.897Z"
 }

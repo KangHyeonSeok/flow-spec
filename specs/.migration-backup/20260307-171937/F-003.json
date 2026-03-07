@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "공통 JSON 요청 스키마 및 디스패처 도입",
   "description": "모든 flow 명령이 공유할 JSON 요청 envelope와 내부 디스패처를 정의한다. 명령 식별자, 서브커맨드, payload, 옵션, 실행 컨텍스트를 공통 모델로 표준화하고, 단일 진입점에서 적절한 명령 핸들러로 위임하는 기반 작업이다.",
-  "status": "queued",
+  "status": "active",
   "parent": "F-002",
   "dependencies": [],
   "conditions": [
@@ -12,7 +12,7 @@
       "id": "F-003-C1",
       "nodeType": "condition",
       "description": "Given flow CLI 진입점, When 사용자가 JSON 요청을 stdin, 파일, 또는 문자열로 전달, Then 공통 envelope 모델(command, subcommand, payload, options, metadata)로 역직렬화된다",
-      "status": "working",
+      "status": "active",
       "codeRefs": [
         "tools/flow-cli/Program.cs",
         "tools/flow-cli/FlowApp.cs"
@@ -23,7 +23,7 @@
       "id": "F-003-C2",
       "nodeType": "condition",
       "description": "Given 공통 JSON 요청 모델, When command/subcommand 조합이 해석되면, Then 내부 디스패처가 대상 명령 핸들러와 payload 타입을 결정해 위임한다",
-      "status": "working",
+      "status": "active",
       "codeRefs": [
         "tools/flow-cli/FlowApp.cs"
       ],
@@ -33,7 +33,7 @@
       "id": "F-003-C3",
       "nodeType": "condition",
       "description": "Given 유효하지 않은 command, payload 스키마, 또는 필수 필드 누락, When 디스패처가 요청을 검증, Then 실행 전에 구조화된 validation 오류를 반환하고 실제 명령 핸들러는 호출되지 않는다",
-      "status": "working",
+      "status": "active",
       "codeRefs": [
         "tools/flow-cli/Program.cs",
         "tools/flow-cli/FlowApp.cs"
@@ -56,5 +56,5 @@
     "workItemType": "task"
   },
   "createdAt": "2026-03-07T04:04:25.0823518Z",
-  "updatedAt": "2026-03-07T09:50:35.975Z"
+  "updatedAt": "2026-03-07T04:18:00Z"
 }

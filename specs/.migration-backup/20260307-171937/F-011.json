@@ -4,20 +4,16 @@
   "nodeType": "feature",
   "title": "영향 분석 및 상태 전파",
   "description": "스펙 변경 시 영향 범위를 계산하고, 상태를 자동으로 전파하는 기능",
-  "status": "queued",
+  "status": "active",
   "parent": "F-001",
-  "dependencies": [
-    "F-010"
-  ],
+  "dependencies": ["F-010"],
   "conditions": [
     {
       "id": "F-011-C1",
       "nodeType": "condition",
       "description": "Given 스펙 그래프, When spec-impact 실행, Then BFS로 영향 범위 출력",
       "status": "verified",
-      "codeRefs": [
-        "tools/flow-cli/Services/SpecGraph/ImpactAnalyzer.cs"
-      ],
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/ImpactAnalyzer.cs"],
       "evidence": []
     },
     {
@@ -25,9 +21,7 @@
       "nodeType": "condition",
       "description": "Given 상태 변경, When spec-propagate 실행, Then 의존 스펙 needs-review 전환",
       "status": "verified",
-      "codeRefs": [
-        "tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"
-      ],
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"],
       "evidence": []
     },
     {
@@ -35,9 +29,7 @@
       "nodeType": "condition",
       "description": "Given 상위 스펙, When 하위 스펙 상태 변경, Then 상위 스펙 상태 자동 집계",
       "status": "verified",
-      "codeRefs": [
-        "tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"
-      ],
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"],
       "evidence": []
     }
   ],
@@ -46,12 +38,8 @@
     "tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"
   ],
   "evidence": [],
-  "tags": [
-    "impact",
-    "propagation",
-    "graph"
-  ],
+  "tags": ["impact", "propagation", "graph"],
   "metadata": {},
   "createdAt": "2026-02-28T00:00:00Z",
-  "updatedAt": "2026-03-07T09:50:50.387Z"
+  "updatedAt": "2026-02-28T12:00:00Z"
 }

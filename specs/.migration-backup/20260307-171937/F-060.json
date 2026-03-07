@@ -4,13 +4,9 @@
   "nodeType": "feature",
   "title": "VSCode 확장 - 스펙 그래프 시각화",
   "description": "VSCode Webview에서 스펙 그래프를 시각화하고 편집하는 확장. 트리뷰(TreeView API), 그래프뷰(Cytoscape.js), 상세 패널을 제공하며, 노드 추가/수정/삭제, 의존성 드래그&드롭 연결, 편집 세션(Undo/Redo) 등 그래프 편집 기능을 포함한다.",
-  "status": "queued",
+  "status": "active",
   "parent": "F-001",
-  "dependencies": [
-    "F-010",
-    "F-011",
-    "F-012"
-  ],
+  "dependencies": ["F-010", "F-011", "F-012"],
   "conditions": [
     {
       "id": "F-060-C1",
@@ -76,14 +72,8 @@
     "tools/spec-graph-ext/src/specLoader.ts"
   ],
   "evidence": [],
-  "tags": [
-    "vscode",
-    "extension",
-    "webview",
-    "graph",
-    "ui"
-  ],
+  "tags": ["vscode", "extension", "webview", "graph", "ui"],
   "metadata": {},
   "createdAt": "2026-02-15T00:00:00Z",
-  "updatedAt": "2026-03-07T09:50:59.104Z"
+  "updatedAt": "2026-03-01T00:00:00Z"
 }

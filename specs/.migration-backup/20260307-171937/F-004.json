@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "명령군별 JSON 입력 마이그레이션",
   "description": "build/spec/db/test/runner/config 등 각 명령군이 공통 JSON 요청 모델을 입력으로 처리하도록 마이그레이션한다. 기존 Cocona 인자 바인딩 경로를 공통 요청 역직렬화 결과에 연결하는 작업을 포함한다.",
-  "status": "queued",
+  "status": "active",
   "parent": "F-002",
   "dependencies": [
     "F-003"
@@ -14,7 +14,7 @@
       "id": "F-004-C1",
       "nodeType": "condition",
       "description": "Given build/spec/db/test/runner/config 명령군, When JSON 요청으로 호출, Then 각 명령군은 기존 CLI 인자 없이 payload 객체만으로 동일 기능을 수행한다",
-      "status": "working",
+      "status": "active",
       "codeRefs": [
         "tools/flow-cli/Commands/BuildCommand.cs",
         "tools/flow-cli/Commands/SpecCommand.cs",
@@ -30,7 +30,7 @@
       "id": "F-004-C2",
       "nodeType": "condition",
       "description": "Given 명령별 요청 payload 형식이 다름, When 공통 디스패처가 개별 명령 DTO로 바인딩, Then 타입 불일치와 필수 필드 오류가 명령 실행 전 검출된다",
-      "status": "working",
+      "status": "active",
       "codeRefs": [
         "tools/flow-cli/FlowApp.cs"
       ],
@@ -40,7 +40,7 @@
       "id": "F-004-C3",
       "nodeType": "condition",
       "description": "Given JSON 입력 경로가 추가된 명령군, When 회귀 테스트를 수행, Then 기존 legacy 인자 경로와 동일한 핵심 동작 결과를 유지한다",
-      "status": "working",
+      "status": "active",
       "codeRefs": [
         "tools/flow-cli.Tests/BuildCommandTests.cs",
         "tools/flow-cli.Tests/SpecValidatorTests.cs"
@@ -69,5 +69,5 @@
     "workItemType": "task"
   },
   "createdAt": "2026-03-07T04:04:25.4458878Z",
-  "updatedAt": "2026-03-07T09:50:38.968Z"
+  "updatedAt": "2026-03-07T04:18:00Z"
 }

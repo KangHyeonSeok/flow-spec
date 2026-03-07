@@ -4,11 +4,7 @@
   "nodeType": "feature",
   "title": "Runner 데몬 ConPTY 안정성 수정 테스트",
   "description": "Runner 데몬 ConPTY 안정성 수정 테스트",
-<<<<<<< HEAD
-  "status": "active",
-=======
-  "status": "draft",
->>>>>>> 5c774e9a8a0907645509d19555ca9ff344d09742
+  "status": "queued",
   "parent": "F-070",
   "dependencies": [],
   "conditions": [],
@@ -19,7 +15,6 @@
     "daemon",
     "test"
   ],
-<<<<<<< HEAD
   "metadata": {
     "runnerInstanceId": "runner-13664-064015",
     "runnerStartedAt": "2026-03-07T06:40:16.8637468Z",
@@ -27,9 +22,5 @@
     "lastCompletedBy": "runner-13664-064015"
   },
   "createdAt": "2026-03-07T02:45:26.8237258Z",
-  "updatedAt": "2026-03-07T06:46:56.9733331Z"
-=======
-  "createdAt": "2026-03-07T02:41:39.2116544Z",
-  "updatedAt": "2026-03-07T02:41:39.2116544Z"
->>>>>>> 5c774e9a8a0907645509d19555ca9ff344d09742
+  "updatedAt": "2026-03-07T09:51:05.561Z"
 }

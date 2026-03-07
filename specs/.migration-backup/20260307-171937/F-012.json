@@ -4,20 +4,16 @@
   "nodeType": "feature",
   "title": "코드 참조 검증",
   "description": "codeRefs에 명시된 파일의 존재 여부와 라인 범위를 검증하는 기능",
-  "status": "queued",
+  "status": "active",
   "parent": "F-001",
-  "dependencies": [
-    "F-010"
-  ],
+  "dependencies": ["F-010"],
   "conditions": [
     {
       "id": "F-012-C1",
       "nodeType": "condition",
       "description": "Given codeRef 경로, When spec-check-refs 실행, Then 파일 존재 여부 확인",
       "status": "verified",
-      "codeRefs": [
-        "tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"
-      ],
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"],
       "evidence": []
     },
     {
@@ -25,9 +21,7 @@
       "nodeType": "condition",
       "description": "Given 라인 범위 포함 codeRef, When 검증, Then 라인 범위 초과 감지",
       "status": "verified",
-      "codeRefs": [
-        "tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"
-      ],
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"],
       "evidence": []
     },
     {
@@ -35,9 +29,7 @@
       "nodeType": "condition",
       "description": "Given Windows 백슬래시 경로, When 검증, Then POSIX 정규화 후 정상 매칭",
       "status": "verified",
-      "codeRefs": [
-        "tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"
-      ],
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"],
       "evidence": []
     }
   ],
@@ -45,11 +37,8 @@
     "tools/flow-cli/Services/SpecGraph/CodeRefValidator.cs"
   ],
   "evidence": [],
-  "tags": [
-    "coderef",
-    "validation"
-  ],
+  "tags": ["coderef", "validation"],
   "metadata": {},
   "createdAt": "2026-02-28T00:00:00Z",
-  "updatedAt": "2026-03-07T09:50:51.702Z"
+  "updatedAt": "2026-02-28T12:00:00Z"
 }

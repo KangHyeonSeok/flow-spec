@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "사용자 피드백 필요 상태 시각화",
   "description": "VS Code 확장의 칸반 보드, 스펙 트리, 상세 패널에서 사용자 피드백이 필요한 스펙을 일반 draft/needs-review와 구분된 시각 언어로 표현하는 기능. Runner가 남긴 질의, 대기 상태, 미해결 질문 수, 마지막 답변 시각을 읽어 색상과 배지를 일관되게 렌더링한다.",
-  "status": "draft",
+  "status": "queued",
   "parent": "F-060",
   "dependencies": [
     "F-008"
@@ -74,5 +74,5 @@
     "ui"
   ],
   "createdAt": "2026-03-07T04:21:53.0444848Z",
-  "updatedAt": "2026-03-07T04:21:53.0444848Z"
+  "updatedAt": "2026-03-07T09:51:36.718Z"
 }

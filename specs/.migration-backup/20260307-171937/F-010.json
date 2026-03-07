@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "스펙 그래프 관리",
   "description": "기능 스펙을 JSON으로 관리하고 의존성 그래프를 생성·분석하는 기능",
-  "status": "queued",
+  "status": "active",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -13,9 +13,7 @@
       "nodeType": "condition",
       "description": "Given 스펙 JSON, When spec-create 실행, Then 파일 생성 및 ID 자동 채번",
       "status": "verified",
-      "codeRefs": [
-        "tools/flow-cli/Services/SpecGraph/SpecStore.cs"
-      ],
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/SpecStore.cs"],
       "evidence": []
     },
     {
@@ -23,9 +21,7 @@
       "nodeType": "condition",
       "description": "Given 스펙 목록, When spec-validate 실행, Then 참조 무결성 검증",
       "status": "verified",
-      "codeRefs": [
-        "tools/flow-cli/Services/SpecGraph/SpecValidator.cs"
-      ],
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/SpecValidator.cs"],
       "evidence": []
     },
     {
@@ -33,9 +29,7 @@
       "nodeType": "condition",
       "description": "Given 스펙 그래프, When Kahn 알고리즘 실행, Then 순환 참조 감지",
       "status": "verified",
-      "codeRefs": [
-        "tools/flow-cli/Services/SpecGraph/GraphBuilder.cs"
-      ],
+      "codeRefs": ["tools/flow-cli/Services/SpecGraph/GraphBuilder.cs"],
       "evidence": []
     }
   ],
@@ -44,12 +38,8 @@
     "tools/flow-cli/Services/SpecGraph/SpecModels.cs"
   ],
   "evidence": [],
-  "tags": [
-    "spec",
-    "graph",
-    "validation"
-  ],
+  "tags": ["spec", "graph", "validation"],
   "metadata": {},
   "createdAt": "2026-02-28T00:00:00Z",
-  "updatedAt": "2026-03-07T09:50:48.725Z"
+  "updatedAt": "2026-02-28T12:00:00Z"
 }
