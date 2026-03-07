@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 2,
+  "id": "F-006",
+  "nodeType": "feature",
+  "title": "Legacy CLI 호환 및 폐기 경고",
+  "description": "기존 분리형 CLI 인자 호출을 완전히 끊지 않고, 내부적으로 JSON 요청 모델로 변환하는 호환 계층과 폐기 경고 정책을 추가한다. 마이그레이션 기간 동안 사용자 스크립트가 단계적으로 전환될 수 있도록 지원하는 작업이다.",
+  "status": "active",
+  "parent": "F-002",
+  "dependencies": [
+    "F-004",
+    "F-005"
+  ],
+  "conditions": [
+    {
+      "id": "F-006-C1",
+      "nodeType": "condition",
+      "description": "Given 사용자가 기존 positional/option 인자로 명령을 호출, When 호환 계층이 요청을 수신, Then 내부적으로 동일한 JSON 요청 모델로 변환되어 신규 디스패처 경로를 사용한다",
+      "status": "active",
+      "codeRefs": [
+        "tools/flow-cli/Program.cs",
+        "tools/flow-cli/FlowApp.cs"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-006-C2",
+      "nodeType": "condition",
+      "description": "Given legacy 인자 경로 호출, When JSON 출력 모드가 지정되거나 기본 JSON 응답 계약을 따르는 경로로 실행, Then legacy 호출도 신규 표준 응답 envelope를 반환한다",
+      "status": "active",
+      "codeRefs": [
+        "tools/flow-cli/Program.cs"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-006-C3",
+      "nodeType": "condition",
+      "description": "Given deprecated 예정인 legacy 경로, When 사용자가 기존 인자 기반 호출을 수행, Then 전환 가이드와 종료 예정 버전을 포함한 deprecation 경고를 선택적으로 노출할 수 있다",
+      "status": "active",
+      "codeRefs": [
+        "tools/flow-cli/Program.cs",
+        "tools/flow-cli/FlowApp.cs"
+      ],
+      "evidence": []
+    }
+  ],
+  "codeRefs": [
+    "tools/flow-cli/Program.cs",
+    "tools/flow-cli/FlowApp.cs"
+  ],
+  "evidence": [],
+  "tags": [
+    "cli",
+    "json",
+    "compatibility",
+    "deprecation",
+    "task"
+  ],
+  "metadata": {
+    "workItemType": "task"
+  },
+  "createdAt": "2026-03-07T04:04:26.1757628Z",
+  "updatedAt": "2026-03-07T04:18:00Z"
+}

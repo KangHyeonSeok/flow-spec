@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 2,
+  "id": "F-008",
+  "nodeType": "feature",
+  "title": "Runner 질의 및 보충 컨텍스트 수집",
+  "description": "Runner가 구현 또는 검증 과정에서 정보 부족, 요구사항 충돌, 사용자 선택 필요 상황을 감지하면 스펙에 구조화된 질의 사항과 추가 컨텍스트 수집 제안을 남기고, 사용자가 스펙 상세에서 직접 답변을 남길 수 있도록 하는 기능. 질의/응답 이력은 다음 구현 시도와 UI 표시의 기준 데이터가 된다.",
+  "status": "draft",
+  "parent": "F-070",
+  "dependencies": [
+    "F-007",
+    "F-030"
+  ],
+  "conditions": [
+    {
+      "id": "F-008-C1",
+      "nodeType": "condition",
+      "description": "Given Runner가 구현을 진행할 수 없을 정도로 정보가 부족하거나 요구사항이 모호함을 감지, When 질의 생성 단계를 수행, Then metadata.questions 배열에 질문 본문, 질문 유형, 필요한 결정 항목, 생성 시각, 생성 주체를 기록한다",
+      "status": "draft",
+      "codeRefs": [
+        "tools/flow-cli/Services/Runner/RunnerService.cs",
+        "tools/flow-cli/Services/SpecGraph/SpecModels.cs"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-008-C2",
+      "nodeType": "condition",
+      "description": "Given 정보 부족 상태, When Runner가 보충 컨텍스트 수집 방법을 제안, Then 질문 항목에는 로그 추가, 스크린샷 수집, 코드 참조 확장, 테스트 시나리오 보강, 비즈니스 결정 확인 등 실행 가능한 follow-up 방법이 함께 저장된다",
+      "status": "draft",
+      "codeRefs": [
+        "tools/flow-cli/Services/Runner/RunnerService.cs",
+        "tools/flow-cli/Services/Runner/RunnerModels.cs",
+        "tools/flow-cli/Services/Runner/CopilotService.cs"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-008-C3",
+      "nodeType": "condition",
+      "description": "Given 사용자 피드백이 필요한 질문이 존재, When Runner가 스펙 상태를 업데이트, Then metadata.requiresUserInput=true 와 metadata.questionStatus='waiting-user-input' 이 기록되고 자동 구현 큐에서는 일시적으로 제외된다",
+      "status": "draft",
+      "codeRefs": [
+        "tools/flow-cli/Services/Runner/RunnerService.cs",
+        "tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-008-C4",
+      "nodeType": "condition",
+      "description": "Given 사용자가 스펙 상세에서 질문에 답변 또는 추가 컨텍스트를 남김, When Runner가 다음 주기에 스펙을 다시 읽음, Then answered 상태의 질문과 새 컨텍스트를 프롬프트에 포함하여 구현 대상을 재평가한다",
+      "status": "draft",
+      "codeRefs": [
+        "tools/flow-cli/Services/Runner/RunnerService.cs",
+        "tools/flow-cli/Services/Runner/CopilotService.cs",
+        "tools/flow-cli/Services/SpecGraph/SpecStore.cs"
+      ],
+      "evidence": []
+    },
+    {
+      "id": "F-008-C5",
+      "nodeType": "condition",
+      "description": "Given 질문 이력이 누적, When 사용자가 스펙 상세를 확인, Then open/answered/dismissed 상태, 최근 답변 시각, 미해결 질문 수가 명확히 구분되어 보여야 한다",
+      "status": "draft",
+      "codeRefs": [
+        "tools/flow-cli/Services/SpecGraph/SpecModels.cs",
+        "tools/flow-ext/src/detailViewProvider.ts"
+      ],
+      "evidence": []
+    }
+  ],
+  "codeRefs": [
+    "tools/flow-cli/Services/Runner/RunnerService.cs",
+    "tools/flow-cli/Services/Runner/CopilotService.cs",
+    "tools/flow-cli/Services/Runner/RunnerModels.cs",
+    "tools/flow-cli/Services/SpecGraph/SpecModels.cs",
+    "tools/flow-cli/Services/SpecGraph/SpecStore.cs",
+    "tools/flow-ext/src/detailViewProvider.ts"
+  ],
+  "evidence": [],
+  "tags": [
+    "runner",
+    "question",
+    "context",
+    "feedback"
+  ],
+  "createdAt": "2026-03-07T04:21:52.7077839Z",
+  "updatedAt": "2026-03-07T04:21:52.7077839Z"
+}
