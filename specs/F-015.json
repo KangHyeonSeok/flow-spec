@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 2,
+  "id": "F-015",
+  "nodeType": "feature",
+  "title": "Runner 대기 이슈 연관도 기반 큐 재정렬",
+  "description": "Runner 대기 이슈 연관도 기반 큐 재정렬",
+  "status": "draft",
+  "parent": "F-070",
+  "dependencies": [],
+  "conditions": [],
+  "codeRefs": [],
+  "evidence": [],
+  "tags": [
+    "runner",
+    "issues",
+    "priority",
+    "queue",
+    "scheduling"
+  ],
+  "createdAt": "2026-03-07T12:23:20.3245465Z",
+  "updatedAt": "2026-03-07T12:23:20.3245465Z"
+}
