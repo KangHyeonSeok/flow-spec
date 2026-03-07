@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "영향 분석 및 상태 전파",
   "description": "스펙 변경 시 영향 범위를 계산하고, 상태를 자동으로 전파하는 기능",
-  "status": "queued",
+  "status": "verified",
   "parent": "F-001",
   "dependencies": [
     "F-010"
@@ -51,7 +51,20 @@
     "propagation",
     "graph"
   ],
-  "metadata": {},
+  "metadata": {
+    "runnerInstanceId": "runner-37856-132733",
+    "runnerStartedAt": "2026-03-07T14:47:59.3096994Z",
+    "implementationPlan": {
+      "triggeredFrom": "queued",
+      "approach": "AI Runner가 'F-011: 영향 분석 및 상태 전파' 구현을 시작합니다.",
+      "startedAt": "2026-03-07T14:47:59.3097004Z"
+    },
+    "lastCompletedAt": "2026-03-07T14:49:37.6918966Z",
+    "lastCompletedBy": "runner-37856-132733",
+    "lastVerifiedAt": "2026-03-07T14:49:37.6919042Z",
+    "lastVerifiedBy": "runner-37856-132733",
+    "verificationSource": "runner-completion"
+  },
   "createdAt": "2026-02-28T00:00:00Z",
-  "updatedAt": "2026-03-07T09:50:50.387Z"
+  "updatedAt": "2026-03-07T14:49:37.6919355Z"
 }
