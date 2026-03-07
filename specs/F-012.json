@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "코드 참조 검증",
   "description": "codeRefs에 명시된 파일의 존재 여부와 라인 범위를 검증하는 기능",
-  "status": "queued",
+  "status": "verified",
   "parent": "F-001",
   "dependencies": [
     "F-010"
@@ -49,7 +49,20 @@
     "coderef",
     "validation"
   ],
-  "metadata": {},
+  "metadata": {
+    "runnerInstanceId": "runner-37856-132733",
+    "runnerStartedAt": "2026-03-07T14:54:42.8729034Z",
+    "implementationPlan": {
+      "triggeredFrom": "queued",
+      "approach": "AI Runner가 'F-012: 코드 참조 검증' 구현을 시작합니다.",
+      "startedAt": "2026-03-07T14:54:42.8729044Z"
+    },
+    "lastCompletedAt": "2026-03-07T14:56:02.1484540Z",
+    "lastCompletedBy": "runner-37856-132733",
+    "lastVerifiedAt": "2026-03-07T14:56:02.1484627Z",
+    "lastVerifiedBy": "runner-37856-132733",
+    "verificationSource": "runner-completion"
+  },
   "createdAt": "2026-02-28T00:00:00Z",
-  "updatedAt": "2026-03-07T09:50:51.702Z"
+  "updatedAt": "2026-03-07T14:56:02.1484953Z"
 }
