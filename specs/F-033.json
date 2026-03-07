@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "사용자 권고 우선순위 반영",
   "description": "사용자가 특정 스펙에 권고 우선순위 힌트(P1/P2/P3 또는 동등한 단계)를 지정할 수 있게 하고, Runner는 의존성 준비도, 사용자 입력 대기, 손상 복구, 영향 충돌, 기존 검증 제약 같은 강한 조건을 먼저 적용한 뒤 남은 후보 집합에서만 이 권고 우선순위를 선택 신호로 반영하도록 정의한다.",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-015",
   "dependencies": [
     "F-015",
@@ -20,7 +20,8 @@
         "tools/flow-cli/Services/Runner/RunnerService.cs",
         "tools/flow-cli/Services/Runner/RunnerModels.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-033-C2",
@@ -31,7 +32,8 @@
         "tools/flow-cli/Services/Runner/RunnerService.cs",
         "tools/flow-cli/Services/SpecGraph/StatusPropagator.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-033-C3",
@@ -43,7 +45,8 @@
         "tools/flow-cli/Services/Runner/RunnerModels.cs",
         "tools/flow-cli/Services/Runner/RunnerLogService.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-033-C4",
@@ -54,7 +57,8 @@
         "tools/flow-cli/Services/Runner/RunnerService.cs",
         "tools/flow-cli/Services/Runner/RunnerModels.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-033-C5",
@@ -66,7 +70,8 @@
         "tools/flow-cli/Services/Runner/RunnerService.cs",
         "tools/flow-cli/Services/Runner/RunnerModels.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     }
   ],
   "codeRefs": [
@@ -83,7 +88,11 @@
     "user-input",
     "queue"
   ],
-  "createdAt": "2026-03-07T13:53:21.3515954Z",
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
   "metadata": {
     "priorityPolicy": {
       "userPriorityField": "userPriorityHint",
@@ -100,7 +109,24 @@
         "impact-conflict",
         "workflow-hold"
       ]
-    }
+    },
+    "selectionReason": {
+      "selectedAt": "2026-03-07T20:49:43.1182980Z",
+      "issuePriorityScore": 0,
+      "isFallback": true,
+      "rank": 1,
+      "totalCandidates": 6
+    },
+    "runnerInstanceId": "runner-82653-165628",
+    "runnerStartedAt": "2026-03-07T20:49:43.1200330Z",
+    "implementationPlan": {
+      "triggeredFrom": "queued",
+      "approach": "AI Runner가 'F-033: 사용자 권고 우선순위 반영' 구현을 시작합니다.",
+      "startedAt": "2026-03-07T20:49:43.1200360Z"
+    },
+    "lastError": "머지 실패",
+    "lastErrorAt": "2026-03-07T21:04:31.1213260Z"
   },
-  "updatedAt": "2026-03-07T13:57:00.0000000Z"
+  "createdAt": "2026-03-07T13:53:21.3515954Z",
+  "updatedAt": "2026-03-07T21:04:31.1213410Z"
 }
