@@ -12,52 +12,76 @@
       "id": "F-080-C1",
       "nodeType": "condition",
       "description": "Given 프로젝트 루트, When .flow/config.json 파일 존재, Then specRepository(git URL) 속성을 포함한 설정 로드",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        { "path": "tools/flow-cli/Models/FlowConfig.cs", "description": "FlowConfig.SpecRepository 속성" },
+        { "path": "tools/flow-cli/Services/FlowConfigService.cs", "description": "FlowConfigService.Load() - config.json 로드" }
+      ],
       "evidence": []
     },
     {
       "id": "F-080-C2",
       "nodeType": "condition",
       "description": "Given .flow/config.json의 specRepository 속성, When flow config 명령 실행, Then specRepository URL 읽기·쓰기 가능",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        { "path": "tools/flow-cli/Commands/ConfigCommand.cs", "description": "flow config --spec-repo 옵션으로 specRepository 읽기·쓰기" }
+      ],
       "evidence": []
     },
     {
       "id": "F-080-C3",
       "nodeType": "condition",
       "description": "Given specRepository가 설정된 config.json, When Flow Runner 스펙 동기화 주기 도래, Then 해당 git URL에서 git clone 또는 git pull로 최신 스펙을 로컬 캐시로 가져옴",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        { "path": "tools/flow-cli/Services/Runner/SpecRepoService.cs", "description": "SpecRepoService.SyncAsync() - git clone/pull 실행" },
+        { "path": "tools/flow-cli/Services/Runner/RunnerService.cs", "description": "RunnerService.RunOnceAsync() - 사이클마다 SyncAsync 호출" }
+      ],
       "evidence": []
     },
     {
       "id": "F-080-C4",
       "nodeType": "condition",
       "description": "Given 로컬에 캐시된 스펙, When Runner가 스펙 상태 확인, Then 로컬 캐시(.flow/spec-cache/)의 스펙 JSON을 기준으로 처리",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        { "path": "tools/flow-cli/Services/Runner/SpecRepoService.cs", "description": "SpecRepoService - localCachePath(.flow/spec-cache/)를 SpecsDir로 사용" },
+        { "path": "tools/flow-cli/Services/Runner/RunnerService.cs", "description": "RunnerService 생성자 - specCacheDir로 SpecStore 초기화" },
+        { "path": "tools/flow-cli/Services/PathResolver.cs", "description": "PathResolver.SpecCacheDir - .flow/spec-cache/ 경로" }
+      ],
       "evidence": []
     },
     {
       "id": "F-080-C5",
       "nodeType": "condition",
       "description": "Given specRepository 미설정, When Flow Runner 실행, Then 오류 메시지 출력 후 종료 (specRepository는 필수 설정)",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        { "path": "tools/flow-cli/Commands/RunnerCommand.cs", "description": "RunnerStart - specRepository 미설정 시 오류 출력 후 종료" },
+        { "path": "tools/flow-cli/Services/Runner/RunnerService.cs", "description": "RunnerService 생성자 - specRepository 미설정 시 InvalidOperationException" }
+      ],
       "evidence": []
     },
     {
       "id": "F-080-C6",
       "nodeType": "condition",
       "description": "Given 유효하지 않은 git URL 또는 접근 불가 저장소, When git clone/pull 시도, Then 오류를 로그에 기록하고 이전 캐시로 폴백",
-      "status": "draft",
-      "codeRefs": [],
+      "status": "active",
+      "codeRefs": [
+        { "path": "tools/flow-cli/Services/Runner/SpecRepoService.cs", "description": "SyncAsync/CloneAsync/PullAsync - 오류 로깅 및 기존 캐시 폴백" }
+      ],
       "evidence": []
     }
   ],
-  "codeRefs": [],
+  "codeRefs": [
+    { "path": "tools/flow-cli/Models/FlowConfig.cs", "description": "FlowConfig 모델 - specRepository 및 Runner 설정" },
+    { "path": "tools/flow-cli/Services/FlowConfigService.cs", "description": "FlowConfigService - config.json 읽기/쓰기" },
+    { "path": "tools/flow-cli/Commands/ConfigCommand.cs", "description": "flow config 커맨드 - specRepository 읽기/쓰기" },
+    { "path": "tools/flow-cli/Services/Runner/SpecRepoService.cs", "description": "SpecRepoService - git clone/pull 및 폴백" },
+    { "path": "tools/flow-cli/Services/Runner/RunnerService.cs", "description": "RunnerService - 스펙 동기화 및 필수 검증" },
+    { "path": "tools/flow-cli/Services/PathResolver.cs", "description": "PathResolver - ConfigPath, SpecCacheDir 경로" }
+  ],
   "evidence": [],
   "tags": [
     "config",
@@ -73,11 +97,13 @@
         "example": "https://github.com/org/flow-spec.git"
       }
     },
-    "runnerInstanceId": "runner-32080-111617",
-    "runnerStartedAt": "2026-03-02T11:16:18.8929605Z",
+    "runnerInstanceId": "runner-27888-025851",
+    "runnerStartedAt": "2026-03-07T02:58:52.4530639Z",
     "lastCompletedAt": "2026-03-02T11:22:10.7129147Z",
-    "lastCompletedBy": "runner-32080-111617"
+    "lastCompletedBy": "runner-32080-111617",
+    "lastError": "Runner 인스턴스 비정상 종료 (이전 인스턴스: runner-28804-025459)",
+    "lastErrorAt": "2026-03-07T02:58:51.4180203Z"
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-02T11:22:10.7130789Z"
+  "updatedAt": "2026-03-07T03:00:00.000Z"
 }
