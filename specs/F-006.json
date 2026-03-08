@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "Legacy CLI 호환 및 폐기 경고",
   "description": "기존 분리형 CLI 인자 호출을 완전히 끊지 않고, 내부적으로 JSON 요청 모델로 변환하는 호환 계층과 폐기 경고 정책을 추가한다. 마이그레이션 기간 동안 사용자 스크립트가 단계적으로 전환될 수 있도록 지원하는 작업이다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-002",
   "dependencies": [
     "F-004",
@@ -81,8 +81,32 @@
       "startedAt": "2026-03-07T18:48:00.3682440Z"
     },
     "lastCompletedAt": "2026-03-07T18:56:46.3074950Z",
-    "lastCompletedBy": "runner-82653-165628"
+    "lastCompletedBy": "runner-82653-165628",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:49:55.2706138Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "failureReasons": [
+        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:49:55.2706138Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-07T04:04:26.1757628Z",
-  "updatedAt": "2026-03-07T18:56:46.3075680Z"
+  "updatedAt": "2026-03-08T01:49:55.2709349Z"
 }
