@@ -4,7 +4,7 @@
   "nodeType": "task",
   "title": "Runner \uD050 \uC6B0\uC120\uC21C\uC704 \uC810\uC218 \uACC4\uC0B0",
   "description": "\uC5F0\uACB0\uB41C \uC624\uD508 \uC774\uC288 \uC218, \uC9C1\uC811 \uC2A4\uD399 \uCC38\uC870 \uC5EC\uBD80, \uCD5C\uADFC updatedAt, priority \uB610\uB294 bug \uACC4\uC5F4 \uB77C\uBCA8, auto-created/sourceIssue \uC5EC\uBD80\uB97C \uC815\uADDC\uD654\uD574 metadata.queuePriority\uC640 reasons \uBC30\uC5F4\uB85C \uC800\uC7A5\uD558\uB294 \uC791\uC5C5. \uC810\uC218\uB294 \uBE44\uAD50 \uAC00\uB2A5\uD574\uC57C \uD558\uC9C0\uB9CC \uC808\uB300\uAC12\uBCF4\uB2E4 \uC0C1\uB300 \uC21C\uC704\uAC00 \uC911\uC694\uD558\uBA70, stale \uC774\uC288\uB098 \uB2EB\uD78C \uC774\uC288\uB97C \uC7AC\uAC80\uC99D\uD574 \uC810\uC218\uB97C \uB0AE\uCD94\uAC70\uB098 \uC81C\uAC70\uD560 \uC218 \uC788\uC5B4\uC57C \uD55C\uB2E4.",
-  "status": "queued",
+  "status": "working",
   "parent": "F-015",
   "dependencies": [
     "F-016"
@@ -25,15 +25,15 @@
   "metadata": {
     "taskGoal": "queuePriority score\uC640 reasons \uAD6C\uC870 \uACE0\uC815",
     "deliverable": "score signal normalization policy",
-    "runnerInstanceId": "runner-45872-090752",
-    "runnerStartedAt": "2026-03-08T09:07:56.4200684Z",
+    "runnerInstanceId": "runner-47000-092924",
+    "runnerStartedAt": "2026-03-08T09:38:31.7725486Z",
     "implementationPlan": {
       "triggeredFrom": "queued",
       "approach": "AI Runner\uAC00 \u0027F-017: Runner \uD050 \uC6B0\uC120\uC21C\uC704 \uC810\uC218 \uACC4\uC0B0\u0027 \uAD6C\uD604\uC744 \uC2DC\uC791\uD569\uB2C8\uB2E4.",
-      "startedAt": "2026-03-08T09:07:56.4200716Z"
+      "startedAt": "2026-03-08T09:38:31.7725496Z"
     },
     "selectionReason": {
-      "selectedAt": "2026-03-08T09:07:56.3933249Z",
+      "selectedAt": "2026-03-08T09:38:31.7716755Z",
       "issuePriorityScore": 0,
       "isFallback": true,
       "rank": 1,
