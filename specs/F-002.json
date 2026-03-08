@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "JSON 기반 통합 명령 요청/응답",
   "description": "flow CLI의 모든 기능이 분리된 positional/option 인자 조합 대신 공통 JSON 요청 계약을 기본 입력으로 받아 처리하도록 표준화하고, 실행 결과와 오류도 동일한 JSON 응답 계약으로 출력하는 기능. build/spec/db/test/runner/config 등 기존 명령군은 내부적으로 공통 요청 DTO와 응답 DTO를 사용하도록 수렴하며, stdin/file/direct string 입력과 기계 친화적 오류 보고를 지원한다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -113,7 +113,7 @@
     "lastCompletedBy": "runner-7472-011050",
     "review": {
       "source": "copilot-cli-review",
-      "reviewedAt": "2026-03-08T01:12:44.7541367Z",
+      "reviewedAt": "2026-03-08T02:03:18.2578007Z",
       "reviewedBy": "runner-7472-011050",
       "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
       "failureReasons": [
@@ -133,7 +133,7 @@
     "reviewDisposition": "retry-queued",
     "requiresUserInput": false,
     "plannerState": "standby",
-    "lastReviewAt": "2026-03-08T01:12:44.7541367Z",
+    "lastReviewAt": "2026-03-08T02:03:18.2578007Z",
     "lastReviewBy": "runner-7472-011050",
     "selectionReason": {
       "selectedAt": "2026-03-08T01:22:19.6139098Z",
@@ -144,5 +144,5 @@
     }
   },
   "createdAt": "2026-03-07T04:02:46.6346598Z",
-  "updatedAt": "2026-03-08T01:26:57.9742364Z"
+  "updatedAt": "2026-03-08T02:03:18.2578575Z"
 }
