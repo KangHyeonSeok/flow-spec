@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "Runner 검증 실패 재개발 루프",
   "description": "Flow Runner가 active 또는 구현 완료 후보 스펙을 후속 검증 단계에서 다시 검사하고, 검증 실패 시 단순 실패 표기만 하지 않고 실패 원인 분석과 대안 해결책을 구조화하여 재개발 요청으로 되돌리는 기능. 실패 분석 결과는 스펙 metadata에 누적되어 다음 구현 시도 프롬프트와 UI 표시의 입력으로 사용된다.",
-  "status": "working",
+  "status": "needs-review",
   "parent": "F-070",
   "dependencies": [
     "F-011",
@@ -109,8 +109,10 @@
       "triggeredFrom": "queued",
       "approach": "AI Runner가 'F-007: Runner 검증 실패 재개발 루프' 구현을 시작합니다.",
       "startedAt": "2026-03-08T01:10:55.5048136Z"
-    }
+    },
+    "lastError": "머지 실패",
+    "lastErrorAt": "2026-03-08T01:22:19.1940798Z"
   },
   "createdAt": "2026-03-07T04:21:52.3548022Z",
-  "updatedAt": "2026-03-08T01:10:55.5048905Z"
+  "updatedAt": "2026-03-08T01:22:19.1941137Z"
 }
