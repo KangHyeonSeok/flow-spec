@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "JSON 기반 통합 명령 요청/응답",
   "description": "flow CLI의 모든 기능이 분리된 positional/option 인자 조합 대신 공통 JSON 요청 계약을 기본 입력으로 받아 처리하도록 표준화하고, 실행 결과와 오류도 동일한 JSON 응답 계약으로 출력하는 기능. build/spec/db/test/runner/config 등 기존 명령군은 내부적으로 공통 요청 DTO와 응답 DTO를 사용하도록 수렴하며, stdin/file/direct string 입력과 기계 친화적 오류 보고를 지원한다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -17,7 +17,8 @@
         "tools/flow-cli/Program.cs",
         "tools/flow-cli/FlowApp.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-002-C2",
@@ -34,7 +35,8 @@
         "tools/flow-cli/Commands/ConfigCommand.cs",
         "tools/flow-cli/Commands/HumanInputCommand.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-002-C3",
@@ -47,7 +49,8 @@
         "tools/flow-cli/Commands/DbQueryCommand.cs",
         "tools/flow-cli/Commands/TestCommand.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-002-C4",
@@ -58,7 +61,8 @@
         "tools/flow-cli/Program.cs",
         "tools/flow-cli/FlowApp.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-002-C5",
@@ -69,7 +73,8 @@
         "tools/flow-cli/Program.cs",
         "tools/flow-cli/FlowApp.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     }
   ],
   "codeRefs": [
@@ -91,6 +96,11 @@
     "interface",
     "serialization"
   ],
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
   "metadata": {
     "runnerInstanceId": "runner-31748-114301",
     "runnerStartedAt": "2026-03-07T11:49:08.0114043Z",
@@ -100,8 +110,32 @@
       "startedAt": "2026-03-07T11:49:08.0114057Z"
     },
     "lastCompletedAt": "2026-03-07T11:55:48.1132249Z",
-    "lastCompletedBy": "runner-31748-114301"
+    "lastCompletedBy": "runner-31748-114301",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:12:44.7541367Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "failureReasons": [
+        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:12:44.7541367Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-07T04:02:46.6346598Z",
-  "updatedAt": "2026-03-07T11:55:48.1132660Z"
+  "updatedAt": "2026-03-08T01:12:44.7555575Z"
 }
