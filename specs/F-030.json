@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "임베딩 및 RAG 검색",
   "description": "문서 임베딩 생성 및 벡터 검색 기반 RAG 기능",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -16,7 +16,8 @@
       "codeRefs": [
         "tools/flow-cli/Services/EmbeddingBridge.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-030-C2",
@@ -26,7 +27,8 @@
       "codeRefs": [
         "tools/flow-cli/Commands/DbQueryCommand.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-030-C3",
@@ -36,7 +38,8 @@
       "codeRefs": [
         "tools/flow-cli/Commands/DbAddCommand.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     }
   ],
   "codeRefs": [
@@ -49,6 +52,11 @@
     "rag",
     "search"
   ],
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
   "metadata": {
     "runnerInstanceId": "runner-26716-121928",
     "runnerStartedAt": "2026-03-07T12:42:13.8171560Z",
@@ -58,8 +66,32 @@
       "startedAt": "2026-03-07T12:42:13.8171579Z"
     },
     "lastCompletedAt": "2026-03-07T12:46:18.8596652Z",
-    "lastCompletedBy": "runner-26716-121928"
+    "lastCompletedBy": "runner-26716-121928",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:15:23.9354156Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "failureReasons": [
+        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:15:23.9354156Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-02-01T00:00:00Z",
-  "updatedAt": "2026-03-07T12:46:18.8597074Z"
+  "updatedAt": "2026-03-08T01:15:23.9354608Z"
 }
