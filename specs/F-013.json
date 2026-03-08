@@ -2,9 +2,9 @@
   "schemaVersion": 2,
   "id": "F-013",
   "nodeType": "feature",
-  "title": "\uAD6C\uD604 \uC21C\uC11C \uACB0\uC815",
-  "description": "\uC758\uC874\uC131 \uADF8\uB798\uD504 \uAE30\uBC18\uC73C\uB85C \uC2A4\uD399 \uAD6C\uD604 \uC21C\uC11C\uB97C \uC790\uB3D9 \uACB0\uC815\uD558\uB294 \uAE30\uB2A5. \uC704\uC0C1 \uC815\uB82C(Kahn \uC54C\uACE0\uB9AC\uC998)\uB85C \uAE30\uACC4\uC801 \uC21C\uC11C\uB97C \uC0B0\uCD9C\uD558\uACE0, \uC120\uD0DD\uC801\uC73C\uB85C AI\uAC00 \uAE30\uC220 \uC704\uD5D8\uB3C4\u00B7\uBE44\uC988\uB2C8\uC2A4 \uAC00\uCE58 \uB4F1\uC744 \uACE0\uB824\uD558\uC5EC \uCD5C\uC801\uD654\uB41C \uC21C\uC11C\uB97C \uC81C\uC548\uD55C\uB2E4.",
-  "status": "needs-review",
+  "title": "구현 순서 결정",
+  "description": "의존성 그래프 기반으로 스펙 구현 순서를 자동 결정하는 기능. 위상 정렬(Kahn 알고리즘)로 기계적 순서를 산출하고, 선택적으로 AI가 기술 위험도·비즈니스 가치 등을 고려하여 최적화된 순서를 제안한다.",
+  "status": "queued",
   "parent": "F-001",
   "dependencies": [
     "F-010"
@@ -13,7 +13,7 @@
     {
       "id": "F-013-C1",
       "nodeType": "condition",
-      "description": "Given \uC758\uC874\uC131 \uADF8\uB798\uD504, When spec-order \uC2E4\uD589, Then \uC704\uC0C1 \uC815\uB82C \uAE30\uBC18 \uAD6C\uD604 \uC21C\uC11C(Phase\uBCC4) JSON \uCD9C\uB825",
+      "description": "Given 의존성 그래프, When spec-order 실행, Then 위상 정렬 기반 구현 순서(Phase별) JSON 출력",
       "status": "working",
       "codeRefs": [
         "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs",
@@ -25,7 +25,7 @@
     {
       "id": "F-013-C2",
       "nodeType": "condition",
-      "description": "Given \uB3D9\uC77C depth \uC2A4\uD399\uB4E4, When priority \uC815\uB82C \uC801\uC6A9, Then P1 \u003E P2 \u003E P3 \uC21C\uC11C\uB85C \uC815\uB82C\uB418\uACE0 priority \uB3D9\uC77C \uC2DC conditions \uC218 \uC624\uB984\uCC28\uC21C",
+      "description": "Given 동일 depth 스펙들, When priority 정렬 적용, Then P1 > P2 > P3 순서로 정렬되고 priority 동일 시 conditions 수 오름차순",
       "status": "working",
       "codeRefs": [
         "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs"
@@ -36,7 +36,7 @@
     {
       "id": "F-013-C3",
       "nodeType": "condition",
-      "description": "Given \uAD6C\uD604 \uC21C\uC11C, When spec-order --ai \uC2E4\uD589, Then LLM\uC774 \uAE30\uC220 \uC704\uD5D8\uB3C4\u00B7\uBE44\uC988\uB2C8\uC2A4 \uAC00\uCE58\uB97C \uACE0\uB824\uD55C \uCD5C\uC801\uD654 \uC21C\uC11C\uC640 \uADFC\uAC70(reasoning) \uBC18\uD658",
+      "description": "Given 구현 순서, When spec-order --ai 실행, Then LLM이 기술 위험도·비즈니스 가치를 고려한 최적화 순서와 근거(reasoning) 반환",
       "status": "working",
       "codeRefs": [
         "tools/flow-cli/Commands/SpecCommand.cs"
@@ -47,7 +47,7 @@
     {
       "id": "F-013-C4",
       "nodeType": "condition",
-      "description": "Given AI \uCD5C\uC801\uD654 \uC21C\uC11C, When \uC758\uC874\uC131 \uC81C\uC57D \uC704\uBC18 \uAC10\uC9C0, Then \uD574\uB2F9 \uC81C\uC548 \uC790\uB3D9 \uAC70\uBD80 \uBC0F \uACBD\uACE0 \uCD9C\uB825",
+      "description": "Given AI 최적화 순서, When 의존성 제약 위반 감지, Then 해당 제안 자동 거부 및 경고 출력",
       "status": "working",
       "codeRefs": [
         "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs"
@@ -58,7 +58,7 @@
     {
       "id": "F-013-C5",
       "nodeType": "condition",
-      "description": "Given \uD2B9\uC815 \uC2A4\uD399 ID, When spec-order --from {id} \uC2E4\uD589, Then \uD574\uB2F9 \uC2A4\uD399 \uAE30\uC900 \uBD80\uBD84 \uC21C\uC11C \uC0B0\uCD9C",
+      "description": "Given 특정 스펙 ID, When spec-order --from {id} 실행, Then 해당 스펙 기준 부분 순서 산출",
       "status": "working",
       "codeRefs": [
         "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs"
@@ -87,25 +87,25 @@
     "runnerStartedAt": "2026-03-08T01:54:10.5986267Z",
     "implementationPlan": {
       "triggeredFrom": "queued",
-      "approach": "AI Runner\uAC00 \u0027F-013: \uAD6C\uD604 \uC21C\uC11C \uACB0\uC815\u0027 \uAD6C\uD604\uC744 \uC2DC\uC791\uD569\uB2C8\uB2E4.",
+      "approach": "AI Runner가 'F-013: 구현 순서 결정' 구현을 시작합니다.",
       "startedAt": "2026-03-08T01:54:10.5986280Z"
     },
     "lastCompletedAt": "2026-03-08T01:55:21.7678804Z",
     "lastCompletedBy": "runner-7472-011050",
     "review": {
       "source": "copilot-cli-review",
-      "reviewedAt": "2026-03-08T01:30:20.7748268Z",
-      "reviewedBy": "runner-7472-011050",
-      "summary": "\uC790\uB3D9 \uAC80\uD1A0 \uACB0\uACFC\uB97C \uAD6C\uC870\uD654\uD558\uC9C0 \uBABB\uD574 \uC7AC\uC2DC\uB3C4 \uB300\uAE30\uC5F4\uB85C \uB418\uB3CC\uB9BD\uB2C8\uB2E4.",
+      "reviewedAt": "2026-03-08T02:21:43.3655148Z",
+      "reviewedBy": "runner-9752-021805",
+      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
       "failureReasons": [
-        "Copilot \uAC80\uD1A0 \uACB0\uACFC\uB97C JSON\uC73C\uB85C \uD574\uC11D\uD558\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uB2E4."
+        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
       ],
       "alternatives": [
-        "\uAD6C\uD604 \uB85C\uADF8\uC640 \uBCC0\uACBD \uD30C\uC77C\uC744 \uD655\uC778\uD55C \uB4A4 \uC7AC\uC2DC\uB3C4\uD569\uB2C8\uB2E4."
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
       ],
       "suggestedAttempts": [
-        "Copilot \uAC80\uD1A0 \uD504\uB86C\uD504\uD2B8\uB97C \uB2E4\uC2DC \uC2E4\uD589\uD569\uB2C8\uB2E4.",
-        "\uC6D0\uC778 \uB85C\uADF8\uB97C \uD655\uC778\uD55C \uB4A4 queued \uC0C1\uD0DC\uC5D0\uC11C \uC7AC\uC791\uC5C5\uD569\uB2C8\uB2E4."
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
       ],
       "requiresUserInput": false,
       "additionalInformationRequests": []
@@ -114,8 +114,8 @@
     "reviewDisposition": "retry-queued",
     "requiresUserInput": false,
     "plannerState": "standby",
-    "lastReviewAt": "2026-03-08T01:30:20.7748268Z",
-    "lastReviewBy": "runner-7472-011050",
+    "lastReviewAt": "2026-03-08T02:21:43.3655148Z",
+    "lastReviewBy": "runner-9752-021805",
     "selectionReason": {
       "selectedAt": "2026-03-08T01:54:10.5980625Z",
       "issuePriorityScore": 0,
@@ -125,5 +125,5 @@
     }
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-08T01:54:10.5986506Z"
+  "updatedAt": "2026-03-08T02:21:43.3655886Z"
 }

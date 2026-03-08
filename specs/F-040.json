@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "E2E 테스트 프레임워크",
   "description": "시나리오 기반 E2E 테스트를 실행하는 Python 프레임워크. YAML 시나리오 정의, Flutter/Unity 플랫폼 어댑터, 시나리오 탐색·실행·검증·리포팅 파이프라인을 제공한다. flow test e2e 명령으로 CLI에서 실행.",
-  "status": "queued",
+  "status": "working",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -73,12 +73,12 @@
   "mutatedBy": [],
   "changeLog": [],
   "metadata": {
-    "runnerInstanceId": "runner-7472-011050",
-    "runnerStartedAt": "2026-03-08T01:43:39.2604625Z",
+    "runnerInstanceId": "runner-9752-021805",
+    "runnerStartedAt": "2026-03-08T02:21:39.5099421Z",
     "implementationPlan": {
       "triggeredFrom": "queued",
       "approach": "AI Runner가 'F-040: E2E 테스트 프레임워크' 구현을 시작합니다.",
-      "startedAt": "2026-03-08T01:43:39.2604656Z"
+      "startedAt": "2026-03-08T02:21:39.5099433Z"
     },
     "lastCompletedAt": "2026-03-08T01:48:16.0041410Z",
     "lastCompletedBy": "runner-7472-011050",
@@ -107,13 +107,13 @@
     "lastReviewAt": "2026-03-08T02:12:17.6800163Z",
     "lastReviewBy": "runner-30896-021108",
     "selectionReason": {
-      "selectedAt": "2026-03-08T01:43:39.2597904Z",
+      "selectedAt": "2026-03-08T02:21:39.5092615Z",
       "issuePriorityScore": 0,
       "isFallback": true,
       "rank": 1,
-      "totalCandidates": 15
+      "totalCandidates": 25
     }
   },
   "createdAt": "2026-02-01T00:00:00Z",
-  "updatedAt": "2026-03-08T02:12:17.6827051Z"
+  "updatedAt": "2026-03-08T02:21:39.5099607Z"
 }
