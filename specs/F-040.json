@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "E2E 테스트 프레임워크",
   "description": "시나리오 기반 E2E 테스트를 실행하는 Python 프레임워크. YAML 시나리오 정의, Flutter/Unity 플랫폼 어댑터, 시나리오 탐색·실행·검증·리포팅 파이프라인을 제공한다. flow test e2e 명령으로 CLI에서 실행.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -84,8 +84,8 @@
     "lastCompletedBy": "runner-7472-011050",
     "review": {
       "source": "copilot-cli-review",
-      "reviewedAt": "2026-03-08T01:19:27.7532030Z",
-      "reviewedBy": "runner-7472-011050",
+      "reviewedAt": "2026-03-08T02:12:17.6800163Z",
+      "reviewedBy": "runner-30896-021108",
       "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
       "failureReasons": [
         "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
@@ -104,8 +104,8 @@
     "reviewDisposition": "retry-queued",
     "requiresUserInput": false,
     "plannerState": "standby",
-    "lastReviewAt": "2026-03-08T01:19:27.7532030Z",
-    "lastReviewBy": "runner-7472-011050",
+    "lastReviewAt": "2026-03-08T02:12:17.6800163Z",
+    "lastReviewBy": "runner-30896-021108",
     "selectionReason": {
       "selectedAt": "2026-03-08T01:43:39.2597904Z",
       "issuePriorityScore": 0,
@@ -115,5 +115,5 @@
     }
   },
   "createdAt": "2026-02-01T00:00:00Z",
-  "updatedAt": "2026-03-08T01:48:16.0041758Z"
+  "updatedAt": "2026-03-08T02:12:17.6827051Z"
 }
