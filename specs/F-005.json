@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "표준 JSON 응답 및 오류 포맷 통합",
   "description": "모든 flow 명령의 성공/실패 응답을 동일한 JSON 스키마로 통합한다. 공통 응답 래퍼, 오류 코드 체계, validation/execution 오류 세부 정보, exit code 매핑을 정의하고 각 명령군에 일관되게 적용하는 작업이다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-002",
   "dependencies": [
     "F-003"
@@ -20,7 +20,8 @@
         "tools/flow-cli/Commands/BuildCommand.cs",
         "tools/flow-cli/Commands/SpecCommand.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-005-C2",
@@ -31,7 +32,8 @@
         "tools/flow-cli/Program.cs",
         "tools/flow-cli/FlowApp.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-005-C3",
@@ -42,7 +44,8 @@
         "tools/flow-cli/Commands/DbQueryCommand.cs",
         "tools/flow-cli/Commands/TestCommand.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     }
   ],
   "codeRefs": [
@@ -60,6 +63,11 @@
     "error-handling",
     "task"
   ],
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
   "metadata": {
     "workItemType": "task",
     "runnerInstanceId": "runner-37856-132733",
@@ -70,8 +78,32 @@
       "startedAt": "2026-03-07T14:26:00.7726200Z"
     },
     "lastCompletedAt": "2026-03-07T14:32:40.6804996Z",
-    "lastCompletedBy": "runner-37856-132733"
+    "lastCompletedBy": "runner-37856-132733",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:26:12.3443867Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "failureReasons": [
+        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:26:12.3443867Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-07T04:04:25.8042383Z",
-  "updatedAt": "2026-03-07T14:32:40.6805382Z"
+  "updatedAt": "2026-03-08T01:26:12.3444482Z"
 }
