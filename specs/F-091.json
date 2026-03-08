@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "Runner 데몬 ConPTY 안정성 수정 테스트",
   "description": "Runner 데몬 ConPTY 안정성 수정 테스트",
-  "status": "queued",
+  "status": "working",
   "parent": "F-070",
   "dependencies": [],
   "conditions": [],
@@ -21,14 +21,14 @@
   "mutatedBy": [],
   "changeLog": [],
   "metadata": {
-    "runnerInstanceId": "runner-37856-132733",
-    "runnerStartedAt": "2026-03-07T14:02:40.3190796Z",
+    "runnerInstanceId": "runner-7472-011050",
+    "runnerStartedAt": "2026-03-08T01:51:42.3891678Z",
     "lastCompletedAt": "2026-03-07T14:04:55.6507731Z",
     "lastCompletedBy": "runner-37856-132733",
     "implementationPlan": {
       "triggeredFrom": "queued",
       "approach": "AI Runner가 'F-091: Runner 데몬 ConPTY 안정성 수정 테스트' 구현을 시작합니다.",
-      "startedAt": "2026-03-07T14:02:40.3190808Z"
+      "startedAt": "2026-03-08T01:51:42.3891689Z"
     },
     "review": {
       "source": "copilot-cli-review",
@@ -53,8 +53,15 @@
     "requiresUserInput": false,
     "plannerState": "standby",
     "lastReviewAt": "2026-03-08T01:22:40.5195303Z",
-    "lastReviewBy": "runner-7472-011050"
+    "lastReviewBy": "runner-7472-011050",
+    "selectionReason": {
+      "selectedAt": "2026-03-08T01:51:42.3886050Z",
+      "issuePriorityScore": 0,
+      "isFallback": true,
+      "rank": 1,
+      "totalCandidates": 19
+    }
   },
   "createdAt": "2026-03-07T02:45:26.8237258Z",
-  "updatedAt": "2026-03-08T01:22:40.5195888Z"
+  "updatedAt": "2026-03-08T01:51:42.3891878Z"
 }
