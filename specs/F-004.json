@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "명령군별 JSON 입력 마이그레이션",
   "description": "build/spec/db/test/runner/config 등 각 명령군이 공통 JSON 요청 모델을 입력으로 처리하도록 마이그레이션한다. 기존 Cocona 인자 바인딩 경로를 공통 요청 역직렬화 결과에 연결하는 작업을 포함한다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-002",
   "dependencies": [
     "F-003"
@@ -24,7 +24,8 @@
         "tools/flow-cli/Commands/RunnerCommand.cs",
         "tools/flow-cli/Commands/ConfigCommand.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-004-C2",
@@ -34,7 +35,8 @@
       "codeRefs": [
         "tools/flow-cli/FlowApp.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-004-C3",
@@ -45,7 +47,8 @@
         "tools/flow-cli.Tests/BuildCommandTests.cs",
         "tools/flow-cli.Tests/SpecValidatorTests.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     }
   ],
   "codeRefs": [
@@ -65,6 +68,11 @@
     "migration",
     "task"
   ],
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
   "metadata": {
     "workItemType": "task",
     "runnerInstanceId": "runner-37856-132733",
@@ -75,8 +83,32 @@
       "startedAt": "2026-03-07T14:10:00.5818039Z"
     },
     "lastCompletedAt": "2026-03-07T14:20:55.8336250Z",
-    "lastCompletedBy": "runner-37856-132733"
+    "lastCompletedBy": "runner-37856-132733",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:24:37.0231495Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "failureReasons": [
+        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:24:37.0231495Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-07T04:04:25.4458878Z",
-  "updatedAt": "2026-03-07T14:20:55.8336637Z"
+  "updatedAt": "2026-03-08T01:24:37.0232040Z"
 }
