@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "사용자 권고 우선순위 반영",
   "description": "사용자가 특정 스펙에 권고 우선순위 힌트(P1/P2/P3 또는 동등한 단계)를 지정할 수 있게 하고, Runner는 의존성 준비도, 사용자 입력 대기, 손상 복구, 영향 충돌, 기존 검증 제약 같은 강한 조건을 먼저 적용한 뒤 남은 후보 집합에서만 이 권고 우선순위를 선택 신호로 반영하도록 정의한다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-015",
   "dependencies": [
     "F-015",
@@ -125,8 +125,32 @@
       "startedAt": "2026-03-07T20:49:43.1200360Z"
     },
     "lastError": "머지 실패",
-    "lastErrorAt": "2026-03-07T21:04:31.1213260Z"
+    "lastErrorAt": "2026-03-07T21:04:31.1213260Z",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:58:49.3904128Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 파싱 실패. 마지막 오류: 머지 실패",
+      "failureReasons": [
+        "마지막 오류: 머지 실패"
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:58:49.3904128Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-07T13:53:21.3515954Z",
-  "updatedAt": "2026-03-07T21:04:31.1213410Z"
+  "updatedAt": "2026-03-08T01:58:49.3904753Z"
 }
