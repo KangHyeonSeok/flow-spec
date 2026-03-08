@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "구현 순서 결정",
   "description": "의존성 그래프 기반으로 스펙 구현 순서를 자동 결정하는 기능. 위상 정렬(Kahn 알고리즘)로 기계적 순서를 산출하고, 선택적으로 AI가 기술 위험도·비즈니스 가치 등을 고려하여 최적화된 순서를 제안한다.",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-001",
   "dependencies": [
     "F-010"
@@ -83,15 +83,15 @@
   "mutatedBy": [],
   "changeLog": [],
   "metadata": {
-    "runnerInstanceId": "runner-7472-011050",
-    "runnerStartedAt": "2026-03-08T01:54:10.5986267Z",
+    "runnerInstanceId": "runner-4380-023636",
+    "runnerStartedAt": "2026-03-08T02:48:05.6361855Z",
     "implementationPlan": {
       "triggeredFrom": "queued",
       "approach": "AI Runner가 'F-013: 구현 순서 결정' 구현을 시작합니다.",
-      "startedAt": "2026-03-08T01:54:10.5986280Z"
+      "startedAt": "2026-03-08T02:48:05.6361866Z"
     },
-    "lastCompletedAt": "2026-03-08T01:55:21.7678804Z",
-    "lastCompletedBy": "runner-7472-011050",
+    "lastCompletedAt": "2026-03-08T02:49:24.0476191Z",
+    "lastCompletedBy": "runner-4380-023636",
     "review": {
       "source": "copilot-cli-review",
       "reviewedAt": "2026-03-08T02:21:43.3655148Z",
@@ -117,13 +117,13 @@
     "lastReviewAt": "2026-03-08T02:21:43.3655148Z",
     "lastReviewBy": "runner-9752-021805",
     "selectionReason": {
-      "selectedAt": "2026-03-08T01:54:10.5980625Z",
+      "selectedAt": "2026-03-08T02:48:05.6354627Z",
       "issuePriorityScore": 0,
       "isFallback": true,
       "rank": 1,
-      "totalCandidates": 19
+      "totalCandidates": 30
     }
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-08T02:21:43.3655886Z"
+  "updatedAt": "2026-03-08T02:49:24.0476476Z"
 }
