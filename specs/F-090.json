@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "스펙 상태 워크플로우 - AI 협업 생명주기",
   "description": "스펙이 초안에서 시작해 AI 에이전트와 협업하여 구현·검증까지 이어지는 단순 상태 전환 워크플로우. status는 스펙 자신의 작업 상태만 표현하며, 부모 진행률 집계에는 사용하지 않는다. 사용자 입력 대기나 정책 판단 필요 여부는 별도 상태를 늘리지 않고 metadata.requiresUserInput, metadata.questionStatus, metadata.reviewDisposition 같은 메타데이터로 표현한다.\n\n상태 흐름: draft → queued → working → needs-review → verified (폐기 시 임의 상태에서 deprecated 전환 가능, 일회성 작업은 done으로 종료 가능). working 중 비정상 종료가 발생하면 사용자가 완료 여부를 즉시 판정하기 어려운 것으로 보고 queued로 되돌려 재시도 대상으로 복귀시킨다.\n\n- draft: 사람이 스펙 초안 작성 중\n- queued: 사람이 AI 작업 대상으로 올려 두었거나, 작업 중 중단된 스펙이 재시도 대기 상태로 복귀한 상태\n- working: AI가 실제 구현 또는 수정 작업을 진행 중\n- needs-review: AI 작업 완료, 사람의 검토 대기\n- verified: 사람이 검토·승인 완료\n- deprecated: 더 이상 유효하지 않은 스펙\n- done: 일회성 task가 최종 완료된 상태",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-070",
   "dependencies": [
     "F-060"
@@ -201,8 +201,32 @@
       "startedAt": "2026-03-07T17:33:50.8349210Z"
     },
     "lastError": "머지 실패",
-    "lastErrorAt": "2026-03-07T17:52:00.9270290Z"
+    "lastErrorAt": "2026-03-07T17:52:00.9270290Z",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:41:13.0647498Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 파싱 실패. 마지막 오류: 머지 실패",
+      "failureReasons": [
+        "마지막 오류: 머지 실패"
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:41:13.0647498Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-05T00:00:00Z",
-  "updatedAt": "2026-03-07T17:52:00.9270540Z"
+  "updatedAt": "2026-03-08T01:41:13.0647886Z"
 }
