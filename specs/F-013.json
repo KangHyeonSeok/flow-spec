@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "구현 순서 결정",
   "description": "의존성 그래프 기반으로 스펙 구현 순서를 자동 결정하는 기능. 위상 정렬(Kahn 알고리즘)로 기계적 순서를 산출하고, 선택적으로 AI가 기술 위험도·비즈니스 가치 등을 고려하여 최적화된 순서를 제안한다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-001",
   "dependencies": [
     "F-010"
@@ -19,7 +19,8 @@
         "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs",
         "tools/flow-cli/Commands/SpecCommand.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-013-C2",
@@ -29,7 +30,8 @@
       "codeRefs": [
         "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-013-C3",
@@ -39,7 +41,8 @@
       "codeRefs": [
         "tools/flow-cli/Commands/SpecCommand.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-013-C4",
@@ -49,7 +52,8 @@
       "codeRefs": [
         "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     },
     {
       "id": "F-013-C5",
@@ -59,7 +63,8 @@
       "codeRefs": [
         "tools/flow-cli/Services/SpecGraph/SpecOrderer.cs"
       ],
-      "evidence": []
+      "evidence": [],
+      "tests": []
     }
   ],
   "codeRefs": [
@@ -72,6 +77,11 @@
     "ordering",
     "topological-sort"
   ],
+  "supersedes": [],
+  "supersededBy": [],
+  "mutates": [],
+  "mutatedBy": [],
+  "changeLog": [],
   "metadata": {
     "runnerInstanceId": "runner-37856-132733",
     "runnerStartedAt": "2026-03-07T15:01:07.4373203Z",
@@ -81,8 +91,32 @@
       "startedAt": "2026-03-07T15:01:07.4373215Z"
     },
     "lastCompletedAt": "2026-03-07T15:02:28.0491924Z",
-    "lastCompletedBy": "runner-37856-132733"
+    "lastCompletedBy": "runner-37856-132733",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:30:20.7748268Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "failureReasons": [
+        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:30:20.7748268Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-07T15:02:28.0492456Z"
+  "updatedAt": "2026-03-08T01:30:20.7749230Z"
 }
