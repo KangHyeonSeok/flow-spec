@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "VSCode 확장 - 스펙 그래프 시각화",
   "description": "VSCode Webview에서 스펙 그래프를 시각화하고 편집하는 확장. 트리뷰(TreeView API), 그래프뷰(Cytoscape.js), 상세 패널을 제공하며, 노드 추가/수정/삭제, 의존성 드래그&드롭 연결, 편집 세션(Undo/Redo) 등 그래프 편집 기능을 포함한다.",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-001",
   "dependencies": [
     "F-010",
@@ -96,18 +96,18 @@
   "changeLog": [],
   "metadata": {
     "selectionReason": {
-      "selectedAt": "2026-03-08T01:59:19.8434763Z",
+      "selectedAt": "2026-03-08T04:12:05.7701167Z",
       "issuePriorityScore": 0,
       "isFallback": true,
       "rank": 1,
-      "totalCandidates": 22
+      "totalCandidates": 1
     },
-    "runnerInstanceId": "runner-7472-011050",
-    "runnerStartedAt": "2026-03-08T01:59:19.8440984Z",
+    "runnerInstanceId": "runner-28888-041204",
+    "runnerStartedAt": "2026-03-08T04:12:05.7866762Z",
     "implementationPlan": {
       "triggeredFrom": "queued",
       "approach": "AI Runner가 'F-060: VSCode 확장 - 스펙 그래프 시각화' 구현을 시작합니다.",
-      "startedAt": "2026-03-08T01:59:19.8440998Z"
+      "startedAt": "2026-03-08T04:12:05.7866933Z"
     },
     "review": {
       "source": "copilot-cli-review",
@@ -133,9 +133,9 @@
     "plannerState": "standby",
     "lastReviewAt": "2026-03-08T02:24:26.3122459Z",
     "lastReviewBy": "runner-9752-021805",
-    "lastCompletedAt": "2026-03-08T02:08:46.6685284Z",
-    "lastCompletedBy": "runner-7472-011050"
+    "lastCompletedAt": "2026-03-08T04:17:17.6950520Z",
+    "lastCompletedBy": "runner-28888-041204"
   },
   "createdAt": "2026-02-15T00:00:00Z",
-  "updatedAt": "2026-03-08T02:24:26.3123356Z"
+  "updatedAt": "2026-03-08T04:17:17.6951021Z"
 }
