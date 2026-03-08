@@ -32,28 +32,71 @@
     },
     "review": {
       "source": "copilot-cli-review",
-      "reviewedAt": "2026-03-08T02:19:55.3373031Z",
-      "reviewedBy": "runner-9752-021805",
-      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "reviewedAt": "2026-03-08T04:49:41.1879548Z",
+      "reviewedBy": "runner-40844-044047",
+      "summary": "Runner 인스턴스 비정상 종료로 인해 테스트가 중단되어 재작업 필요.",
       "failureReasons": [
-        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+        "Runner 프로세스가 ConPTY에서 비정상 종료되어 테스트 로그가 불완전함",
+        "자동화 검토가 JSON으로 구조화되지 않아 파싱 실패"
       ],
       "alternatives": [
-        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+        "재실행하여 완전한 로그 수집",
+        "수동으로 로그와 상태를 검토하여 원인 추정 후 targeted fix 적용"
       ],
       "suggestedAttempts": [
-        "Copilot 검토 프롬프트를 다시 실행합니다.",
-        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+        "대상 인스턴스에서 재실행하여 전체 로그 확보",
+        "ConPTY와 Runner 데몬 로그(이전 인스턴스 참조 포함) 분석",
+        "필요시 더 높은 반복성으로 재시도(queue 상태에서)"
       ],
-      "requiresUserInput": false,
-      "additionalInformationRequests": []
+      "requiresUserInput": true,
+      "additionalInformationRequests": [
+        "최근 Runner 데몬 전체 로그(비정상 종료 전후)",
+        "운영 중인 호스트의 ConPTY 구성 및 최근 변경 이력"
+      ]
     },
-    "questions": [],
-    "reviewDisposition": "retry-queued",
-    "requiresUserInput": false,
-    "plannerState": "standby",
-    "lastReviewAt": "2026-03-08T02:19:55.3373031Z",
-    "lastReviewBy": "runner-9752-021805",
+    "questions": [
+      {
+        "id": "F-091-Q1",
+        "type": "missing-info",
+        "question": "최근 비정상 종료 시점의 전체 로그를 제공할 수 있습니까?",
+        "why": "종료 원인을 파악하려면 종료 전후의 상세 로그가 필요합니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:49:41.1879548Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-091-Q2",
+        "type": "user-decision",
+        "question": "재시작 후 재실행을 우선시할까요, 아니면 먼저 로그 분석을 수행할까요?",
+        "why": "재실행은 빠른 검증을 가능하게 하지만 로그 분석은 근본 원인 해결에 도움이 됩니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:49:41.1879548Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-091-Q3",
+        "type": "missing-info",
+        "question": "최근 Runner 데몬 전체 로그(비정상 종료 전후)",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:49:41.1879548Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-091-Q4",
+        "type": "missing-info",
+        "question": "운영 중인 호스트의 ConPTY 구성 및 최근 변경 이력",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:49:41.1879548Z",
+        "requestedBy": "runner-40844-044047"
+      }
+    ],
+    "reviewDisposition": "needs-user-decision",
+    "requiresUserInput": true,
+    "plannerState": "waiting-user-input",
+    "lastReviewAt": "2026-03-08T04:49:41.1879548Z",
+    "lastReviewBy": "runner-40844-044047",
     "selectionReason": {
       "selectedAt": "2026-03-08T02:42:54.9332527Z",
       "issuePriorityScore": 0,
@@ -62,8 +105,9 @@
       "totalCandidates": 30
     },
     "lastError": "Runner 인스턴스 비정상 종료 (이전 인스턴스: runner-4380-023636)",
-    "lastErrorAt": "2026-03-08T04:34:11.5833338Z"
+    "lastErrorAt": "2026-03-08T04:34:11.5833338Z",
+    "questionStatus": "waiting-user-input"
   },
   "createdAt": "2026-03-07T02:45:26.8237258Z",
-  "updatedAt": "2026-03-08T04:34:11.5833737Z"
+  "updatedAt": "2026-03-08T04:49:41.1903371Z"
 }
