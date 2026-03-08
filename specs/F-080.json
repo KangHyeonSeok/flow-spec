@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "스펙 저장소 설정 (.flow/config.json)",
   "description": ".flow/config.json에 specRepository(git URL) 속성을 정의하여, Flow Runner가 스펙을 확인할 때 해당 git 저장소에서 최신 스펙을 가져온다. config.json은 프로젝트 루트의 .flow/ 디렉토리에 위치하며, specRepository 외 runner 동작에 필요한 설정을 포함한다.",
-  "status": "queued",
+  "status": "working",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -108,14 +108,14 @@
         "example": "https://github.com/org/flow-spec.git"
       }
     },
-    "runnerInstanceId": "runner-7472-011050",
-    "runnerStartedAt": "2026-03-08T01:48:19.1365063Z",
+    "runnerInstanceId": "runner-4380-023636",
+    "runnerStartedAt": "2026-03-08T02:40:53.9669355Z",
     "lastCompletedAt": "2026-03-08T01:51:38.1747222Z",
     "lastCompletedBy": "runner-7472-011050",
     "implementationPlan": {
       "triggeredFrom": "queued",
       "approach": "AI Runner가 'F-080: 스펙 저장소 설정 (.flow/config.json)' 구현을 시작합니다.",
-      "startedAt": "2026-03-08T01:48:19.1365080Z"
+      "startedAt": "2026-03-08T02:40:53.9669394Z"
     },
     "review": {
       "source": "copilot-cli-review",
@@ -142,13 +142,13 @@
     "lastReviewAt": "2026-03-08T02:14:43.5555879Z",
     "lastReviewBy": "runner-30896-021108",
     "selectionReason": {
-      "selectedAt": "2026-03-08T01:48:19.1357425Z",
+      "selectedAt": "2026-03-08T02:40:53.9657823Z",
       "issuePriorityScore": 0,
       "isFallback": true,
       "rank": 1,
-      "totalCandidates": 19
+      "totalCandidates": 30
     }
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-08T02:14:43.5556978Z"
+  "updatedAt": "2026-03-08T02:40:53.9669679Z"
 }
