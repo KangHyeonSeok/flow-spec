@@ -84,28 +84,81 @@
     "lastCompletedBy": "runner-7472-011050",
     "review": {
       "source": "copilot-cli-review",
-      "reviewedAt": "2026-03-08T02:12:17.6800163Z",
-      "reviewedBy": "runner-30896-021108",
-      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "reviewedAt": "2026-03-08T04:45:27.9258811Z",
+      "reviewedBy": "runner-40844-044047",
+      "summary": "Runner 인스턴스 비정상 종료로 E2E 실행이 중단되어 재작업이 필요합니다.",
       "failureReasons": [
-        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+        "Runner 인스턴스가 비정상적으로 종료되어 시나리오 실행이 중단됨",
+        "자동 검토 결과가 구조화된 JSON으로 해석되지 않아 재시도가 필요함"
       ],
       "alternatives": [
-        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+        "실행 로그와 runner 상태를 분석하여 원인 파악 후 재시작하여 재시도",
+        "로컬 또는 격리된 환경에서 수동으로 시나리오를 실행해 문제를 재현 및 디버깅"
       ],
       "suggestedAttempts": [
-        "Copilot 검토 프롬프트를 다시 실행합니다.",
-        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+        "runner 인스턴스 로그(시작~종료) 수집 및 분석 후 runner 재시작",
+        "PythonBridge와 플랫폼 어댑터 등 의존 서비스 상태 점검 후 queued 상태에서 재실행",
+        "자동 검토 프롬프트를 재실행하여 출력이 JSON 스키마와 일치하는지 확인"
       ],
-      "requiresUserInput": false,
-      "additionalInformationRequests": []
+      "requiresUserInput": true,
+      "additionalInformationRequests": [
+        "최근 runner 로그 (종료 전 스택트레이스 포함)",
+        "실행 당시의 리소스(메모리/CPU) 사용량 스냅샷",
+        "해당 시나리오에서 사용된 플랫폼(adapters) 설정 및 버전 정보"
+      ]
     },
-    "questions": [],
-    "reviewDisposition": "retry-queued",
-    "requiresUserInput": false,
-    "plannerState": "standby",
-    "lastReviewAt": "2026-03-08T02:12:17.6800163Z",
-    "lastReviewBy": "runner-30896-021108",
+    "questions": [
+      {
+        "id": "F-040-Q1",
+        "type": "missing-info",
+        "question": "runner 인스턴스 로그를 제공할 수 있습니까?",
+        "why": "비정상 종료 원인을 정확히 파악하려면 종료 직전 로그와 스택 트레이스가 필요합니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:45:27.9258811Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-040-Q2",
+        "type": "user-decision",
+        "question": "자동 재시작 후 재시도할까요, 아니면 우선 수동 디버깅을 진행할까요?",
+        "why": "재시작-재시도는 빠른 회복에 유리하지만 근본 원인을 놓칠 수 있고, 수동 디버깅은 시간이 걸리나 문제의 근본 해결에 도움이 됩니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:45:27.9258811Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-040-Q3",
+        "type": "missing-info",
+        "question": "최근 runner 로그 (종료 전 스택트레이스 포함)",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:45:27.9258811Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-040-Q4",
+        "type": "missing-info",
+        "question": "실행 당시의 리소스(메모리/CPU) 사용량 스냅샷",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:45:27.9258811Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-040-Q5",
+        "type": "missing-info",
+        "question": "해당 시나리오에서 사용된 플랫폼(adapters) 설정 및 버전 정보",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:45:27.9258811Z",
+        "requestedBy": "runner-40844-044047"
+      }
+    ],
+    "reviewDisposition": "needs-user-decision",
+    "requiresUserInput": true,
+    "plannerState": "waiting-user-input",
+    "lastReviewAt": "2026-03-08T04:45:27.9258811Z",
+    "lastReviewBy": "runner-40844-044047",
     "selectionReason": {
       "selectedAt": "2026-03-08T02:21:39.5092615Z",
       "issuePriorityScore": 0,
@@ -114,8 +167,9 @@
       "totalCandidates": 25
     },
     "lastError": "Runner 인스턴스 비정상 종료 (이전 인스턴스: runner-9752-021805)",
-    "lastErrorAt": "2026-03-08T04:34:11.5186260Z"
+    "lastErrorAt": "2026-03-08T04:34:11.5186260Z",
+    "questionStatus": "waiting-user-input"
   },
   "createdAt": "2026-02-01T00:00:00Z",
-  "updatedAt": "2026-03-08T04:34:11.5187701Z"
+  "updatedAt": "2026-03-08T04:45:27.9284139Z"
 }
