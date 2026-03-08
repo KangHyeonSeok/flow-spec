@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "테스트 연결 및 CI 동기화",
   "description": "테스트 실행 결과를 스펙 JSON과 동기화하고, 테스트 건강도 리포트를 생성하는 기능. xUnit/Jest/pytest 결과를 파싱하여 스펙의 tests/e2eScenarios에 매핑하고, healthScore·flakyScore·trend 등 지표를 자동 계산한다.",
-  "status": "working",
+  "status": "needs-review",
   "parent": "F-001",
   "dependencies": [
     "F-010"
@@ -77,8 +77,8 @@
       "approach": "AI Runner가 'F-014: 테스트 연결 및 CI 동기화' 구현을 시작합니다.",
       "startedAt": "2026-03-08T10:09:06.1038580Z"
     },
-    "lastCompletedAt": "2026-03-08T09:38:27.7028341Z",
-    "lastCompletedBy": "runner-47000-092924",
+    "lastCompletedAt": "2026-03-08T10:10:47.5923840Z",
+    "lastCompletedBy": "runner-53444-100859",
     "review": {
       "source": "copilot-cli-review",
       "reviewedAt": "2026-03-08T09:39:29.7744250Z",
@@ -213,5 +213,5 @@
     "worktreeBranch": "runner/F-014"
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-08T10:09:06.1041559Z"
+  "updatedAt": "2026-03-08T10:10:47.5928856Z"
 }
