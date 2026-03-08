@@ -2,16 +2,16 @@
   "schemaVersion": 2,
   "id": "F-025",
   "nodeType": "feature",
-  "title": "\uC190\uC0C1 \uC2A4\uD399 JSON \uC9C4\uB2E8 \uBC0F \uC790\uB3D9 \uBCF5\uAD6C",
-  "description": "\uC2A4\uD399 \uD2B8\uB9AC\uC640 runner\uAC00 \uD30C\uC2F1 \uBD88\uAC00\uB2A5\uD55C \uC2A4\uD399 JSON\uC744 \uB2E8\uC21C \uD1A0\uC2A4\uD2B8\uB85C \uD758\uB9AC\uC9C0 \uC54A\uACE0 \uAD6C\uC870\uD654\uB41C \uC9C4\uB2E8 \uC815\uBCF4\uB85C \uCE90\uC2DC\uD55C \uB4A4, runner\uAC00 \uC77C\uBC18 \uAD6C\uD604 \uC791\uC5C5\uBCF4\uB2E4 \uC6B0\uC120\uC801\uC73C\uB85C \uBCF5\uAD6C\uB97C \uC2DC\uB3C4\uD558\uB3C4\uB85D \uB9CC\uB4DC\uB294 \uAE30\uB2A5. \uC190\uC0C1 \uD30C\uC77C\uC758 \uACBD\uB85C, \uBA54\uC2DC\uC9C0, line/column, \uAC10\uC9C0 \uC2DC\uAC01, \uCD5C\uADFC \uC6D0\uBCF8/\uBC31\uC5C5 \uC704\uCE58\uB97C \uCD94\uC801 \uAC00\uB2A5\uD558\uAC8C \uB0A8\uAE30\uACE0, \uBCF5\uAD6C \uC131\uACF5 \uC5EC\uBD80\uC640 \uC2E4\uD328 \uC0AC\uC720\uB3C4 \uCE90\uC2DC\uC640 \uB85C\uADF8\uC5D0 \uC774\uC5B4\uC11C \uAE30\uB85D\uD574\uC57C \uD55C\uB2E4.",
-  "status": "working",
+  "title": "손상 스펙 JSON 진단 및 자동 복구",
+  "description": "스펙 트리와 runner가 파싱 불가능한 스펙 JSON을 단순 토스트로 흘리지 않고 구조화된 진단 정보로 캐시한 뒤, runner가 일반 구현 작업보다 우선적으로 복구를 시도하도록 만드는 기능. 손상 파일의 경로, 메시지, line/column, 감지 시각, 최근 원본/백업 위치를 추적 가능하게 남기고, 복구 성공 여부와 실패 사유도 캐시와 로그에 이어서 기록해야 한다.",
+  "status": "needs-review",
   "parent": "F-010",
   "dependencies": [],
   "conditions": [
     {
       "id": "F-025-C1",
       "nodeType": "condition",
-      "description": "Given \uC2A4\uD399 \uD2B8\uB9AC\uB098 \uADF8\uB798\uD504 \uB85C\uB354\uAC00 \uC2A4\uD399 JSON \uD30C\uC77C\uC744 \uC77D\uB294 \uC911 SyntaxError \uB610\uB294 \uC5ED\uC9C1\uB82C\uD654 \uC624\uB958\uB97C \uB9CC\uB0A8, When \uD574\uB2F9 \uD30C\uC77C\uC744 \uAC74\uB108\uB6F0\uC5B4 \uB85C\uB529\uC744 \uACC4\uC18D\uD574\uC57C \uD568, Then loader\uB294 spec ID, \uD30C\uC77C \uACBD\uB85C, \uC6D0\uBCF8 \uC624\uB958 \uBA54\uC2DC\uC9C0, line/column, \uAC10\uC9C0 \uC2DC\uAC01, \uD30C\uC77C \uD574\uC2DC \uB610\uB294 mtime\uC744 \uD3EC\uD568\uD55C \uAD6C\uC870\uD654\uB41C \uC9C4\uB2E8 \uB808\uCF54\uB4DC\uB97C .flow/spec-cache \uD558\uC704\uC758 \uCD94\uC801 \uAC00\uB2A5\uD55C \uC704\uCE58\uC5D0 \uAE30\uB85D\uD558\uACE0 \uAE30\uC874 healthy spec \uB85C\uB529\uC740 \uACC4\uC18D\uD55C\uB2E4.",
+      "description": "Given 스펙 트리나 그래프 로더가 스펙 JSON 파일을 읽는 중 SyntaxError 또는 역직렬화 오류를 만남, When 해당 파일을 건너뛰어 로딩을 계속해야 함, Then loader는 spec ID, 파일 경로, 원본 오류 메시지, line/column, 감지 시각, 파일 해시 또는 mtime을 포함한 구조화된 진단 레코드를 .flow/spec-cache 하위의 추적 가능한 위치에 기록하고 기존 healthy spec 로딩은 계속한다.",
       "status": "draft",
       "codeRefs": [
         "tools/flow-ext/src/specLoader.ts",
@@ -23,7 +23,7 @@
     {
       "id": "F-025-C2",
       "nodeType": "condition",
-      "description": "Given \uC190\uC0C1 \uC2A4\uD399 \uC9C4\uB2E8 \uB808\uCF54\uB4DC\uAC00 \uC874\uC7AC, When \uC0AC\uC6A9\uC790\uAC00 \uC2A4\uD399 \uD2B8\uB9AC \uC0C8\uB85C\uACE0\uCE68, \uB514\uBC84\uADF8 \uC815\uBCF4 \uD655\uC778, \uB610\uB294 \uAD00\uB828 \uD1A0\uC2A4\uD2B8\uB97C \uBD04, Then UI\uB294 \uB2E8\uC21C \uC2E4\uD328 \uBA54\uC2DC\uC9C0 \uB300\uC2E0 \uC5B4\uB5A4 \uC2A4\uD399\uC774 \uC65C \uAE68\uC84C\uB294\uC9C0\uC640 \uC9C4\uB2E8 \uCE90\uC2DC \uC874\uC7AC \uC5EC\uBD80\uB97C \uD655\uC778 \uAC00\uB2A5\uD558\uAC8C \uB178\uCD9C\uD558\uACE0, \uC190\uC0C1 \uC2A4\uD399 \uB54C\uBB38\uC5D0 \uC804\uCCB4 \uD2B8\uB9AC/\uADF8\uB798\uD504\uAC00 \uBE48 \uD654\uBA74\uC774 \uB418\uC9C0 \uC54A\uC544\uC57C \uD55C\uB2E4.",
+      "description": "Given 손상 스펙 진단 레코드가 존재, When 사용자가 스펙 트리 새로고침, 디버그 정보 확인, 또는 관련 토스트를 봄, Then UI는 단순 실패 메시지 대신 어떤 스펙이 왜 깨졌는지와 진단 캐시 존재 여부를 확인 가능하게 노출하고, 손상 스펙 때문에 전체 트리/그래프가 빈 화면이 되지 않아야 한다.",
       "status": "draft",
       "codeRefs": [
         "tools/flow-ext/src/specLoader.ts",
@@ -36,7 +36,7 @@
     {
       "id": "F-025-C3",
       "nodeType": "condition",
-      "description": "Given runner\uAC00 \uC0C8 \uC791\uC5C5 \uC0AC\uC774\uD074\uC744 \uC2DC\uC791\uD558\uACE0 \uC190\uC0C1 \uC2A4\uD399 \uC9C4\uB2E8 \uCE90\uC2DC \uB610\uB294 fresh scan \uACB0\uACFC\uC5D0 \uBBF8\uD574\uACB0 JSON \uC624\uB958\uAC00 \uC874\uC7AC, When \uCC98\uB9AC \uB300\uC0C1\uC744 \uC120\uD0DD\uD568, Then runner\uB294 \uC77C\uBC18 queued \uAD6C\uD604 \uC2A4\uD399\uBCF4\uB2E4 JSON \uBCF5\uAD6C \uD6C4\uBCF4\uB97C \uCD5C\uC6B0\uC120 readiness \uADF8\uB8F9\uC73C\uB85C \uC2B9\uACA9\uD558\uACE0 \uC120\uD0DD \uADFC\uAC70\uB97C \uB85C\uADF8\uC640 metadata.selectionReason \uB610\uB294 \uB3D9\uB4F1\uD55C \uC9C4\uB2E8 \uBA54\uD0C0\uB370\uC774\uD130\uC5D0 \uAE30\uB85D\uD55C\uB2E4.",
+      "description": "Given runner가 새 작업 사이클을 시작하고 손상 스펙 진단 캐시 또는 fresh scan 결과에 미해결 JSON 오류가 존재, When 처리 대상을 선택함, Then runner는 일반 queued 구현 스펙보다 JSON 복구 후보를 최우선 readiness 그룹으로 승격하고 선택 근거를 로그와 metadata.selectionReason 또는 동등한 진단 메타데이터에 기록한다.",
       "status": "draft",
       "codeRefs": [
         "tools/flow-cli/Services/Runner/RunnerService.cs",
@@ -48,7 +48,7 @@
     {
       "id": "F-025-C4",
       "nodeType": "condition",
-      "description": "Given runner\uAC00 \uC190\uC0C1 \uC2A4\uD399 JSON \uBCF5\uAD6C\uB97C \uC2DC\uB3C4, When \uC790\uB3D9 \uC218\uC815 \uD504\uB86C\uD504\uD2B8 \uB610\uB294 \uBCF5\uAD6C \uB8E8\uD2F4\uC744 \uC2E4\uD589\uD568, Then \uCD5C\uADFC \uC815\uC0C1 \uBC31\uC5C5, \uCE90\uC2DC \uC9C4\uB2E8, \uC778\uC811 \uC2A4\uD399 \uCC38\uC870, \uAE30\uC874 \uD30C\uC77C \uB0B4\uC6A9\uB9CC\uC744 \uADFC\uAC70\uB85C \uCD5C\uC18C \uC218\uC815 \uC6D0\uCE59\uC744 \uC801\uC6A9\uD558\uACE0 \uBCF5\uAD6C \uD6C4\uC5D0\uB294 spec-validate \uC218\uC900\uC758 \uC7AC\uAC80\uC99D\uC744 \uC218\uD589\uD574 \uC5EC\uC804\uD788 \uD30C\uC2F1 \uC2E4\uD328\uBA74 \uC790\uB3D9 \uAD6C\uD604 \uD050\uC5D0 \uBB34\uD55C \uC7AC\uD22C\uC785\uD558\uC9C0 \uC54A\uACE0 \uC2E4\uD328 \uC0AC\uC720\uB97C \uB0A8\uAE34 \uCC44 \uAC80\uD1A0 \uB300\uC0C1\uC73C\uB85C \uC2B9\uACA9\uD55C\uB2E4.",
+      "description": "Given runner가 손상 스펙 JSON 복구를 시도, When 자동 수정 프롬프트 또는 복구 루틴을 실행함, Then 최근 정상 백업, 캐시 진단, 인접 스펙 참조, 기존 파일 내용만을 근거로 최소 수정 원칙을 적용하고 복구 후에는 spec-validate 수준의 재검증을 수행해 여전히 파싱 실패면 자동 구현 큐에 무한 재투입하지 않고 실패 사유를 남긴 채 검토 대상으로 승격한다.",
       "status": "draft",
       "codeRefs": [
         "tools/flow-cli/Services/Runner/RunnerService.cs",
@@ -61,7 +61,7 @@
     {
       "id": "F-025-C5",
       "nodeType": "condition",
-      "description": "Given \uC190\uC0C1 \uC2A4\uD399\uC774 \uC218\uB3D9 \uB610\uB294 \uC790\uB3D9\uC73C\uB85C \uBCF5\uAD6C\uB418\uC5C8\uAC70\uB098 \uBC18\uB300\uB85C \uBCF5\uAD6C \uC2E4\uD328\uAC00 \uB204\uC801\uB428, When \uB2E4\uC74C \uB85C\uB4DC/runner \uC8FC\uAE30\uAC00 \uC218\uD589\uB428, Then \uC9C4\uB2E8 \uCE90\uC2DC\uB294 resolved \uB610\uB294 escalated \uC0C1\uD0DC\uC640 \uB9C8\uC9C0\uB9C9 \uAC80\uC99D \uC2DC\uAC01\uC744 \uBC18\uC601\uD558\uB3C4\uB85D \uAC31\uC2E0\uB418\uACE0 stale \uC624\uB958 \uB808\uCF54\uB4DC\uB294 \uC815\uB9AC\uB418\uBA70 \uBCF5\uAD6C \uC774\uB825\uC740 \uB85C\uADF8\uC5D0\uC11C \uCD94\uC801 \uAC00\uB2A5\uD574\uC57C \uD55C\uB2E4.",
+      "description": "Given 손상 스펙이 수동 또는 자동으로 복구되었거나 반대로 복구 실패가 누적됨, When 다음 로드/runner 주기가 수행됨, Then 진단 캐시는 resolved 또는 escalated 상태와 마지막 검증 시각을 반영하도록 갱신되고 stale 오류 레코드는 정리되며 복구 이력은 로그에서 추적 가능해야 한다.",
       "status": "draft",
       "codeRefs": [
         "tools/flow-ext/src/specLoader.ts",
@@ -101,25 +101,25 @@
     "runnerStartedAt": "2026-03-08T01:30:49.1713087Z",
     "implementationPlan": {
       "triggeredFrom": "queued",
-      "approach": "AI Runner\uAC00 \u0027F-025: \uC190\uC0C1 \uC2A4\uD399 JSON \uC9C4\uB2E8 \uBC0F \uC790\uB3D9 \uBCF5\uAD6C\u0027 \uAD6C\uD604\uC744 \uC2DC\uC791\uD569\uB2C8\uB2E4.",
-      "startedAt": "2026-03-07T12:51:24.5635605Z"
+      "approach": "AI Runner가 'F-025: 손상 스펙 JSON 진단 및 자동 복구' 구현을 시작합니다.",
+      "startedAt": "2026-03-08T01:30:49.1713100Z"
     },
-    "lastCompletedAt": "2026-03-07T13:03:28.0656237Z",
-    "lastCompletedBy": "runner-26716-121928",
+    "lastCompletedAt": "2026-03-08T01:40:04.0130485Z",
+    "lastCompletedBy": "runner-7472-011050",
     "review": {
       "source": "copilot-cli-review",
       "reviewedAt": "2026-03-08T01:17:37.5992955Z",
       "reviewedBy": "runner-7472-011050",
-      "summary": "\uC790\uB3D9 \uAC80\uD1A0 \uACB0\uACFC\uB97C \uAD6C\uC870\uD654\uD558\uC9C0 \uBABB\uD574 \uC7AC\uC2DC\uB3C4 \uB300\uAE30\uC5F4\uB85C \uB418\uB3CC\uB9BD\uB2C8\uB2E4.",
+      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
       "failureReasons": [
-        "Copilot \uAC80\uD1A0 \uACB0\uACFC\uB97C JSON\uC73C\uB85C \uD574\uC11D\uD558\uC9C0 \uBABB\uD588\uC2B5\uB2C8\uB2E4."
+        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
       ],
       "alternatives": [
-        "\uAD6C\uD604 \uB85C\uADF8\uC640 \uBCC0\uACBD \uD30C\uC77C\uC744 \uD655\uC778\uD55C \uB4A4 \uC7AC\uC2DC\uB3C4\uD569\uB2C8\uB2E4."
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
       ],
       "suggestedAttempts": [
-        "Copilot \uAC80\uD1A0 \uD504\uB86C\uD504\uD2B8\uB97C \uB2E4\uC2DC \uC2E4\uD589\uD569\uB2C8\uB2E4.",
-        "\uC6D0\uC778 \uB85C\uADF8\uB97C \uD655\uC778\uD55C \uB4A4 queued \uC0C1\uD0DC\uC5D0\uC11C \uC7AC\uC791\uC5C5\uD569\uB2C8\uB2E4."
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
       ],
       "requiresUserInput": false,
       "additionalInformationRequests": []
@@ -139,5 +139,5 @@
     }
   },
   "createdAt": "2026-03-07T12:47:28.6228976Z",
-  "updatedAt": "2026-03-08T01:17:37.5993561Z"
+  "updatedAt": "2026-03-08T01:40:04.0134750Z"
 }
