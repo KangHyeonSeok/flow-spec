@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "공통 JSON 요청 스키마 및 디스패처 도입",
   "description": "모든 flow 명령이 공유할 JSON 요청 envelope와 내부 디스패처를 정의한다. 명령 식별자, 서브커맨드, payload, 옵션, 실행 컨텍스트를 공통 모델로 표준화하고, 단일 진입점에서 적절한 명령 핸들러로 위임하는 기반 작업이다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-002",
   "dependencies": [],
   "conditions": [
@@ -73,36 +73,80 @@
     "lastCompletedBy": "runner-30896-021108",
     "review": {
       "source": "copilot-cli-review",
-      "reviewedAt": "2026-03-08T02:04:24.0841538Z",
-      "reviewedBy": "runner-7472-011050",
-      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "reviewedAt": "2026-03-08T02:37:41.2927880Z",
+      "reviewedBy": "runner-4380-023636",
+      "summary": "자동 검토가 Copilot 출력의 구조화된 JSON을 해석하지 못해 재작업이 필요합니다.",
       "failureReasons": [
-        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+        "자동 리뷰 결과를 JSON으로 파싱하지 못함",
+        "구현 로그 및 검증 증거 부족으로 실패 원인 재현 불가"
       ],
       "alternatives": [
-        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+        "구현 로그와 변경 파일(diff)을 수집해 재시도",
+        "수동 검토로 구체적 실패 원인을 기록하고 재요청"
       ],
       "suggestedAttempts": [
-        "Copilot 검토 프롬프트를 다시 실행합니다.",
-        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+        "구현 로그(빌드·런타임)와 변경 파일을 첨부한 뒤 spec-append-review 재실행",
+        "검증 테스트와 샘플 JSON 페이로드를 추가하여 검증 케이스를 확보"
       ],
-      "requiresUserInput": false,
-      "additionalInformationRequests": []
+      "requiresUserInput": true,
+      "additionalInformationRequests": [
+        "빌드 및 실행 로그",
+        "변경된 파일 목록과 diff",
+        "샘플 요청 JSON 페이로드"
+      ]
     },
-    "questions": [],
-    "reviewDisposition": "retry-queued",
-    "requiresUserInput": false,
-    "plannerState": "standby",
-    "lastReviewAt": "2026-03-08T02:04:24.0841538Z",
-    "lastReviewBy": "runner-7472-011050",
+    "questions": [
+      {
+        "id": "F-003-Q1",
+        "type": "user-decision",
+        "question": "자동 파싱 실패 시 수동 검토(로그/파일 검토)를 진행할까요?",
+        "why": "자동 검토만으로는 실패 원인을 재현하고 정확한 조치를 결정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T02:37:41.2927880Z",
+        "requestedBy": "runner-4380-023636"
+      },
+      {
+        "id": "F-003-Q2",
+        "type": "missing-info",
+        "question": "빌드 및 실행 로그",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T02:37:41.2927880Z",
+        "requestedBy": "runner-4380-023636"
+      },
+      {
+        "id": "F-003-Q3",
+        "type": "missing-info",
+        "question": "변경된 파일 목록과 diff",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T02:37:41.2927880Z",
+        "requestedBy": "runner-4380-023636"
+      },
+      {
+        "id": "F-003-Q4",
+        "type": "missing-info",
+        "question": "샘플 요청 JSON 페이로드",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T02:37:41.2927880Z",
+        "requestedBy": "runner-4380-023636"
+      }
+    ],
+    "reviewDisposition": "needs-user-decision",
+    "requiresUserInput": true,
+    "plannerState": "waiting-user-input",
+    "lastReviewAt": "2026-03-08T02:37:41.2927880Z",
+    "lastReviewBy": "runner-4380-023636",
     "selectionReason": {
       "selectedAt": "2026-03-08T02:14:52.3921746Z",
       "issuePriorityScore": 0,
       "isFallback": true,
       "rank": 1,
       "totalCandidates": 27
-    }
+    },
+    "questionStatus": "waiting-user-input"
   },
   "createdAt": "2026-03-07T04:04:25.0823518Z",
-  "updatedAt": "2026-03-08T02:15:53.5883813Z"
+  "updatedAt": "2026-03-08T02:37:41.2981189Z"
 }

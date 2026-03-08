@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "JSON 기반 통합 명령 요청/응답",
   "description": "flow CLI의 모든 기능이 분리된 positional/option 인자 조합 대신 공통 JSON 요청 계약을 기본 입력으로 받아 처리하도록 표준화하고, 실행 결과와 오류도 동일한 JSON 응답 계약으로 출력하는 기능. build/spec/db/test/runner/config 등 기존 명령군은 내부적으로 공통 요청 DTO와 응답 DTO를 사용하도록 수렴하며, stdin/file/direct string 입력과 기계 친화적 오류 보고를 지원한다.",
-  "status": "queued",
+  "status": "working",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -102,12 +102,12 @@
   "mutatedBy": [],
   "changeLog": [],
   "metadata": {
-    "runnerInstanceId": "runner-30896-021108",
-    "runnerStartedAt": "2026-03-08T02:11:15.3916020Z",
+    "runnerInstanceId": "runner-4380-023636",
+    "runnerStartedAt": "2026-03-08T02:36:45.0701574Z",
     "implementationPlan": {
       "triggeredFrom": "queued",
       "approach": "AI Runner가 'F-002: JSON 기반 통합 명령 요청/응답' 구현을 시작합니다.",
-      "startedAt": "2026-03-08T02:11:15.3916111Z"
+      "startedAt": "2026-03-08T02:36:45.0701640Z"
     },
     "lastCompletedAt": "2026-03-08T02:14:48.1965774Z",
     "lastCompletedBy": "runner-30896-021108",
@@ -136,13 +136,13 @@
     "lastReviewAt": "2026-03-08T02:26:22.6771277Z",
     "lastReviewBy": "runner-9752-021805",
     "selectionReason": {
-      "selectedAt": "2026-03-08T02:11:15.3484363Z",
+      "selectedAt": "2026-03-08T02:36:45.0347768Z",
       "issuePriorityScore": 0,
       "isFallback": true,
       "rank": 1,
-      "totalCandidates": 26
+      "totalCandidates": 28
     }
   },
   "createdAt": "2026-03-07T04:02:46.6346598Z",
-  "updatedAt": "2026-03-08T02:26:22.6771828Z"
+  "updatedAt": "2026-03-08T02:36:45.0703116Z"
 }
