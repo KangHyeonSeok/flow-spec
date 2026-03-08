@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "유휴 상태 worktree 점검 및 정리",
   "description": "Runner가 처리할 queued 스펙, 비정상 종료 후 queued로 복귀한 복구 대상 스펙, 검토 재시도 대상이 없어 대기해야 할 때 남아 있는 runner 전용 git worktree를 점검하고 안전하게 비우는 기능. idle 주기마다 git worktree 목록을 조회해 runner가 만든 worktree를 수집하고, 현재 활성 작업과 무관한 잔여 worktree만 정리한다. 단, 미커밋 변경, 머지 충돌, 복구 대상 스펙 연계 등 사람이 확인해야 하는 흔적이 있으면 자동 삭제하지 않고 로그와 메타데이터에 남긴다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-070",
   "dependencies": [
     "F-090"
@@ -90,8 +90,32 @@
       "startedAt": "2026-03-07T17:57:01.7839570Z"
     },
     "lastError": "머지 실패",
-    "lastErrorAt": "2026-03-07T18:13:05.1895710Z"
+    "lastErrorAt": "2026-03-07T18:13:05.1895710Z",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:43:44.7615418Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 파싱 실패. 마지막 오류: 머지 실패",
+      "failureReasons": [
+        "마지막 오류: 머지 실패"
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:43:44.7615418Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-07T11:57:00.6222569Z",
-  "updatedAt": "2026-03-07T18:13:05.1895850Z"
+  "updatedAt": "2026-03-08T01:43:44.7615777Z"
 }
