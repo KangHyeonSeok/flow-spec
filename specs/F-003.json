@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "공통 JSON 요청 스키마 및 디스패처 도입",
   "description": "모든 flow 명령이 공유할 JSON 요청 envelope와 내부 디스패처를 정의한다. 명령 식별자, 서브커맨드, payload, 옵션, 실행 컨텍스트를 공통 모델로 표준화하고, 단일 진입점에서 적절한 명령 핸들러로 위임하는 기반 작업이다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-002",
   "dependencies": [],
   "conditions": [
@@ -73,7 +73,7 @@
     "lastCompletedBy": "runner-7472-011050",
     "review": {
       "source": "copilot-cli-review",
-      "reviewedAt": "2026-03-08T01:13:57.0025621Z",
+      "reviewedAt": "2026-03-08T02:04:24.0841538Z",
       "reviewedBy": "runner-7472-011050",
       "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
       "failureReasons": [
@@ -93,7 +93,7 @@
     "reviewDisposition": "retry-queued",
     "requiresUserInput": false,
     "plannerState": "standby",
-    "lastReviewAt": "2026-03-08T01:13:57.0025621Z",
+    "lastReviewAt": "2026-03-08T02:04:24.0841538Z",
     "lastReviewBy": "runner-7472-011050",
     "selectionReason": {
       "selectedAt": "2026-03-08T01:27:02.3901283Z",
@@ -104,5 +104,5 @@
     }
   },
   "createdAt": "2026-03-07T04:04:25.0823518Z",
-  "updatedAt": "2026-03-08T01:30:44.9951387Z"
+  "updatedAt": "2026-03-08T02:04:24.0842001Z"
 }
