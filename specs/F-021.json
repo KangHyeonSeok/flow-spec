@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "스펙 대체 및 변형 변경 관리",
   "description": "새 요구사항이 기존 스펙을 그대로 보완하는 수준인지, 일부 의미를 바꾸는 변형인지, 기존 스펙을 사실상 대체하는 신규 스펙인지 구분해 안전하게 처리하는 변경 관리 규칙. 단순 보완은 기존 스펙을 제자리 수정하되 변경 이력을 남기고, 의미 변화나 대체는 새 스펙을 만들고 기존 스펙과의 관계를 명시하여 runner와 UI가 혼란 없이 해석할 수 있어야 한다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-010",
   "dependencies": [
     "F-011",
@@ -123,8 +123,32 @@
       "startedAt": "2026-03-07T19:46:15.1798520Z"
     },
     "lastCompletedAt": "2026-03-07T20:07:34.0435090Z",
-    "lastCompletedBy": "runner-82653-165628"
+    "lastCompletedBy": "runner-82653-165628",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:56:47.5695729Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "failureReasons": [
+        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:56:47.5695729Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-07T12:33:21.0892084Z",
-  "updatedAt": "2026-03-07T20:07:34.0435280Z"
+  "updatedAt": "2026-03-08T01:56:47.5696692Z"
 }
