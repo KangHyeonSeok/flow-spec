@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "임베딩 및 RAG 검색",
   "description": "문서 임베딩 생성 및 벡터 검색 기반 RAG 기능",
-  "status": "queued",
+  "status": "needs-review",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -58,15 +58,15 @@
   "mutatedBy": [],
   "changeLog": [],
   "metadata": {
-    "runnerInstanceId": "runner-26716-121928",
-    "runnerStartedAt": "2026-03-07T12:42:13.8171560Z",
+    "runnerInstanceId": "runner-7472-011050",
+    "runnerStartedAt": "2026-03-08T01:40:08.6814768Z",
     "implementationPlan": {
       "triggeredFrom": "queued",
       "approach": "AI Runner가 'F-030: 임베딩 및 RAG 검색' 구현을 시작합니다.",
-      "startedAt": "2026-03-07T12:42:13.8171579Z"
+      "startedAt": "2026-03-08T01:40:08.6814779Z"
     },
-    "lastCompletedAt": "2026-03-07T12:46:18.8596652Z",
-    "lastCompletedBy": "runner-26716-121928",
+    "lastCompletedAt": "2026-03-08T01:43:35.1082120Z",
+    "lastCompletedBy": "runner-7472-011050",
     "review": {
       "source": "copilot-cli-review",
       "reviewedAt": "2026-03-08T01:15:23.9354156Z",
@@ -90,8 +90,15 @@
     "requiresUserInput": false,
     "plannerState": "standby",
     "lastReviewAt": "2026-03-08T01:15:23.9354156Z",
-    "lastReviewBy": "runner-7472-011050"
+    "lastReviewBy": "runner-7472-011050",
+    "selectionReason": {
+      "selectedAt": "2026-03-08T01:40:08.6805075Z",
+      "issuePriorityScore": 0,
+      "isFallback": true,
+      "rank": 1,
+      "totalCandidates": 15
+    }
   },
   "createdAt": "2026-02-01T00:00:00Z",
-  "updatedAt": "2026-03-08T01:15:23.9354608Z"
+  "updatedAt": "2026-03-08T01:43:35.1082523Z"
 }
