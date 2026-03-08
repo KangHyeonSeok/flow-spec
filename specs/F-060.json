@@ -111,31 +111,77 @@
     },
     "review": {
       "source": "copilot-cli-review",
-      "reviewedAt": "2026-03-08T02:24:26.3122459Z",
-      "reviewedBy": "runner-9752-021805",
-      "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
+      "reviewedAt": "2026-03-08T04:43:23.6883692Z",
+      "reviewedBy": "runner-40844-044047",
+      "summary": "편집 관련 조건들이 아직 draft 상태여서 자동 검토만으로 완료 판단이 불가능하므로 재작업이 필요합니다.",
       "failureReasons": [
-        "Copilot 검토 결과를 JSON으로 해석하지 못했습니다."
+        "편집(노드 추가/수정/삭제) 및 성능 관련 조건(F-060-C4~C6)이 draft이며 구현·증빙이 없음",
+        "관련 codeRefs가 비어 있어 편집·저장 로직의 참조가 없음",
+        "대규모 그래프 성능 목표에 대한 벤치마크나 테스트가 제공되지 않음"
       ],
       "alternatives": [
-        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+        "편집 기능을 별도 task로 분리하여 단계적으로 구현",
+        "우선 C4(편집 모드)만 우선 구현 후 C5/C6은 이후에 구현",
+        "성능 목표를 현실적으로 조정하여 스펙을 수정"
       ],
       "suggestedAttempts": [
-        "Copilot 검토 프롬프트를 다시 실행합니다.",
-        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+        "편집 기능 관련 코드 또는 설계 문서를 추가하고 evidence/tests를 포함하여 조건을 verified로 업데이트",
+        "소규모 및 대규모 그래프 시나리오에서 성능 측정을 위한 벤치마크 스크립트 및 결과를 첨부",
+        "우선순위와 범위를 결정한 뒤 queued 상태로 되돌려 Runner에게 구현 재시도 지시"
       ],
-      "requiresUserInput": false,
-      "additionalInformationRequests": []
+      "requiresUserInput": true,
+      "additionalInformationRequests": [
+        "편집 기능 구현 범위(예: 즉시 파일 쓰기 vs 임시 저장 후 일괄 적용)",
+        "허용 가능한 성능 목표(예: 초기 렌더 2초, 인터랙션 응답 100ms가 확정인지 여부)"
+      ]
     },
-    "questions": [],
-    "reviewDisposition": "retry-queued",
-    "requiresUserInput": false,
-    "plannerState": "standby",
-    "lastReviewAt": "2026-03-08T02:24:26.3122459Z",
-    "lastReviewBy": "runner-9752-021805",
+    "questions": [
+      {
+        "id": "F-060-Q1",
+        "type": "user-decision",
+        "question": "편집 기능(F-060-C4~C6)을 지금 우선 구현할까요, 아니면 기능을 분리하여 단계적으로 도입할까요?",
+        "why": "우선순위가 계획·실행 방식에 직접적인 영향을 미치므로 Runner가 다음 작업을 결정하려면 필요합니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:43:23.6883692Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-060-Q2",
+        "type": "clarification",
+        "question": "대규모 그래프 성능 목표(초/응답ms)가 현실적인가요?",
+        "why": "목표가 너무 공격적이면 구현·테스트 전략이 달라집니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:43:23.6883692Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-060-Q3",
+        "type": "missing-info",
+        "question": "편집 기능 구현 범위(예: 즉시 파일 쓰기 vs 임시 저장 후 일괄 적용)",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:43:23.6883692Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-060-Q4",
+        "type": "missing-info",
+        "question": "허용 가능한 성능 목표(예: 초기 렌더 2초, 인터랙션 응답 100ms가 확정인지 여부)",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:43:23.6883692Z",
+        "requestedBy": "runner-40844-044047"
+      }
+    ],
+    "reviewDisposition": "needs-user-decision",
+    "requiresUserInput": true,
+    "plannerState": "waiting-user-input",
+    "lastReviewAt": "2026-03-08T04:43:23.6883692Z",
+    "lastReviewBy": "runner-40844-044047",
     "lastCompletedAt": "2026-03-08T04:17:17.6950520Z",
-    "lastCompletedBy": "runner-28888-041204"
+    "lastCompletedBy": "runner-28888-041204",
+    "questionStatus": "waiting-user-input"
   },
   "createdAt": "2026-02-15T00:00:00Z",
-  "updatedAt": "2026-03-08T04:17:17.6951021Z"
+  "updatedAt": "2026-03-08T04:43:23.6921657Z"
 }
