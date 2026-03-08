@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "스펙 원격 저장소 Push",
   "description": "로컬 스펙 변경사항을 원격 git 저장소에 명시적으로 push하는 기능. CLI 명령(spec-push)으로 git add·commit·push를 일괄 수행하고, VSCode 스펙 트리뷰 타이틀바에 Push 버튼을 제공하여 미push 커밋이 있을 때 즉시 push할 수 있다. 자동 push 대신 명시적 트리거 방식을 채택하여 여러 스펙 변경을 하나의 커밋으로 묶을 수 있다.",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-001",
   "dependencies": [
     "F-060"
@@ -104,8 +104,32 @@
       "startedAt": "2026-03-07T17:20:57.0837430Z"
     },
     "lastError": "머지 실패",
-    "lastErrorAt": "2026-03-07T17:28:47.8582690Z"
+    "lastErrorAt": "2026-03-07T17:28:47.8582690Z",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T01:39:34.9167959Z",
+      "reviewedBy": "runner-7472-011050",
+      "summary": "자동 검토 파싱 실패. 마지막 오류: 머지 실패",
+      "failureReasons": [
+        "마지막 오류: 머지 실패"
+      ],
+      "alternatives": [
+        "구현 로그와 변경 파일을 확인한 뒤 재시도합니다."
+      ],
+      "suggestedAttempts": [
+        "Copilot 검토 프롬프트를 다시 실행합니다.",
+        "원인 로그를 확인한 뒤 queued 상태에서 재작업합니다."
+      ],
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
+    },
+    "questions": [],
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
+    "lastReviewAt": "2026-03-08T01:39:34.9167959Z",
+    "lastReviewBy": "runner-7472-011050"
   },
   "createdAt": "2026-03-05T12:48:46.0152659Z",
-  "updatedAt": "2026-03-07T17:28:47.8583090Z"
+  "updatedAt": "2026-03-08T01:39:34.9168529Z"
 }
