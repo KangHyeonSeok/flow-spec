@@ -21,7 +21,13 @@
       ],
       "evidence": [],
       "tests": [
-        "tools/flow-cli.Tests/RunnerConfigDefaultsTests.cs"
+        {
+          "testId": "tools/flow-cli.Tests/RunnerConfigDefaultsTests.cs",
+          "name": "tools/flow-cli.Tests/RunnerConfigDefaultsTests.cs",
+          "status": "",
+          "quarantined": false,
+          "flakyHistory": []
+        }
       ]
     },
     {
@@ -68,7 +74,13 @@
       ],
       "evidence": [],
       "tests": [
-        "tools/flow-cli.Tests/RunnerConfigDefaultsTests.cs"
+        {
+          "testId": "tools/flow-cli.Tests/RunnerConfigDefaultsTests.cs",
+          "name": "tools/flow-cli.Tests/RunnerConfigDefaultsTests.cs",
+          "status": "",
+          "quarantined": false,
+          "flakyHistory": []
+        }
       ]
     }
   ],
@@ -104,8 +116,69 @@
       "startedAt": "2026-03-07T16:56:30.1403360Z"
     },
     "lastCompletedAt": "2026-03-07T17:12:16.7220000Z",
-    "lastCompletedBy": "copilot-cli"
+    "lastCompletedBy": "copilot-cli",
+    "review": {
+      "source": "copilot-cli-review",
+      "reviewedAt": "2026-03-08T04:41:49.6508261Z",
+      "reviewedBy": "runner-40844-044047",
+      "summary": "Runner 상태 전환 직후 즉시 재스케줄을 보장해야 하며, 현재 설계에서 캐시 무효화와 debounce 정책이 불명확합니다.",
+      "failureReasons": [
+        "상태 전환 직후에도 stale 캐시가 재사용될 위험",
+        "debounce/상한 정책 미정의로 중복 루프 또는 busy wait 위험",
+        "관련 단위/통합 테스트와 로그 보존 요구사항이 불충분함"
+      ],
+      "alternatives": [
+        "선택적 즉시 재스케줄 플래그를 도입해 안전모드 제공",
+        "재스케줄 트리거를 이벤트 기반으로 변경해 즉시 반응성 향상",
+        "debounce 정책과 최대 재시도 회수 명세를 추가"
+      ],
+      "suggestedAttempts": [
+        "재스케줄 시 최신 스펙 그래프 강제 리프레시 및 캐시 무효화 추가",
+        "cycle 상한과 debounce 윈도우를 명세화하고 기본값을 문서화",
+        "관련 단위/통합 테스트 케이스와 로그 필드 검증 추가"
+      ],
+      "requiresUserInput": true,
+      "additionalInformationRequests": [
+        "허용 가능한 debounce 시간 범위(최소/최대) 및 최대 반복 재스케줄 횟수",
+        "즉시 재스케줄 시 로그에 포함되어야 할 구체 필드 목록"
+      ]
+    },
+    "questions": [
+      {
+        "id": "F-031-Q1",
+        "type": "user-decision",
+        "question": "즉시 재스케줄 동작의 기본 정책을 기본 활성화로 할지, 아니면 안전 모드(명시적 플래그 필요)로 할지 선택해 주시겠습니까?",
+        "why": "기본 동작은 런너의 처리량과 안정성에 큰 영향을 주므로 제품 소유자의 결정이 필요합니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:41:49.6508261Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-031-Q2",
+        "type": "missing-info",
+        "question": "허용 가능한 debounce 시간 범위(최소/최대) 및 최대 반복 재스케줄 횟수",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:41:49.6508261Z",
+        "requestedBy": "runner-40844-044047"
+      },
+      {
+        "id": "F-031-Q3",
+        "type": "missing-info",
+        "question": "즉시 재스케줄 시 로그에 포함되어야 할 구체 필드 목록",
+        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
+        "status": "open",
+        "requestedAt": "2026-03-08T04:41:49.6508261Z",
+        "requestedBy": "runner-40844-044047"
+      }
+    ],
+    "reviewDisposition": "needs-user-decision",
+    "requiresUserInput": true,
+    "plannerState": "waiting-user-input",
+    "lastReviewAt": "2026-03-08T04:41:49.6508261Z",
+    "lastReviewBy": "runner-40844-044047",
+    "questionStatus": "waiting-user-input"
   },
   "createdAt": "2026-03-07T13:48:31.1170606Z",
-  "updatedAt": "2026-03-07T17:12:16.7220000Z"
+  "updatedAt": "2026-03-08T04:41:49.6537705Z"
 }
