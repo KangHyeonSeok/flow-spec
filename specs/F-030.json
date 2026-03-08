@@ -4,7 +4,7 @@
   "nodeType": "feature",
   "title": "임베딩 및 RAG 검색",
   "description": "문서 임베딩 생성 및 벡터 검색 기반 RAG 기능",
-  "status": "needs-review",
+  "status": "queued",
   "parent": "F-001",
   "dependencies": [],
   "conditions": [
@@ -69,7 +69,7 @@
     "lastCompletedBy": "runner-7472-011050",
     "review": {
       "source": "copilot-cli-review",
-      "reviewedAt": "2026-03-08T01:15:23.9354156Z",
+      "reviewedAt": "2026-03-08T02:08:37.9471479Z",
       "reviewedBy": "runner-7472-011050",
       "summary": "자동 검토 결과를 구조화하지 못해 재시도 대기열로 되돌립니다.",
       "failureReasons": [
@@ -89,7 +89,7 @@
     "reviewDisposition": "retry-queued",
     "requiresUserInput": false,
     "plannerState": "standby",
-    "lastReviewAt": "2026-03-08T01:15:23.9354156Z",
+    "lastReviewAt": "2026-03-08T02:08:37.9471479Z",
     "lastReviewBy": "runner-7472-011050",
     "selectionReason": {
       "selectedAt": "2026-03-08T01:40:08.6805075Z",
@@ -100,5 +100,5 @@
     }
   },
   "createdAt": "2026-02-01T00:00:00Z",
-  "updatedAt": "2026-03-08T01:43:35.1082523Z"
+  "updatedAt": "2026-03-08T02:08:37.9471994Z"
 }
