@@ -81,17 +81,15 @@
         "구현 로그 및 검증 증거 부족으로 실패 원인 재현 불가"
       ],
       "alternatives": [
-        "구현 로그와 변경 파일(diff)을 수집해 재시도",
+        "검토 출력 스키마와 직렬화 경로를 점검한 뒤 재시도",
         "수동 검토로 구체적 실패 원인을 기록하고 재요청"
       ],
       "suggestedAttempts": [
-        "구현 로그(빌드·런타임)와 변경 파일을 첨부한 뒤 spec-append-review 재실행",
+        "spec-append-review 입력 스키마와 생성 경로를 다시 점검한 뒤 재실행",
         "검증 테스트와 샘플 JSON 페이로드를 추가하여 검증 케이스를 확보"
       ],
       "requiresUserInput": true,
       "additionalInformationRequests": [
-        "빌드 및 실행 로그",
-        "변경된 파일 목록과 diff",
         "샘플 요청 JSON 페이로드"
       ]
     },
@@ -99,26 +97,8 @@
       {
         "id": "F-003-Q1",
         "type": "user-decision",
-        "question": "자동 파싱 실패 시 수동 검토(로그/파일 검토)를 진행할까요?",
+        "question": "자동 파싱 실패 시 수동 검토를 진행할까요?",
         "why": "자동 검토만으로는 실패 원인을 재현하고 정확한 조치를 결정하기 어렵습니다.",
-        "status": "open",
-        "requestedAt": "2026-03-08T02:37:41.2927880Z",
-        "requestedBy": "runner-4380-023636"
-      },
-      {
-        "id": "F-003-Q2",
-        "type": "missing-info",
-        "question": "빌드 및 실행 로그",
-        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
-        "status": "open",
-        "requestedAt": "2026-03-08T02:37:41.2927880Z",
-        "requestedBy": "runner-4380-023636"
-      },
-      {
-        "id": "F-003-Q3",
-        "type": "missing-info",
-        "question": "변경된 파일 목록과 diff",
-        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
         "status": "open",
         "requestedAt": "2026-03-08T02:37:41.2927880Z",
         "requestedBy": "runner-4380-023636"

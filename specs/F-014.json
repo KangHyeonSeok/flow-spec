@@ -83,121 +83,121 @@
       "source": "copilot-cli-review",
       "reviewedAt": "2026-03-08T02:22:48.4384936Z",
       "reviewedBy": "runner-9752-021805",
-      "summary": "?먮룞 寃\u0080??媛\u0080 援ъ“???? JSON 異??μ쓣 ?앹꽦?섏? 紐??? 由щ럭 ???????쇱씤?? ?ㅽ뙣?덇퀬, ?????? 議곌굔?ㅼ씠 紐⑤몢 draft ?곹깭?대ŉ 肄붾뱶/???? ?곗씠?? 李?議?媛\u0080 ?놁뼱 ???????? ?꾩슂?⑸땲??.",
+      "summary": "자동 검토가 구조화된 JSON 출력을 만들지 못해 리뷰 파이프라인이 실패했고, 모든 조건이 아직 draft 상태이며 코드 참조·증거·테스트 연결 정보가 없어 구현 방향을 먼저 고정해야 합니다.",
       "failureReasons": [
-        "?먮룞 由щ럭(???? Copilot 寃\u0080??)媛\u0080 癒몄떊-???? 媛\u0080?ν븳 JSON ?뺥깭濡? 寃곌낵瑜? 諛섑솚?섏? 紐???",
-        "紐??? conditions媛\u0080 draft ?곹깭濡? 援?泥??? 寃\u0080利? ?щ?(evidence/tests/codeRefs)媛\u0080 ?놁쓬",
-        "援?泥??? ?낅젰 ????(xUnit/Jest/pytest 寃곌낵 JSON)怨? 留??? 洹?移??? ?쒓났?섏? ????",
-        "????/???덉씠??(flakiness) 痢??? 怨듭떇 諛? ??怨?媛? ?곸슜 諛⑹떇?? 紐?????(???? ?먮룞議?移? 踰??? 遺?紐?)"
+        "자동 리뷰가 기계 판독 가능한 JSON 형태로 결과를 반환하지 못했습니다.",
+        "모든 conditions가 draft 상태이며 evidence, tests, codeRefs가 비어 있습니다.",
+        "입력 샘플인 xUnit/Jest/pytest 결과 파일과 매핑 규칙이 아직 정리되지 않았습니다.",
+        "flakyScore와 quarantine 처리 기준의 세부 정책이 확정되지 않았습니다."
       ],
       "alternatives": [
-        "?먮룞 由щ럭?? 異쒕젰 ???앹쓣 JSON ????留?濡? 媛??? 寃\u0080利??섎룄濡? ???????쇱씤?? 寃\u0080利??? 異붽?",
-        "???? 寃\u0080???먭? ???? ??紐?(留??? 洹?移?, ???? 寃곌낵, ???? 怨꾩궛??)?? 援ъ“???? ?낅젰?섍퀬 ??????",
-        "???? ???? ?곗씠???\u0080 ?묒? PoC(??: ?섎굹?? ?뚯뒪?? ???????뚰겕?? ?\u0080??)瑜? 援ы쁽?? 寃\u0080利? ?? ????",
-        "?????? 蹂???(conditions?? ????쨌????쨌異??? ?ы븿)?? ?? AI Runner ??????"
+        "자동 리뷰 출력 계약을 JSON 전용으로 좁혀 파이프라인 검증을 단순화합니다.",
+        "매핑 규칙, 샘플 결과 파일, healthScore 계산식을 먼저 문서화한 뒤 구현을 진행합니다.",
+        "작은 PoC로 한 가지 테스트 포맷부터 spec-test-sync 매핑을 검증합니다.",
+        "조건마다 필요한 입력 예시와 기대 결과를 보강한 뒤 AI Runner가 다시 시도하도록 합니다."
       ],
       "suggestedAttempts": [
-        "?먮룞 由щ럭 濡쒓렇?\u0080 蹂\u0080寃쎈맂 ?뚯씪(diff, runner 濡쒓렇)?? ?뺤씤?? JSON ?뚯떛 ?ㅽ뙣 ?먯씤 ?뚯븙",
-        "寃\u0080???꾨＼?꾪듃/異????? ?\u0080?? ??寃??? JSON ????留?瑜? ?뺤쓽?섍퀬 寃\u0080利? ?ㅽ뙣 ?? 紐????? ???? 諛섑솚?섎룄濡? ?섏젙",
-        "?\u0080?? xUnit/Jest/pytest 寃곌낵 ?뚯씪 1~3媛?瑜? 以\u0080鍮??? spec-test-sync瑜? 濡?而??먯꽌 ?ㅽ뻾?? 留??? ???? ?뺤씤",
-        "????쨌???? 怨꾩궛?? ?\u0080?? ???? ?뚯뒪??(??: flaky ????由???, 寃?怨?媛?)瑜? 異붽??섏뿬 ???? 媛\u0080???? ?뺣낫",
-        "conditions?? 援?泥??? ????(e.g., ?낅젰 JSON ????, ?덉긽 留??? 寃곌낵, expected healthScore 怨꾩궛 ??)瑜? 異붽?"
+        "리뷰 출력 스키마를 고정하고 실패 시에도 구조화된 오류를 반환하도록 조정합니다.",
+        "대표 xUnit/Jest/pytest 샘플 파일 1~3개로 로컬 매핑 동작을 먼저 검증합니다.",
+        "flaky 판단과 경고 임계값에 대한 테스트 케이스를 추가해 정책을 명문화합니다.",
+        "각 condition에 입력 예시, 기대 리포트, 예상 score 계산 예를 추가합니다."
       ],
-      "requiresUserInput": true,
-      "additionalInformationRequests": [
-        "?\u0080???곸씤 ?뚯뒪?? 寃곌낵(??: xUnit/JUnit XML, Jest JSON, pytest JSON) ???? ?뚯씪",
-        "?꾩옱 由???吏\u0080??由??먯꽌 ?뚯뒪??-???? ?곌껐?? ?ъ슜?섎뒗 ???????댁뀡/而?踰??? 洹?移?(??: Trait, @pytest.mark.spec) ????",
-        "??????肄??? 怨듭떇(passed - flakyPenalty)/total?? ?\u0080?? flakyPenalty 怨꾩궛 諛⑹떇 ?뺤쓽 ?먮뒗 ?먰븯?? ?\u0080泥? 怨듭떇",
-        "???덉씠?? ??吏\u0080 ??怨?媛?(?꾩옱 0.1)怨? quarantine 泥섎━(?먮룞 tag 遺\u0080?? 諛? CI job 遺?由?)瑜? ?먮룞?쇰줈 ??吏\u0080 ?щ?",
-        "???섎뒗 由????? 異쒕젰 ????(CLI ??, JSON 由?????, ?\u0080??蹂??? ???? ??)"
-      ]
+      "requiresUserInput": false,
+      "additionalInformationRequests": []
     },
     "questions": [
       {
         "id": "F-014-Q1",
         "type": "user-decision",
-        "question": "flakyScore ??怨?媛? 0.1怨? '???? 5??' 議곌굔?쇰줈 ?먮룞 quarantine 泥섎━(??洹? 遺\u0080?? 諛? CI job 遺?由?)瑜? ??긽 ?먮룞?????? ??源뚯슂?",
-        "why": "?먮룞?? ?섏?(???? ?뱀씤 vs ???? ?먮룞)?\u0080 CI ?곹뼢(???ㅽ듃 遺?由?, 鍮??? ?덉젙??)?? 吏곸젒?? ?곹뼢?? 誘?移?誘\u0080濡? ?뺤콉 寃곗젙?? ?꾩슂?⑸땲??.",
-        "status": "open",
+        "question": "flakyScore 경고값 0.1과 '연속 5회 flaky' 조건을 기준으로 quarantine 처리(태그 부여 및 CI job 분리)를 항상 자동화할까요?",
+        "why": "자동 처리 여부는 운영 정책과 CI 비용에 직접 영향을 주므로 명확한 사용자 결정이 필요합니다.",
+        "status": "answered",
         "requestedAt": "2026-03-08T02:22:48.4384936Z",
-        "requestedBy": "runner-9752-021805"
+        "requestedBy": "runner-9752-021805",
+        "answer": "기본 정책은 자동화로 두되, quarantine 태그 부여와 별도 CI job 분리까지만 자동 적용하고 메인 파이프라인을 즉시 실패시키는 hard block은 하지 않습니다.",
+        "answeredAt": "2026-03-08T09:07:30.000Z"
       },
       {
         "id": "F-014-Q2",
         "type": "missing-info",
-        "question": "???ㅽ듃-???? 留????먯꽌 ????????濡? ?ъ슜?? 硫??\u0080???댄꽣(???????댁뀡 ?대쫫, ???? ??, ?뚯씪/寃?濡? 洹?移?)瑜? ?쒓났?? ?? ???섏슂?",
-        "why": "???????댁뀡怨? 留??? 洹?移??? 紐????댁빞 ?먮룞 留??? 援ы쁽怨? ???ㅽ꽣釉??? ?щ?瑜? 留뚮뱾 ?? ?덉뒿?덈떎.",
-        "status": "open",
+        "question": "테스트-스펙 매핑에 실제로 사용하는 메타데이터 규칙(어노테이션 이름, 스펙 ID 표기, 파일/경로 규칙)을 어떻게 둘까요?",
+        "why": "매핑 규칙이 확정돼야 자동 연결 구현과 테스트 커버리지를 설계할 수 있습니다.",
+        "status": "answered",
         "requestedAt": "2026-03-08T02:22:48.4384936Z",
-        "requestedBy": "runner-9752-021805"
+        "requestedBy": "runner-9752-021805",
+        "answer": "조건 ID 단위로 매핑합니다. xUnit은 [Trait(\"Spec\", \"F-014-C1\")], pytest는 @pytest.mark.spec(\"F-014-C1\"), Jest는 테스트명 또는 describe에 [spec:F-014-C1] 토큰을 넣는 규칙으로 통일합니다.",
+        "answeredAt": "2026-03-08T09:07:30.000Z"
       },
       {
         "id": "F-014-Q3",
         "type": "clarification",
-        "question": "healthScore 怨꾩궛?먯꽌 'flakyPenalty'瑜? ?대뼸寃? ??異???湲? ???섏떆?섏슂(??: ?ㅽ뙣?? 怨??? 媛\u0080以?移?, 理쒓렐 N?? 鍮??? 湲곕컲 媛\u0080以?移? ??)?",
-        "why": "?????? ???? 諛⑹떇?? ?곕씪 ?????\u0080 異??? 怨꾩궛?? ?ш쾶 ?????? ?뺥솗?? 援ы쁽?? ?꾩슂?⑸땲??.",
-        "status": "open",
+        "question": "healthScore 계산에서 flakyPenalty를 어떻게 산정할지 정의해주실 수 있나요? 예를 들어 실패 횟수 기반인지, 최근 N회 비율 기반인지가 필요합니다.",
+        "why": "점수 계산 방식에 따라 리포트 결과와 경고 판단이 달라지므로 공식이 필요합니다.",
+        "status": "answered",
         "requestedAt": "2026-03-08T02:22:48.4384936Z",
-        "requestedBy": "runner-9752-021805"
-      },
-      {
-        "id": "F-014-Q4",
-        "type": "missing-info",
-        "question": "?먮룞 寃\u0080??媛\u0080 ?ㅽ뙣?? ???? 遺꾩꽍?? ??湲? ?꾪빐 理쒓렐 ?ㅽ뻾?? runner?? 寃\u0080?? 濡쒓렇(???? ?ㅻ쪟 ?ы븿)瑜? ?쒓났?? ?? ???섏슂?",
-        "why": "???? ???? ?ㅻ쪟 硫붿떆吏\u0080?\u0080 異쒕젰 ????媛\u0080 ?덉뼱?? 寃\u0080利? 濡?吏?쨌??濡??꾪듃瑜? ?뺥솗?? 怨?移? ?? ?덉뒿?덈떎.",
-        "status": "open",
-        "requestedAt": "2026-03-08T02:22:48.4384936Z",
-        "requestedBy": "runner-9752-021805"
+        "requestedBy": "runner-9752-021805",
+        "answer": "최근 20회 실행 기준으로 flakyRate를 계산하고, flakyPenalty는 total * flakyRate * 0.5 로 둡니다. 최종 healthScore는 max(0, (passed - flakyPenalty) / total) 로 계산합니다.",
+        "answeredAt": "2026-03-08T09:07:30.000Z"
       },
       {
         "id": "F-014-Q5",
         "type": "missing-info",
-        "question": "?\u0080???곸씤 ?뚯뒪?? 寃곌낵(??: xUnit/JUnit XML, Jest JSON, pytest JSON) ???? ?뚯씪",
+        "question": "대표 테스트 결과 샘플 파일(xUnit/JUnit XML, Jest JSON, pytest JSON)을 어떤 기준으로 준비할까요?",
         "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
-        "status": "open",
+        "status": "answered",
         "requestedAt": "2026-03-08T02:22:48.4384936Z",
-        "requestedBy": "runner-9752-021805"
+        "requestedBy": "runner-9752-021805",
+        "answer": "각 포맷마다 최소 2개 샘플을 준비합니다. 하나는 정상 성공 케이스, 하나는 실패 또는 flaky가 포함된 케이스로 fixtures에 저장하는 방향으로 갑니다.",
+        "answeredAt": "2026-03-08T09:07:30.000Z"
       },
       {
         "id": "F-014-Q6",
         "type": "missing-info",
-        "question": "?꾩옱 由???吏\u0080??由??먯꽌 ?뚯뒪??-???? ?곌껐?? ?ъ슜?섎뒗 ???????댁뀡/而?踰??? 洹?移?(??: Trait, @pytest.mark.spec) ????",
+        "question": "현재 저장소에서 테스트-스펙 연결에 사용하는 어노테이션이나 컨벤션 규칙(예: Trait, @pytest.mark.spec)을 어떻게 통일할까요?",
         "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
-        "status": "open",
+        "status": "answered",
         "requestedAt": "2026-03-08T02:22:48.4384936Z",
-        "requestedBy": "runner-9752-021805"
+        "requestedBy": "runner-9752-021805",
+        "answer": "기본 컨벤션은 xUnit Trait, pytest mark.spec, Jest 이름 토큰 방식으로 통일하고, 모두 feature ID가 아니라 condition ID까지 포함한 값으로 연결합니다.",
+        "answeredAt": "2026-03-08T09:07:30.000Z"
       },
       {
         "id": "F-014-Q7",
         "type": "missing-info",
-        "question": "??????肄??? 怨듭떇(passed - flakyPenalty)/total?? ?\u0080?? flakyPenalty 怨꾩궛 諛⑹떇 ?뺤쓽 ?먮뒗 ?먰븯?? ?\u0080泥? 怨듭떇",
+        "question": "healthScore 공식 (passed - flakyPenalty) / total 에서 flakyPenalty 계산 방식을 어떻게 둘까요?",
         "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
-        "status": "open",
+        "status": "answered",
         "requestedAt": "2026-03-08T02:22:48.4384936Z",
-        "requestedBy": "runner-9752-021805"
+        "requestedBy": "runner-9752-021805",
+        "answer": "대체 공식은 사용하지 않고, 최근 20회 기준 flakyRate 기반 penalty 공식을 사용합니다. 구현과 리포트가 단순하고 테스트하기 쉽기 때문입니다.",
+        "answeredAt": "2026-03-08T09:07:30.000Z"
       },
       {
         "id": "F-014-Q8",
         "type": "missing-info",
-        "question": "???덉씠?? ??吏\u0080 ??怨?媛?(?꾩옱 0.1)怨? quarantine 泥섎━(?먮룞 tag 遺\u0080?? 諛? CI job 遺?由?)瑜? ?먮룞?쇰줈 ??吏\u0080 ?щ?",
+        "question": "flakiness 경고 임계값(현재 0.1)과 quarantine 처리 범위를 어떻게 둘까요?",
         "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
-        "status": "open",
+        "status": "answered",
         "requestedAt": "2026-03-08T02:22:48.4384936Z",
-        "requestedBy": "runner-9752-021805"
+        "requestedBy": "runner-9752-021805",
+        "answer": "임계값 0.1은 유지하고 자동화는 활성화합니다. 다만 자동화 범위는 태그 부여, 별도 job 이동, 경고 리포트 생성까지로 제한합니다.",
+        "answeredAt": "2026-03-08T09:07:30.000Z"
       },
       {
         "id": "F-014-Q9",
         "type": "missing-info",
-        "question": "???섎뒗 由????? 異쒕젰 ????(CLI ??, JSON 由?????, ?\u0080??蹂??? ???? ??)",
+        "question": "원하는 리포트 출력 형식을 어떻게 둘까요? 예: CLI 표, JSON 리포트, 대시보드 연동",
         "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
-        "status": "open",
+        "status": "answered",
         "requestedAt": "2026-03-08T02:22:48.4384936Z",
-        "requestedBy": "runner-9752-021805"
+        "requestedBy": "runner-9752-021805",
+        "answer": "기본 출력은 CLI 표와 JSON 리포트 두 가지를 모두 지원합니다. CLI 표는 사람이 읽기 쉽고, JSON은 CI 후처리와 대시보드 확장에 유리합니다.",
+        "answeredAt": "2026-03-08T09:07:30.000Z"
       }
     ],
-    "reviewDisposition": "needs-user-decision",
-    "requiresUserInput": true,
-    "plannerState": "waiting-user-input",
+    "reviewDisposition": "retry-queued",
+    "requiresUserInput": false,
+    "plannerState": "standby",
     "lastReviewAt": "2026-03-08T02:22:48.4384936Z",
     "lastReviewBy": "runner-9752-021805",
     "selectionReason": {
@@ -207,8 +207,9 @@
       "rank": 1,
       "totalCandidates": 19
     },
-    "questionStatus": "waiting-user-input"
+    "questionStatus": "resolved",
+    "lastAnsweredAt": "2026-03-08T09:07:30.000Z"
   },
   "createdAt": "2026-03-01T00:00:00Z",
-  "updatedAt": "2026-03-08T02:22:48.4387776Z"
+  "updatedAt": "2026-03-08T09:21:30.000Z"
 }

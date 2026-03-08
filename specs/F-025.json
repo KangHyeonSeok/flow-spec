@@ -124,20 +124,9 @@
         "로그에서 정확한 실패 스택을 확인하고 queued 상태에서 재시작"
       ],
       "requiresUserInput": true,
-      "additionalInformationRequests": [
-        "워크트리 생성 실패의 구체적 에러 로그(스택 트레이스)"
-      ]
+      "additionalInformationRequests": []
     },
     "questions": [
-      {
-        "id": "F-025-Q1",
-        "type": "missing-info",
-        "question": "워크트리 생성 실패의 전체 오류 로그를 제공할 수 있습니까?",
-        "why": "정확한 실패 원인을 파악해야 자동 복구 전략(재시도, 백업 복원)을 결정할 수 있습니다.",
-        "status": "open",
-        "requestedAt": "2026-03-08T02:39:12.1147157Z",
-        "requestedBy": "runner-4380-023636"
-      },
       {
         "id": "F-025-Q2",
         "type": "user-decision",
@@ -147,14 +136,6 @@
         "requestedAt": "2026-03-08T02:39:12.1147157Z",
         "requestedBy": "runner-4380-023636"
       },
-      {
-        "id": "F-025-Q3",
-        "type": "missing-info",
-        "question": "워크트리 생성 실패의 구체적 에러 로그(스택 트레이스)",
-        "why": "추가 정보 없이는 다음 구현 시도를 확정하기 어렵습니다.",
-        "status": "open",
-        "requestedAt": "2026-03-08T02:39:12.1147157Z",
-        "requestedBy": "runner-4380-023636"
       }
     ],
     "reviewDisposition": "needs-user-decision",
